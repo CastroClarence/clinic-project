@@ -46,7 +46,7 @@ header{
 
 header h1{
     margin: 150px 30px 30px 30px;
-    font-size: 50px;
+    font-size: 3.125rem;
     font-weight: 300;
 }
 
@@ -81,11 +81,11 @@ header img{
     height: 55px;
     width: 250px;
     font-weight: 300px;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 /* fix nalang to */
-#offer, #about{
+#offer, #about, #services, #contact{
     /* 60px total margin-left for all elements*/
     margin-left: 30px;
 }
@@ -129,3 +129,37 @@ header img{
 .about-container{
     display:flex;
 }
+
+.service-container{
+    margin: 30px 60px 0px 70px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+.service-container>div{
+    display: inline-block;
+    background-color: #B4B8C5;
+    width: 450px;
+    height: 120px;
+    border-radius: 10px;
+    padding: 15px
+}
+
+#contact{
+}
+.info-container{
+    margin-top: 80px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 700px;
+}
+
+.info-container> div{
+    text-align: center;
+}
+
+.info-container img{
+    width: 200px;
+}
+
