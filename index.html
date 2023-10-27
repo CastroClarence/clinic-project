@@ -7,38 +7,44 @@
     <link rel="stylesheet" href="clinicss.css">
 </head>
 <body>
-    <section id="hero">
-
-        <div class="nav-container">
+    <header>
+        <nav>
             <div>
                 <a href="#hero"><img src="/Logo/clinic_logo.png" alt="clinic-logo"></a>
             </div>
-            <nav>
+
+            <div class="nav-container">
                 <a href="#services">Services</a>
                 <a href="#offer">Offers</a>
                 <a href="#about">Clinic</a>
                 <a href="#contact">Contact</a>
-            </nav>
-        </div>
+            </div>
+        </nav>
+    </header>
 
-        <header>
+
+    <section id="hero">
+        <div class="container">
             <div>
                 <h1>Empowering Healthy Smiles, <br> One Treatment at a Time.</h1>
             </div>
-
-            <div>
-                <img src="/images/hero-clinic.png" alt="hero">
-            </div>
-        </header>
     
-        <div id="button">
-            <span>+63 (920) 954 0792</span>
-            <!--Change button syntax?-->
-            <button>
-                Make an appointment
-            </button>
+            <div class="button-container" id="hero-button">
+                <span>+63 (920) 954 0792</span>
+                <!--To whatever page it is-->
+                <a href="#signup">
+                    <button class="button">
+                        Make an appointment
+                    </button>
+                </a> 
+            </div>
+        </div>
+
+        <div>
+            <img src="/images/hero-clinic.png" alt="hero">
         </div>
     </section>
+ 
 
     <section id="offer">
         <div class="heading">
@@ -190,38 +196,84 @@
         </div>
         
         <br>
+        <!--div for whole contact section-->
+        <div class="divider">
 
-        <div class="info-container">
-            <div>
-                <img src="/images/location.png" alt="location-logo">
+            <!--div for icons and buttons, using column flex-->
+            <div class="contact-container">
 
-                <span>
-                    National Highway, Sta Rita,<br>Batangas City Batangas, Philippines
-                </span>
+                <!--div for three icons-->
+                <div class="info-container">
+
+                    <div>
+                        <img src="/images/location.png" alt="location-logo">
+        
+                        <p>
+                            National Highway, Sta Rita,<br>Batangas City Batangas, Philippines
+                        </p>
+                    </div>
+        
+                    <div>
+                        <img src="/images/contact.png" alt="contact-logo">
+                        <p>
+                            +63 (920) 954 0792
+                        </p>
+                    </div>
+        
+                    <div>
+                        <img src="/images/time.png" alt="time-logo">
+                        <p>
+                            Mon-Fri <br>9:00AM - 4:00PM
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="info-button">
+                    <button class="button">
+                        Contact Now
+                    </button>
+        
+                    <button class="button">
+                        How to get there?
+                    </button>
+                </div>
             </div>
-
-            <div>
-                <img src="/images/contact.png" alt="contact-logo">
-                <span>
-                    +63 (920) 954 0792
-                </span>
-            </div>
-
-            <div>
-                <img src="/images/time.png" alt="time-logo">
-                <span>
-                    Mon-Fri <br>9:00AM - 4:00PM
-                </span>
+    
+            <div class="info-loc">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.9861031739665!2d121.0378992206268!3d13.77971121464498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0f87a345ad4f%3A0x983d6dfced439c46!2sDr.%20Ruth%20Luneta-Alolod!5e0!3m2!1sen!2sph!4v1698222757909!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
 
-        <div>
+    </section>
 
+    <section id="signup">
+        <div class="heading">
+            <h1>
+                Sign Up
+            </h1>
         </div>
 
-        <div>
+        <div class="sign-container">
+            <h1>
+                Sign up for a consultation to discuss the details
+            </h1>
 
+            <p>Our Dental Secretary will contact you as soon as possible</p>
+
+            <div class="button-container" id="sign-button">
+                <span>+63 (920) 954 0792</span>
+
+                <button class="button">
+                    Sign Up
+                </button>
+            </div>
+            
+            <div>
+                <img src="images/hero2.png" alt="hero2-image">
+            </div>
         </div>
+        
+
     </section>
 
 </body>

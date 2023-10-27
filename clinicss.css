@@ -5,16 +5,17 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 section{
     padding-top: 150px;
     height: 100vh;
+    margin-left: 30px;
 }
 
-.nav-container{
+nav{
     background-color: white;
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -24,70 +25,76 @@ section{
     padding: 30px;
     border-bottom: 1px solid grey;
 }
-nav{
+.nav-container{
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-nav a{
+.nav-container a{
     text-decoration: none;
+    color: black;
 }
 
-.nav-container img{
-    margin-left: 30px;
+nav a:hover{
+    text-decoration: underline;
+}
+
+nav img{
     width: 200px;
 }
 
-header{
+.container{
     display: flex;
-    margin-left: 30px;
+    flex-direction: column;
 }
 
-header h1{
+#hero{
+    display: flex;
+}
+
+#hero h1{
     margin: 150px 30px 30px 30px;
     font-size: 3.125rem;
     font-weight: 300;
 }
 
-
-header img{
+#hero img{
     margin-top: 90px;
     position: absolute;
     margin-right: auto;
     width: 500px;
 }
 
-#button{
+
+#hero-button{
     margin: 60px 60px 60px 120px;
+}
+
+.button-container{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 30px;
-    background-color: #B4B8C5;
+    background-color: #E0E5EC;
     width: 500px;
     height: 90px;
     border-radius: 10px;
 }
 
-#button span{
-    background-color: #B4B8C5;
+.button-container span{
+    background-color: #E0E5EC;
 }
 
-#button button{
-    border-color: #BDEBFA;
-    background-color: #BDEBFA;
+.button{
+    border-color: #334680;
+    color: white;
+    background-color: #334680;
     border-radius: 10px;
     height: 55px;
     width: 250px;
     font-weight: 300px;
     font-size: 1rem;
-}
-
-/* fix nalang to */
-#offer, #about, #services, #contact{
-    /* 60px total margin-left for all elements*/
-    margin-left: 30px;
 }
 
 .offer-container{
@@ -101,14 +108,14 @@ header img{
     display: inline-block;
     width: 400px;
     height: 200px;
-    background-color: #BDEBFA;
+    background-color: #BCEAFA;
     border-radius: 10px;
     padding: 15px;
 }
 
 .heading{
     display: inline-block;
-    border-bottom: 5px solid #625B76;
+    border-bottom: 5px solid #6247B3;
     margin: 50px 0px 0px 30px;
 }
 
@@ -139,27 +146,89 @@ header img{
 }
 .service-container>div{
     display: inline-block;
-    background-color: #B4B8C5;
-    width: 450px;
+    background-color: #C0E1DF;
+    width: 400px;
     height: 120px;
     border-radius: 10px;
     padding: 15px
 }
 
-#contact{
-}
 .info-container{
-    margin-top: 80px;
+    margin: 60px 0px 50px 0px;
     display: inline-flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 700px;
 }
 
 .info-container> div{
     text-align: center;
+    flex: 1;
 }
 
 .info-container img{
-    width: 200px;
+    width: 150px;
+}
+
+.info-container p{
+    font-size: 0.81rem;
+}
+
+.info-button{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 700px;
+}
+
+.info-button>button{
+    border-radius: 10px;
+    width: 250px;
+    height: 70px;
+}
+
+.info-loc iframe{
+    display: inline-block;
+    width: 700px;
+    height: 420px;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.divider{
+    display: flex;
+    margin-left: 30px;
+}
+
+
+.sign-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F6F7F6;
+    width: 1000px;
+    height: 400px;
+    margin: 30px auto 10px;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#signup{
+    position: relative;
+}
+#signup img{
+    position: absolute;
+    bottom: -150px;
+    right: -200px;
+    width: 600px;
+
+}
+
+/*button in sign in page*/
+#sign-button {
+    margin: 100px 0px 0px 20px;
 }
 
