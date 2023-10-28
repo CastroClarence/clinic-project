@@ -17,14 +17,14 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  width: 100px;
+  width: 107px;
   /* width: 280px; */
   background: #eaf4f3;
   overflow: hidden;
   transition: 1s;
 }
 nav:hover{
-  width: 280px;
+  width: 350px;
   transition: 1s;
 }
 .logo{
@@ -51,7 +51,8 @@ a{
   font-size: 14px;
   color: #38a095;
   display: table;
-  padding: 20px;
+  padding: 22px;
+  
 }
 nav .fas{
   position: relative;
@@ -68,6 +69,7 @@ nav .fas{
 }
 a:hover{
   background: #8edaf1;
+  width: 100vh;
 }
 a:hover i{
   color: #38a095;
@@ -82,4 +84,35 @@ a:hover i{
   display: flex;
 }
 
+/* Main Section */
+.main{
+    position: relative;
+    padding: 20px;
+    width: 100%;
+  }
+  .main-top{
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    color: #38a095;
+  }
+  .main .users{
+    display: flex;
+    width: 100%;
+    padding-top: 40px;
+  }
+  .users .card{
+    width: 25%;
+    margin: 10px;
+    background: #38a095;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    height: 250px;
+  }
+  .users .card h4{
+    text-transform: uppercase;
+  }
 
+  
