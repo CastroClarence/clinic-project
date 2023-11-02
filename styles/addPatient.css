@@ -22,14 +22,14 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  width: 100px;
+  width: 140px;
   /* width: 280px; */
   background: #eaf4f3;
   overflow: hidden;
   transition: 1s;
 }
 nav:hover{
-  width: 350px;
+  width: 450px;
   transition: 1s;
 }
 .logo{
@@ -74,7 +74,7 @@ nav .fas{
 }
 a:hover{
   background: #8edaf1;
-  width: 70vh;
+  width: 80vh;
 }
 a:hover i{
   color: #38a095;
@@ -91,20 +91,20 @@ a:hover i{
 
 /* Add Patient*/
 .form-title{
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    padding-bottom: 6px;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    border-bottom: solid 1px white;
+    font-size: 24px;
+    font-weight: bold;
+    color: #38a095;
+    margin-left: 20px;
+  margin-top: 30px;
 }
-
 .main-user-info{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 50px 0;
+    margin-top: 20px;
+    margin-right: 70px;
+    margin-left: 80px;
 }
 
 .user-input-box:nth-child(2n){
@@ -127,53 +127,34 @@ a:hover i{
 }
 
 .user-input-box input{
-    height: 40px;
+    height: 55px;
     width: 95%;
-    border-radius: 7px;
+    border-radius: 5px;
     outline: none;
     border: 1px solid grey;
     padding: 0 10px;
 }
 
-.gender-title{
-    color:#38a095;
-    font-size: 24px;
-    border-bottom: 1px solid white;
-}
-
-.gender-category{
-    margin: 15px 0;
-    color: white;
-}
-
-.gender-category label{
-    padding: 0 20px 0 5px;
-}
-
-.gender-category label,
-.gender-category input,
-.form-submit-btn input{
-    cursor: pointer;
-}
 
 .form-submit-btn{
-    margin-top: 40px;
+    margin-top: 30px;
+
 }
 
 .form-submit-btn input{
     display: block;
-    width: 100%;
+    width: 150px;
     margin-top: 10px;
     font-size: 20px;
     padding: 10px;
     border:none;
     border-radius: 3px;
-    color: rgb(209, 209, 209);
-    background: rgba(63, 114, 76, 0.7);
+    color: #ffff;
+    background: #39A096;
 }
 
 .form-submit-btn input:hover{
-    background: rgba(56, 204, 93, 0.7);
+    background: #8edaf1;
     color: rgb(255, 255, 255);
 }
 
