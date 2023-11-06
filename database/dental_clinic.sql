@@ -72,7 +72,7 @@ CREATE TABLE `patients` (
   `mobileNo` varchar(11) DEFAULT NULL,
   `email` varchar(70) DEFAULT NULL,
   `occupation` varchar(30) DEFAULT NULL,
-  `balance` int(11) DEFAULT NULL,
+  `balance` decimal(15,2) DEFAULT NULL,
   PRIMARY KEY (`patientID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -150,8 +150,8 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `transactionID` int(5) NOT NULL,
   `requestID` int(5) DEFAULT NULL,
-  `chargeAmount` int(11) DEFAULT NULL,
-  `amountPaid` int(11) DEFAULT NULL,
+  `chargeAmount` decimal(15,2) DEFAULT NULL,
+  `amountPaid` decimal(15,2) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`transactionID`),
   KEY `requestID` (`requestID`),
@@ -195,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-06 20:10:16
+-- Dump completed on 2023-11-06 20:40:04
