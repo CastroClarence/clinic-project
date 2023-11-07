@@ -22,14 +22,14 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  width: 140px;
+  width: 150px;
   /* width: 280px; */
   background: #eaf4f3;
   overflow: hidden;
   transition: 1s;
 }
 nav:hover{
-  width: 450px;
+  width: 680px;
   transition: 1s;
 }
 .logo{
@@ -50,6 +50,11 @@ nav:hover{
   text-transform: uppercase;
   color: #38a095;
 }
+
+.logo:hover{
+  background: none;
+}
+
 a{
   position: relative;
   width: 280px;

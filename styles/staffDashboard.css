@@ -45,6 +45,10 @@ nav:hover{
   text-transform: uppercase;
   color: #38a095;
 }
+
+.logo:hover{
+  background: none;
+}
 a{
   position: relative;
   width: 280px;
