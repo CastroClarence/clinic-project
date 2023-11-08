@@ -101,7 +101,7 @@
     border: none;
     border-radius: 0.5em; 
     box-shadow: 0.2em 0.2em 0.8em rgb(119, 119, 119) ;
-    padding: 3.5em 2em;
+    padding: 3.5em 2.5em;
     margin: 0 auto 2em auto;
     z-index: 1;
 }
@@ -214,3 +214,15 @@
     border: none;
     text-decoration: underline;
 }
+
+#passImageLog{
+    transform: translate(0.5em, 1.3em);
+}
+
+.passImg{
+    cursor: pointer;
+    position: absolute;
+    width: 1.5em;
+    z-index: 99;
+}
+

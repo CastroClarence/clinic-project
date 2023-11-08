@@ -11,7 +11,7 @@ function showReg(){
     let leftS = document.getElementById("left");
     let rImg = document.getElementById("rightPic");
     const newImg = document.createElement("img");
-    newImg.src = "/images/hero2.png";
+    newImg.src = "../images/hero2.png";
 
     if(rightS.className == "rightSide" && leftS.className == "leftSide"){
         rightS.className = "rightSideNew";
@@ -33,7 +33,7 @@ function showLog(){
     let leftS = document.getElementById("left");
     let lImg = document.getElementById("leftPic");
     let newImg = document.createElement("img");
-    newImg.src = "/images/heroClinic.png";
+    newImg.src = "../images/heroClinic.png";
 
     if(rightS.className == "rightSideNew" && leftS.className == "leftSideNew"){
         rightS.className = "rightSide";

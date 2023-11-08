@@ -11,13 +11,14 @@
     <section id = "mainWelcome">
         <div class = "logRegCont">
             <div class = "leftSide" id ="left">
-                <img src = "../images/clinic_logo.png" id = "logoClinic" id = "leftPic">
+                <img src = "../images/clinic_logo.png" id = "logoClinic">
                 <h1>Welcome Back</h1>
-                <form class = "inputFormLog" name ="formLog">
+                <form autocomplete="off" class = "inputFormLog" name ="formLog">
                     <ion-icon name="mail-outline" class = "icon"></ion-icon>
                     <input type ="email" id = "emailLogin" class = "inputLogin" placeholder="Email" required><br>
                     <ion-icon name="key-outline" class = "icon"></ion-icon>
-                    <input type ="password" id = "passwordLogin" class = "inputLogin" placeholder="Password" required><br>
+                    <input type ="password" id = "passwordLogin" class = "inputLogin" placeholder="Password" required> 
+                    <img src = "../images/hidePass.png" id ="passImageLog" class = "passImg"><br>
                     <button name ="logSubmit" onclick ="" id ="submitBtn" class = "mainBtn">LOG IN</button>
                 </form>
                 <p>Don't have an account? </p><button onclick ="showReg()" class = "btnInquiry"> Sign Up</button> 
@@ -40,6 +41,7 @@
     </section>
     
     <script src ="../scripts/loginReg.js"></script>
+    <script src ="../scripts/passwordToggle.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
