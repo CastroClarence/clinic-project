@@ -27,7 +27,7 @@
                 <div class = "rightSide" id ="right"> 
                     <img src = "../images/clinic_logo.png" id = "logoClinic">
                     <h1>Sign Up</h1>
-                    <form class = "inputFormReg" name ="formReg">
+                    <form autocomplete="off" class = "inputFormReg" name ="formReg">
                         <input type ="text" id = "fNReg" class = "inputReg" placeholder="First Name" required>
                         <input type ="text" id = "lNReg" class = "inputReg" placeholder="Last Name" required>
                         <input type ="email" id = "emailReg" class = "inputLogin" placeholder="Email" required><br>
