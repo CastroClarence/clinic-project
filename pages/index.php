@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinic</title>
-    <link rel="stylesheet" href="/styles/clinicss.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
+    <link rel="stylesheet" href="../styles/clinicss.css">
 </head>
 <body>
 
@@ -12,7 +13,7 @@
     <header>
         <nav>
             <div>
-                <a href="#"><img src="/images/clinic_logo.png" alt="clinic-logo"></a>
+                <a href="#"><img src="../images/clinic_logo.png" alt="clinic-logo"></a>
             </div>
 
             <div class="nav-container">
@@ -23,14 +24,14 @@
             </div>
 
             <div class="menu">
-                <img src="/images/hamburger.png" alt="menu.img">
+                <img src="../images/hamburger.png" alt="menu.img">
             </div>
         </nav>
     </header>
 
     <section id="hero" class="shadow">
         <div>
-            <img src="images/hero2.png" alt="hero">
+            <img src="../images/hero2.png" alt="hero">
         </div>
         
         <div class="container">
@@ -81,7 +82,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi enim aperiam labore sed provident qui repudiandae, eveniet obcaecati quis perspiciatis sit officia debitis adipisci quos incidunt aliquam quo iure ullam a id vel et veniam. Odio ut inventore quos ad repellendus. A enim aliquid debitis quis aliquam culpa excepturi delectus iure. Fugiat, asperiores consectetur? Aliquid libero repudiandae perspiciatis quisquam. Unde aspernatur, perferendis similique ex corporis sed excepturi tempora ut voluptate autem consectetur a, laborum atque harum commodi ducimus doloribus consequatur quos, debitis iusto dolore rem nostrum? Tenetur incidunt quos quae? Doloribus dolores modi ea voluptas tenetur consequatur iste aperiam consectetur alias distinctio porro debitis, tempore quisquam in illo vero dolore! Velit possimus nobis assumenda quia laudantium sapiente eum, doloremque sit architecto sequi libero natus consequatur necessitatibus fugit dolor asperiores quasi eaque ea, unde saepe, nesciunt beatae ducimus odit? Nemo iste ad et sunt expedita culpa reprehenderit maxime laboriosam, est sapiente debitis error ipsum doloremque esse! Alias, nostrum. Placeat iste facere tempore earum aspernatur, quod numquam error dignissimos odit voluptate enim totam inventore dolor neque. Voluptate quaerat culpa debitis assumenda officia laborum doloremque? Odio maiores animi quod mollitia. Ea libero enim aut necessitatibus? Enim explicabo consectetur eos fugit, nam molestiae!
             </p>
 
-            <img src="/images/clinic-img.png" alt="clinic-img">
+            <img src="../images/clinic-img.png" alt="clinic-img">
 
         </div>
     </section>
@@ -92,7 +93,7 @@
 
         <div class="service-container">
             <div>
-                <img src="/images/initialConsultation.png" alt="consultation-img">
+                <img src="../images/initialConsultation.png" alt="consultation-img">
 
                 <div class="service-content">
                     <h2>
@@ -108,7 +109,7 @@
             </div>
 
             <div>
-                <img src="/images/orthodontics.png" alt="orthodontics-img">
+                <img src="../images/orthodontics.png" alt="orthodontics-img">
                 <div class="service-content">
                     <h2>
                         Orthodontics Treatment
@@ -122,7 +123,7 @@
             </div>
 
             <div>
-                <img src="/images/surgery.png" alt="surgery-img">
+                <img src="../images/surgery.png" alt="surgery-img">
                 <div class="service-content">
                     <h2>
                         Surgery
@@ -136,7 +137,7 @@
             </div>
 
             <div>
-                <img src="/images/extraction.png" alt="extraction-img">
+                <img src="../images/extraction.png" alt="extraction-img">
                 <div class="service-content">
                     <h2>
                         Extraction
@@ -151,7 +152,7 @@
             </div>
 
             <div>
-                <img src="/images/restoration.png" alt="">
+                <img src="../images/restoration.png" alt="">
                 <div class="service-content">
                     <h2>
                         Restoration
@@ -165,7 +166,7 @@
             </div>
 
             <div>
-                <img src="/images/oralProphylaxis.png" alt="Hygiene-img">
+                <img src="../images/oralProphylaxis.png" alt="Hygiene-img">
                 <div class="service-content">
                     <h2>
                         Oral Prophylaxis
@@ -179,7 +180,7 @@
             </div>
 
             <div>
-                <img src="/images/rootCanalTreatment.png" alt="Implantation-img">
+                <img src="../images/rootCanalTreatment.png" alt="Implantation-img">
                 <div class="service-content">
                     <h2>
                         Root Canal
@@ -193,7 +194,7 @@
             </div>
 
             <div>
-                <img src="/images/prosthetics.png" alt="Prosthetic-img">
+                <img src="../images/prosthetics.png" alt="Prosthetic-img">
                 <div class="service-content">
                     <h2>
                         Prosthetic
@@ -207,7 +208,7 @@
             </div>
 
             <div>
-                <img src="images/dentures.png" alt="Urgent-care-img">
+                <img src="../images/dentures.png" alt="Urgent-care-img">
                 <div class="service-content">
                     <h2>
                         Dentures
@@ -220,7 +221,7 @@
             </div>
 
             <div>
-                <img src="images/bleaching.png" alt="bleaching-img">
+                <img src="../images/bleaching.png" alt="bleaching-img">
                 <div class="service-content">
                     <h2>
                         Bleaching
@@ -249,7 +250,7 @@
                 <div class="info-container">
 
                     <div>
-                        <img src="/images/location.png" alt="location-logo">
+                        <img src="../images/location.png" alt="location-logo">
         
                         <p>
                             National Highway, Sta Rita,<br>Batangas City Batangas, Philippines
@@ -257,14 +258,14 @@
                     </div>
         
                     <div>
-                        <img src="/images/contact.png" alt="contact-logo">
+                        <img src="../images/contact.png" alt="contact-logo">
                         <p>
                             +63 (920) 954 0792
                         </p>
                     </div>
         
                     <div>
-                        <img src="/images/time.png" alt="time-logo">
+                        <img src="../images/time.png" alt="time-logo">
                         <p>
                             Mon-Fri <br>9:00AM - 4:00PM
                         </p>
