@@ -27,12 +27,13 @@
                 <div class = "rightSide" id ="right"> 
                     <img src = "../images/clinic_logo.png" id = "logoClinic">
                     <h1>Sign Up</h1>
-                    <form class = "inputFormReg" name ="formReg">
+                    <form autocomplete="off" class = "inputFormReg" name ="formReg">
                         <input type ="text" id = "fNReg" class = "inputReg" placeholder="First Name" required>
                         <input type ="text" id = "lNReg" class = "inputReg" placeholder="Last Name" required>
                         <input type ="email" id = "emailReg" class = "inputLogin" placeholder="Email" required><br>
                         <input type ="password" id = "passReg" class = "inputReg" placeholder="Password" required>
                         <input type ="password" id = "confirmPassReg" class = "inputReg" placeholder="Confirm Password" required>
+                        <img src = "../images/hidePass.png" id ="passImageReg" class = "passImg"><br>
                         <input type = "submit" id ="regBtn" class = "mainBtn" value = "REGISTER">
                     </form>
                     <br><p>Already have an account? </p><button onclick ="showLog()" class = "btnInquiry"> Login</button> 
