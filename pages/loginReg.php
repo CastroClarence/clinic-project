@@ -22,7 +22,6 @@
                     VALUES('$fName', '$lName', '$emailReg', '$passReg')";
             try{
                 mysqli_query($conn, $sqlInsert);
-                // temporary location
                 $successPrompt["successReg"] = "Registered Successfully!<br>";
             }catch(mysqli_sql_exception){
                 echo "Registration error";
@@ -119,7 +118,6 @@
                         placeholder="Password" onchange="confirmPassword()"  required>
                         <input type ="password" id = "confirmPassReg" class = "inputReg" name = "confirmPassReg" placeholder="Confirm Password" onkeyup="confirmPassword()" required>
                         <img src = "../images/hidePass.png" id ="passImageReg" class = "passImg"><br>
-
                         <input type = "submit" id ="regBtn" class = "mainBtn" name = "register" value = "REGISTER" >
                     </form>
                     <br><p>Already have an account? </p><button onclick ="showLog()" class = "btnInquiry"> Login</button> 
