@@ -9,7 +9,7 @@
 }
 
 section{
-    height: calc(100vh - 60px);
+    height: calc(100% - 60px);
     padding: 5px 80px 0px 80px;
 }
 
@@ -108,7 +108,7 @@ nav img{
 
 .popup-container iframe{
     margin-top: 80px;
-    width: 500px;
+    width: 800px;
     height: 80vh;
     border: none;
     border-radius: 10px;
@@ -207,7 +207,7 @@ nav img{
 }
 
 #about img{
-    width: 50vw;
+    width: 40vw;
 }
 
 .about-container{
@@ -218,8 +218,8 @@ nav img{
 .service-container{
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
-    column-gap: 25px;
-    row-gap: 25px;
+    column-gap: 15px;
+    row-gap: 5px;
 }
 .service-container>div{
     display: flex;
@@ -243,57 +243,52 @@ nav img{
     flex-direction: column;
     text-align: center;
 }
-.info-container{
-    padding-inline: 15px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+
+#contact{
+    margin: 20px 0;
 }
 
-.info-container> div{
+.divider{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info-container{
+    display: flex;
+    gap: 50px;
+}
+
+.info-container > div{
+    flex: 1 1 auto;
     text-align: center;
-    flex: 1;
 }
 
 .info-container img{
-    width: 150px;
+    height: 80px;
 }
 
 .info-container p{
-    font-size: 0.81rem;
+    font-size: 0.8em;
 }
 
 .info-button{
     display: flex;
+    gap: 20px;
     justify-content: center;
-    gap: 30px;
-    width: 700px;
 }
 
-.info-button>button{
-    border-radius: 10px;
-    width: 250px;
-    height: 70px;
+.info-button > button{
+    width: 200px;
 }
 
 .info-loc iframe{
-    display: inline-block;
-    width: 650px;
-    height: 420px;
-}
-
-/*div for 3 icons and button*/
-.contact-container{
-    display: flex;
-    gap: 50px;
-    flex-direction: column;
-}
-
-/*div for 3 icons, button and loc*/
-.divider{
-    display: flex;
-    justify-content: center;
-
+    margin: auto;
 }
 
 #info-button2{
