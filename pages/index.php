@@ -6,6 +6,16 @@
     <title>Clinic</title>
     <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
     <link rel="stylesheet" href="../styles/clinicss.css">
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
 
@@ -43,12 +53,16 @@
                 <p>+63 (920) 954 0792</p>
                 <!--To whatever page it is-->
                 <a href="#signup">
-                    <button class="button">
+                    <button class="button" onclick="openPopup()">
                         Make an appointment
                     </button>
                 </a> 
             </div>
-
+            
+        <div class="popup-container" id="popup">
+            <img src="/images/close.png" alt="" onclick="closePopup()">
+            <iframe src="appointment.html" frameborder="0"></iframe>
+        </div>
         </div>
 
     </section>
