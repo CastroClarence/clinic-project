@@ -230,3 +230,10 @@
     z-index: 99;
 }
 
+.errorOutput{
+    color:red;
+}
+
+.successRegOutput{
+    color:green;
+}
