@@ -2,11 +2,9 @@
   include("../phpFiles/dbConnect.php");
   session_start();
   
- // Initialize variables to store search criteria
   $searchKeyword = "";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // Handle form submission
       $searchKeyword = $_POST["searchKeyword"];
   }
 
@@ -142,11 +140,17 @@
                   echo "<td>" . $row["requestStatus"] . "</td>";
 
                   //update and delete buttons
-                  echo "<td>";
-                  echo "<a href='update.php?requestID=" . $row["requestID"] . "'>Update</a>";
-                  echo " ";
-                  echo "<a href='delete.php?requestID=" . $row["requestID"] . "'>Delete</a>";
-                  echo "</td>";
+                  echo "<td>
+                            <form action='appointmentRequestUpdate.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit'>Update</button>
+                            </form>
+
+                            <form action='delete.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit'>Delete</button>
+                            </form>
+                        </td>";
                   echo "</tr>";
                   
                 }
