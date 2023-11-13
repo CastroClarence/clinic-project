@@ -41,7 +41,7 @@ nav:hover{
   background: none;
 }
 
-a{
+nav a{
   position: relative;
   width: 280px;
   font-size: 14px;
@@ -63,11 +63,11 @@ nav .fas{
   top: 12px;
   margin-left: 13px;
 }
-a:hover{
+nav a:hover{
   background: #8edaf1;
   width: 80vh;
 }
-a:hover i{
+nav a:hover i{
   color: #38a095;
   transition: 0.5s;
 }
