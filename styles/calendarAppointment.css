@@ -1,0 +1,102 @@
+/* Calendar Section */
+.titleCont{
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+  color: #38a095;
+  margin-bottom: 1em;
+  /* border:3px solid black; */
+}
+
+.titleCont h1{
+  font-size: 1.5em;
+}
+
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  background-color:#f4fafa;
+}
+
+.mainCont{
+  width: 100%;
+  display: flex;
+}
+.calendarCont{
+  /* border: 3px solid black; */
+  height: 10em;
+  padding: 20px;
+  width: 50%;
+}
+
+.appointmentCont{
+  /* border: 3px solid black; */
+  width: 100%;
+  padding: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.labelDatePick{
+  font-size: 1.3em;
+}
+
+#inputDate{
+  background-color: #cce1df;
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 0.5em;
+  width: 10em;
+  /* box-shadow: 0.2em 0.2em black; */
+  font-weight: 500;
+
+}
+
+.dateSubmit{
+  cursor: pointer;
+  margin-left: 1em;
+  border: none;
+  background-color:#38a095 ;
+  color: white;
+  font-size: 1em;
+  width: 7em;
+  height: 2em;
+  border-radius: 0.5em;
+}
+
+.searchResult{
+  margin-top: 2em;
+  text-align: center;
+  place-content: center;
+  border-collapse: collapse;
+  /* border: 3px solid rgb(255, 0, 0); */
+}
+.mainTbl{
+  width: 100%;
+  border-bottom: 3px solid black;
+}
+
+.head{
+  background-color: #38a095;
+  color:white;
+  margin:0;
+}
+
+.mainTbl th, td{
+  border: 3px solid black;
+  border-right: none;
+  border-bottom: none;
+}
+
+th:nth-last-child(1){
+  border-right: 3px solid black;
+}
+
+
+
+
+
+
+  

@@ -48,7 +48,7 @@
             if($dbPass != $passLog){
                 $errorPrompt["passIncorrect"] = "Incorrect Password<br>";
             }else{
-                // temporary location
+                $_SESSION["activeUser"] = $row["accFirstName"];
                 header("Location: http://localhost/website/clinic-project/pages/index.php");
             }
         }else{
