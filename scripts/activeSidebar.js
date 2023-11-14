@@ -5,10 +5,6 @@ if(pageName === "dashboard.php"){
     document.querySelector(".dashboard").classList.add("activeLink");
 }
 
-if(pageName === "addPatient.php"){
-    document.querySelector(".add_patient").classList.add("activeLink");
-}
-
 if(pageName === "appointmentRequest.php"){
     document.querySelector(".app_request").classList.add("activeLink");
 }

@@ -10,17 +10,12 @@
         <img src="../images/logoDashboard.png">
         <span class="nav-item">Dra. Ruth Luneta-Alolod<br>Dental Clinic</span>
     </div>
+    <b></b>
     <ul class="menu">
         <li>
             <a href="dashboard.php" class="dashboard" >
                 <i class="fa-solid fa-house"></i>
                 <span>Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="addPatient.php" class="add_patient">
-                <i class="fa-solid fa-user-plus"></i>
-                <span>Add Patient</span>
             </a>
         </li>
         <li>
@@ -42,6 +37,7 @@
             </a>
     </li>
         <li>
+
             <a href="calendarAppointment.php" class="display_calendar">
                 <i class="fas fa-calendar"></i>
                 <span>Calendar</span>
