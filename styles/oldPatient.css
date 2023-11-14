@@ -63,3 +63,9 @@ input, textarea, select{
 .am-body-box{
     padding: 20px;
 }
+
+.disabled{
+    cursor: none;
+    pointer-events: none;
+    color: red;
+}
