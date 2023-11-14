@@ -15,11 +15,12 @@
   //normal function
   $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, requests.requestDate, requests.requestTime, requests.requestStatus
           FROM requests
-          LEFT JOIN patients ON requests.patientID = patients.patientID";
+          LEFT JOIN patients ON requests.patientID = patients.patientID
+          WHERE requests.requestStatus ='Pending'";
 
   //search if search not empty
   if (!empty($searchKeyword)) {
-      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestStatus LIKE '%$searchKeyword%'";
+      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%'";
   }
 
   $sql .= ";";
@@ -74,11 +75,13 @@
                   if ($row["requestStatus"] == "Pending") {
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <input type='hidden' name='newStatus' value='Approved'>
                                 <button type='submit' name='approve'>Approve</button>
-                              </form>";
+                            </form>";
 
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <input type='hidden' name='newStatus' value='Declined'>
                                 <button type='submit' name='decline'>Decline</button>
                               </form>";
                   } else {
@@ -91,6 +94,7 @@
                   echo "<td>
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
                                 <button type='submit'>Update</button>
                             </form>
                         </td>";

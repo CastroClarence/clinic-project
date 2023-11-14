@@ -3,7 +3,7 @@ include("../phpFiles/dbConnect.php");
 
 $requestID = "";
 $patientID = "";
-$serviceID = "";
+$requestStatus = "";
 $date = "";
 $time = "";
 $updateMessage = "";
@@ -11,12 +11,21 @@ $updateMessage = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
     $patientID = isset($_POST["patientID"]) ? $_POST["patientID"] : "";
-    $serviceID = isset($_POST["serviceID"]) ? $_POST["serviceID"] : "";
     $date = isset($_POST["date"]) ? $_POST["date"] : "";
     $time = isset($_POST["time"]) ? $_POST["time"] : "";
+    $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
 
+    // Check if the form was submitted from the approve button
+    if (isset($_POST["approve"])) {
+        $requestStatus = "Approved";
+    }
 
-    $updateQuery = "UPDATE requests SET patientID = '$patientID', serviceID = '$serviceID', requestDate = '$date', requestTime = '$time' WHERE requestID = $requestID";
+    // Check if the form was submitted from the decline button
+    if (isset($_POST["decline"])) {
+        $requestStatus = "Declined";
+    }
+
+    $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '$date', requestTime = '$time', requestStatus = '$requestStatus' WHERE requestID = $requestID";
     
     if ($conn->query($updateQuery) === TRUE) {
         $updateMessage = "Record updated successfully";
@@ -35,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $row = $result->fetch_assoc();
 
         $patientID = $row["patientID"];
-        $serviceID = $row["serviceID"];
         $date = $row["requestDate"];
         $time = $row["requestTime"];
+        $requestStatus = $row["requestStatus"];
     }
 }
 ?>
@@ -74,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                     </div>
 
                     <div class="am-col-6">
-                        <p>Service ID</p>
-                        <input type="number" name="serviceID" id="serviceID" placeholder="Enter New Service ID" value="<?php echo $serviceID; ?>">
+                        <p>Request Status</p>
+                        <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Service ID" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
                     </div>
                 </div>
 
