@@ -72,7 +72,7 @@
 
                     //update and delete buttons
                     echo "<td>
-                                <form action='appointmentRequestUpdate.php' method='post'>
+                                <form action='patientRecordUpdate.php' method='post'>
                                     <input type='hidden' name='requestID' value='{$row['patientID']}'>
                                     <button type='submit'>Update</button>
                                 </form>

@@ -19,7 +19,7 @@
 
   //search if search not empty
   if (!empty($searchKeyword)) {
-      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%'";
+      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestStatus LIKE '%$searchKeyword%'";
   }
 
   $sql .= ";";

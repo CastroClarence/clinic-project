@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <div class="am-container">
         <div class="am-body">
             <div class="am-head">
-                <h1>Update</h1>
+                <h1>Appointment Request Update</h1>
             </div>
 
             <form class="am-body-box" method="post" action="appointmentRequestUpdate.php">
