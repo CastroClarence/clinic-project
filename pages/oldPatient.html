@@ -17,7 +17,7 @@
                <form class="am-body-box">
                     <div class="am-row">
                         <div class="am-col-6">
-                            <p>Email</p>
+                            <p>Email: </p>
                             <input type="email" name="email" id="email" placeholder="Enter Email Address">
                         </div>
                         <div class="am-col-6">
@@ -27,19 +27,19 @@
                     </div>
                     <div class="am-row">
                         <div class="am-col-6">
-                            <p>Select Date</p>
+                            <p>Select Date: </p>
                             <input type="date" name="date" id="date">
                         </div>
                         <div class="am-col-6">
-                            <p>Select Time</p>
+                            <p>Select Time: </p>
                             <select name="s-select">
                                 <option>Time</option>
                                 <option value="1">9:00 AM</option>
                                 <option value="2">9:30 AM</option>
-                                <option value="3" class = "disabled" disabled>10:00 AM</option>
+                                <option value="3">10:00 AM</option>
                                 <option value="4">10:30 AM</option>
                                 <option value="5">11:00 AM</option>
-                                <option value="6" class = "disabled" disabled>1:00 PM</option>
+                                <option value="6">1:00 PM</option>
                                 <option value="7">2:00 PM</option>
                                 <option value="8">3:00 PM</option>
                                 <option value="9">4:00 PM</option>
@@ -47,21 +47,38 @@
                         </div>
                     </div>
                     <div class="am-row">
-                        <div class="am-col-6">
-                            <p>Select Services</p>
-                            <select name="s-select">
-                                <option>Services</option>
-                                <option value="1">Consultation</option>
-                                <option value="2">Orthodontics Treatment</option>
-                                <option value="3">Surgery</option>
-                                <option value="4">Root Canal Treatment</option>
-                                <option value="5">Extraction</option>
-                                <option value="6">Restoration</option>
-                                <option value="7">Dentures</option>
-                                <option value="8">Crown</option>
-                                <option value="9">Bleaching</option>
-                                <option value="10">Oral Prophylaxis </option>
-                            </select>
+                        <div class="am-col-7">
+                            <p>Select Services: </p>
+                            <input type="checkbox" id="consultation" name="consultation" value="consultation">
+                            <label for="consultation"> Consultation</label><br>
+                            <input type="checkbox" id="orthodontics" name="orthodontics" value="orthodontics">
+                            <label for="orthodontics"> Orthodontics</label><br>
+                            <input type="checkbox" id="surgery" name="surgery" value="surgery">
+                            <label for="surgery"> Surgery</label>
+                        </div>
+
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="rootCanal" name="rootCanal" value="rootCanal">
+                            <label for="rootCanal"> Root Canal</label><br>
+                            <input type="checkbox" id="extraction" name="extraction" value="extraction">
+                            <label for="extraction"> Extraction</label><br>
+                            <input type="checkbox" id="restoration" name="restoration" value="restoration">
+                            <label for="restoration"> Restoration</label>
+                        </div>
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="dentures" name="dentures" value="dentures">
+                            <label for="dentures"> Dentures</label><br>
+                            <input type="checkbox" id="crown" name="crown" value="crown">
+                            <label for="crown"> Crown</label><br>
+                            <input type="checkbox" id="bleaching" name="bleaching" value="bleaching">
+                            <label for="bleaching"> Bleaching</label>
+                        </div>
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="oralProphylaxis" name="oralProphylaxis" value="oralProphylaxis">
+                            <label for="oralProphylaxis"> Oral Prophylaxis</label><br>
                         </div>
                     </div>
                     <div class="am-row">
