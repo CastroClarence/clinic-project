@@ -49,7 +49,7 @@
                 $errorPrompt["passIncorrect"] = "Incorrect Password<br>";
             }else{
                 $_SESSION["activeUser"] = $row["accFirstName"];
-                header("Location: http://localhost/website/clinic-project/pages/index.php");
+                header("Location: dashboard.php");
             }
         }else{
             $errorPrompt["noEmail"] = "Email Doesn't Exist<br>";

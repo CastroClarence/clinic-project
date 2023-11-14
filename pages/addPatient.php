@@ -3,53 +3,12 @@
     <head>
       <meta charset="UTF-8" />
       <title>Dashboard</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
       <link rel="stylesheet" href="../styles/addPatient.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
       <div class="container">
-        <nav>
-          <ul>
-            <li><a href="#" class="logo">
-              <img src="../images/logoDashboard.png">
-              <span class="nav-item">Dra. Ruth Luneta-Alolod
-                <br>Dental Clinic</span>
-            </a></li>
-            <li><a href="staffDashboard.html">
-                <i class="fas fa-house-user"></i>
-              <span class="nav-item">Home</span>
-            </a></li>
-            <li><a href="addPatient.html">
-                <i class="fas fa-user-plus"></i>
-              <span class="nav-item">Add Patient</span>
-            </a></li>
-            <li><a href="#">
-                <i class="fas fa-calendar-check"></i>
-              <span class="nav-item">Appointment 
-                Request </span>
-            </a></li>
-            <li><a href="#">
-                <i class="fas fa-laptop-medical"></i>
-              <span class="nav-item">Patient Record</span>
-            </a></li>
-            <li><a href="#">
-                <i class="fas fa-clipboard"></i>
-              <span class="nav-item">Treatment Record</span>
-            </a></li>
-            <li><a href="#">
-                <i class="fas fa-calendar"></i>
-                <span class="nav-item">Calendar</span>
-              </a></li>
-
-            <li><a href="#" class="logout">
-              <i class="fas fa-sign-out-alt"></i>
-              <span class="nav-item">Log out</span>
-            </a></li>
-          </ul>
-        </nav>
-        <div class="form_container">
+            <?php include('sidebar.php'); ?>
+            <div class="form_container">
             <h1 class="form-title">Add Patient</h1>
             <form action="#">
               <div class="main-user-info">
@@ -58,8 +17,8 @@
                   <input type="text"
                           id="fullName"
                           name="fullName"
-                          placeholder="Enter Full Name"/>
-                </div>
+placeholder="Enter Full Name"/>
+    </div>
                 <div class="user-input-box">
                   <label for="mobileNumber">Mobile Number: </label>
                   <input type="text"

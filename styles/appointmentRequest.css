@@ -12,13 +12,20 @@ body{
   background: #f4fafa;
 }
 
+.container{
+    display: flex;
+}
+
 /*
 style for table
 */
 .table-container{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    position: relative;
+    padding: 20px;
+    width: calc(100% - 100px);
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex: 1; */
 }
 
 #reqTbl{
@@ -38,16 +45,17 @@ style for table
 }
 
 table {
-  margin-top: 10px;
-  border-collapse:collapse;
-
-  width: 80vw;
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
 }
 
 th, td {
   border: none;
   padding: 8px;
   text-align: center;
+    word-wrap: break-word;
 }
 
 th {
