@@ -13,13 +13,13 @@
   }
 
   //normal function
-  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, requests.serviceID, requests.requestDate, requests.requestTime, requests.requestStatus
+  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, requests.requestDate, requests.requestTime, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID";
 
   //search if search not empty
   if (!empty($searchKeyword)) {
-      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%'";
+      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestStatus LIKE '%$searchKeyword%'";
   }
 
   $sql .= ";";
@@ -59,7 +59,7 @@
           <?php
             if ($result->num_rows > 0) {
                 echo "<table>";
-                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Service ID</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr>";
+                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr>";
 
                 while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
@@ -67,21 +67,31 @@
                   echo "<td>" . $row["patientID"] . "</td>";
                   echo "<td>" . $row["patientFirstName"] . "</td>";
                   echo "<td>" . $row["patientLastName"] . "</td>";
-                  echo "<td>" . $row["serviceID"] . "</td>";
                   echo "<td>" . $row["requestDate"] . "</td>";
                   echo "<td>" . $row["requestTime"] . "</td>";
-                  echo "<td>" . $row["requestStatus"] . "</td>";
+
+                  echo "<td>";
+                  if ($row["requestStatus"] == "Pending") {
+                      echo "<form action='appointmentRequestUpdate.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit' name='approve'>Approve</button>
+                              </form>";
+
+                      echo "<form action='appointmentRequestUpdate.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit' name='decline'>Decline</button>
+                              </form>";
+                  } else {
+                      echo $row["requestStatus"];
+                  }
+                  echo "</td>";
+                  //echo "<td>" . $row["requestStatus"] . "</td>";
 
                   //update and delete buttons
                   echo "<td>
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <button type='submit'>Update</button>
-                            </form>
-
-                            <form action='delete.php' method='post'>
-                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                <button type='submit'>Delete</button>
                             </form>
                         </td>";
                   echo "</tr>";

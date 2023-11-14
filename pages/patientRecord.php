@@ -17,7 +17,7 @@
 
   //search if search not empty
   if (!empty($searchKeyword)) {
-      $sql .= " WHERE patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%'";
+      $sql .= " WHERE patientFirstName LIKE '%$searchKeyword%' OR patientLastName LIKE '%$searchKeyword%' OR patientID LIKE '%$searchKeyword%' OR patientAge LIKE '%$searchKeyword%' OR patientSex LIKE '%$searchKeyword%' OR patientMobileNo LIKE '%$searchKeyword%' OR patientEmail LIKE '%$searchKeyword%' OR patientAddress LIKE '%$searchKeyword%' OR patientOccupation LIKE '%$searchKeyword%' OR patientBalance LIKE '%$searchKeyword%'";
   }
 
   $sql .= ";";
@@ -42,7 +42,7 @@
     <div class="container">
         <?php include('sidebar.php'); ?> 
         <div class="table-container">
-            <h1 class="header">Appointment Request</h1>
+            <h1 class="header">Patient Record</h1>
 
             <div id="reqTbl">
 
@@ -72,14 +72,9 @@
 
                     //update and delete buttons
                     echo "<td>
-                                <form action='appointmentRequestUpdate.php' method='post'>
-                                    <input type='hidden' name='requestID' value='{$row['patientID']}'>
+                                <form action='patientRecordUpdate.php' method='post'>
+                                    <input type='hidden' name='patientID' value='{$row['patientID']}'>
                                     <button type='submit'>Update</button>
-                                </form>
-
-                                <form action='delete.php' method='post'>
-                                    <input type='hidden' name='requestID' value='{$row['patientID']}'>
-                                    <button type='submit'>Delete</button>
                                 </form>
                             </td>";
                     echo "</tr>";

@@ -41,21 +41,22 @@ style for table
 
 #search-container input{
   border: 1px solid #58AD9D;
-  margin-right: 60px;
+  border-radius: 10px;
 }
 
 table {
-    margin-top: 10px;
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 th, td {
-  border: none;
   padding: 8px;
   text-align: center;
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 th {
@@ -72,6 +73,9 @@ tr:nth-child(odd) {
   background-color: #CFE7E4;
 }
 
+button{
+  cursor: pointer;
+}
 
 
 
