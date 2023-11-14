@@ -7,6 +7,7 @@
     --lightgreen: #cce1df;
     --lightblue: #90cac4;
     --blue: #8edaf1;
+    --gray: #91a29c;
 } 
 
 nav{
@@ -48,6 +49,7 @@ nav:hover{
 
 .logo span{
     font-size: 14px;
+    font-weight: bold;
 }
 
 .menu{
@@ -63,12 +65,13 @@ nav:hover{
     line-height: 0.8rem;
 }
 
-.menu li:hover{
-    background: var(--blue);
+.menu li:hover, .menu li:hover a{
+    background: var(--lightgreen);
+    color: var(--teal);
 }
 
 .menu li a{
-    color: var(--teal);
+    color: var(--gray);
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -84,4 +87,8 @@ nav:hover{
     bottom: 0;
     left: 0;
     width: calc(100% - 1rem);
+}
+
+.activeLink span, .activeLink i{
+    color: var(--teal);
 }
