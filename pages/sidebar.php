@@ -10,7 +10,6 @@
         <img src="../images/logoDashboard.png">
         <span class="nav-item">Dra. Ruth Luneta-Alolod<br>Dental Clinic</span>
     </div>
-    <b></b>
     <ul class="menu">
         <li>
             <a href="dashboard.php" class="dashboard" >
