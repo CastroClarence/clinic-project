@@ -17,23 +17,48 @@
                <form class="am-body-box">
                     <div class="am-row">
                         <div class="am-col-6">
-                            <p>Name</p>
-                            <input type="name" name="name" id="name" placeholder="Enter Full Name">
+                            <p>First Name: </p>
+                            <input type="text" name="fname" id="fname" placeholder="Enter First Name">
                         </div>
                         <div class="am-col-6">
-                            <p>Email</p>
-                            <input type="email" name="email" id="email" placeholder="Enter Email Address">
+                            <p>Last Name: </p>
+                            <input type="text" name="lname" id="lname" placeholder="Enter Last Name">
                         </div>
                     </div>
                     <div class="am-row">
                         <div class="am-col-6">
-                            <p>Mobile Number</p>
-                            <input type="phoneNum" name="phoneNum" id="phoneNum" placeholder="Enter Mobile Number">
+                            <p>Age: </p>
+                            <input type="text" name="age" id="age" placeholder="Enter Age Number">
                         </div>
                         <div class="am-col-6">
-                            <p>Address</p>
-                            <input type="homeAddress" name="homeAddress" id="homeAddress" placeholder="Enter Address">
+                            <p>Sex: </p>
+                            <select name="s-select">
+                                <option>Sex</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
                         </div>
+                    </div>
+
+                    <div class="am-row">
+                        <div class="am-col-6">
+                            <p>Mobile Number: </p>
+                            <input type="text" name="mobileNum" id="mobileNum" placeholder="Enter Mobile Number">
+                        </div>
+                        <div class="am-col-6">
+                            <p>Email Address: </p>
+                            <input type="text" name="email" id="email" placeholder="Enter Email Address">
+                        </div>
+                    </div>
+                    <div class="am-row">
+                        <div class="am-col-6">
+                            <p>Address: </p>
+                            <input type="text" name="address" id="address" placeholder="Enter Address">
+                        </div>
+                        <div class="am-col-6">
+                            <p>Occupation: </p>
+                            <input type="text" name="occupation" id="occupation" placeholder="Enter Occupation">
+                        </div>  
                     </div>
 
                     <div class="am-row">
@@ -58,27 +83,44 @@
                         </div>
                     </div>
                     <div class="am-row">
-                        <div class="am-col-6">
-                            <p>Select Services</p>
-                            <select name="s-select">
-                                <option>Services</option>
-                                <option value="1">Consultation</option>
-                                <option value="2">Orthodontics Treatment</option>
-                                <option value="3">Surgery</option>
-                                <option value="4">Root Canal Treatment</option>
-                                <option value="5">Extraction</option>
-                                <option value="6">Restoration</option>
-                                <option value="7">Dentures</option>
-                                <option value="8">Crown</option>
-                                <option value="9">Bleaching</option>
-                                <option value="10">Oral Prophylaxis </option>
-                            </select>
+                        <div class="am-col-7">
+                            <p>Select Services: </p>
+                            <input type="checkbox" id="consultation" name="consultation" value="consultation">
+                            <label for="consultation"> Consultation</label><br>
+                            <input type="checkbox" id="orthodontics" name="orthodontics" value="orthodontics">
+                            <label for="orthodontics"> Orthodontics</label><br>
+                            <input type="checkbox" id="surgery" name="surgery" value="surgery">
+                            <label for="surgery"> Surgery</label>
+                        </div>
+
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="rootCanal" name="rootCanal" value="rootCanal">
+                            <label for="rootCanal"> Root Canal</label><br>
+                            <input type="checkbox" id="extraction" name="extraction" value="extraction">
+                            <label for="extraction"> Extraction</label><br>
+                            <input type="checkbox" id="restoration" name="restoration" value="restoration">
+                            <label for="restoration"> Restoration</label>
+                        </div>
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="dentures" name="dentures" value="dentures">
+                            <label for="dentures"> Dentures</label><br>
+                            <input type="checkbox" id="crown" name="crown" value="crown">
+                            <label for="crown"> Crown</label><br>
+                            <input type="checkbox" id="bleaching" name="bleaching" value="bleaching">
+                            <label for="bleaching"> Bleaching</label>
+                        </div>
+                        <div class="am-col-7">
+                            <br>
+                            <input type="checkbox" id="oralProphylaxis" name="oralProphylaxis" value="oralProphylaxis">
+                            <label for="oralProphylaxis"> Oral Prophylaxis</label><br>
                         </div>
                     </div>
                     <div class="am-row">
                         <div class="am-col-12">
                             <p>Appointment Notes (Optional):</p>
-                            <textarea name="Notes" id="Notes" cols="3" rows="10"></textarea>
+                            <textarea name="text" id="Notes" cols="3" rows="10"></textarea>
                         </div>
                     </div>
                     <div class="am-row">

@@ -25,9 +25,12 @@ h1{
     background-color: #f4fafa;
 }
 .am-body{
-    width: 800px;
+    width: 650px;
     background-color: #9bcfca;
-    border-radius: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 input, textarea, select{
     width: 100%;
@@ -39,11 +42,23 @@ input, textarea, select{
     resize: none;
     border-radius: 3px;
 }
-.am-head, .am-footer{
+.am-head{
     background-color: #38a095;
     padding: 20px 10px;
     text-align: center;
     color: #f4fafa;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+.am-footer{
+    background-color: #38a095;
+    padding: 20px 10px;
+    text-align: center;
+    color: #f4fafa;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
 }
 
 .am-row{
@@ -60,12 +75,29 @@ input, textarea, select{
 .am-col-6{
     width: 48%;
 }
+.am-col-7{
+    width: 30%;
+}
 .am-body-box{
     padding: 20px;
 }
-
 .disabled{
     cursor: none;
     pointer-events: none;
     color: red;
+}
+input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    color: #e9f4fb;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+ p{
+    font-weight: 500;
+    color: #040404
+}
+.am-footer>p{
+    color: #f4fafa;
 }
