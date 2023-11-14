@@ -69,18 +69,29 @@
                   echo "<td>" . $row["patientLastName"] . "</td>";
                   echo "<td>" . $row["requestDate"] . "</td>";
                   echo "<td>" . $row["requestTime"] . "</td>";
-                  echo "<td>" . $row["requestStatus"] . "</td>";
+
+                  echo "<td>";
+                  if ($row["requestStatus"] == "Pending") {
+                      echo "<form action='appointmentRequestUpdate.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit' name='approve'>Approve</button>
+                              </form>";
+
+                      echo "<form action='appointmentRequestUpdate.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit' name='decline'>Decline</button>
+                              </form>";
+                  } else {
+                      echo $row["requestStatus"];
+                  }
+                  echo "</td>";
+                  //echo "<td>" . $row["requestStatus"] . "</td>";
 
                   //update and delete buttons
                   echo "<td>
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <button type='submit'>Update</button>
-                            </form>
-
-                            <form action='delete.php' method='post'>
-                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                <button type='submit'>Delete</button>
                             </form>
                         </td>";
                   echo "</tr>";

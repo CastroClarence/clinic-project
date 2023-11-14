@@ -76,11 +76,6 @@
                                     <input type='hidden' name='patientID' value='{$row['patientID']}'>
                                     <button type='submit'>Update</button>
                                 </form>
-
-                                <form action='delete.php' method='post'>
-                                    <input type='hidden' name='requestID' value='{$row['patientID']}'>
-                                    <button type='submit'>Delete</button>
-                                </form>
                             </td>";
                     echo "</tr>";
                     
