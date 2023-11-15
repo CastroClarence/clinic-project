@@ -41,15 +41,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        /* .submitBtn{
-            display: none;
-        } */
-
-        .submitBtnAfter{
-            color:red;
-        }
-    </style>
 </head>
 <body>
     <form action = "test.php" method = "post">
@@ -57,7 +48,7 @@
         <input type = "text" id = "firstName" name = "firstName" required>
         <label for= "selectDate">Choose Date:</label>
         <input type = "date" id = "selectDate" name = "selectedDate" required>
-        <input type = "submit" name = "submitSelectDate"  id = "submitSelectDate" value = "SEND" onclick>
+        <input type = "submit" name = "submitSelectDate"  id = "submitSelectDate" value = "SEND" onclick = "showSubmitBtn()">
     </form>
 
     <form action = "test.php" method = "post">
@@ -67,6 +58,7 @@
                 echo "<script>document.getElementById('firstName').value = '$firstName'</script>";
                 echo "<script>document.getElementById('selectDate').value = '$selectedDate'</script>";
             }
+
             echo "<p>Select Time:</p>
             <select name='selectOption' id = 'dateSelect'>";
            
@@ -75,11 +67,11 @@
                 $finalTime = date("h:i A", $displayTime);
                 echo"<option value= $content name = '$content'> $finalTime </option>";
              }
-        ?>
 
-        <input type = "submit" name = "finalSubmit"  id = "finalSubmit"  class = "submitBtn" value = "Final Submit" hidden = "hidden">   
+             if(!empty($_POST["submitSelectDate"])){
+                echo"<input type ='submit' name = 'finalSubmit'  id = 'finalSubmit' value = 'FINAL SUBMIT'>";
+             }
+        ?>
     </form>
-    
-    <script src ="../scripts/test.js"></script>
 </body>
 </html>
