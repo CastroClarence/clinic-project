@@ -9,7 +9,7 @@
 
         $firstName = $_POST["firstName"];
         $selectedDate = $_POST["selectedDate"];
-        $checkDates = "SELECT requestTime FROM appointments WHERE requestDate = '$selectedDate'";
+        $checkDates = "SELECT requestTime FROM requests WHERE requestDate = '$selectedDate'";
             
         try{
             $results = mysqli_query($conn, $checkDates);
@@ -33,6 +33,7 @@
 
     if(isset($_POST["finalSubmit"])){
         echo  $_SESSION["firstName"];
+        echo  $_SESSION["selectedDate"];
     }
 ?>
 <!DOCTYPE html>
