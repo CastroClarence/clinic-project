@@ -37,13 +37,13 @@ style for table
 
 #search-container{
   display: flex;
-  justify-content: space-between;
   width: calc(100% - 100px);
 }
 
 #search-container input{
   border: 1px solid #58AD9D;
   border-radius: 10px;
+  align-self: flex-end;
 }
 
 table {
@@ -77,6 +77,8 @@ tr:nth-child(odd) {
 
 button{
   cursor: pointer;
+  font-size: 20px;
+  color: #38a095;
 }
 
 

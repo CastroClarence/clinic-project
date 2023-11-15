@@ -13,7 +13,7 @@
   }
 
   //normal function
-  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, requests.requestDate, requests.requestTime, requests.requestStatus
+  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID
           WHERE requests.requestStatus ='Pending'";
@@ -40,6 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../styles/appointmentRequest.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -60,7 +61,7 @@
           <?php
             if ($result->num_rows > 0) {
                 echo "<table>";
-                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr>";
+                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Patient Status</th><th>Date</th><th>Time</th><th>Appointment Status</th><th>Action</th></tr>";
 
                 while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
@@ -68,6 +69,7 @@
                   echo "<td>" . $row["patientID"] . "</td>";
                   echo "<td>" . $row["patientFirstName"] . "</td>";
                   echo "<td>" . $row["patientLastName"] . "</td>";
+                  echo "<td>" . $row["patientStatus"] . "</td>";
                   echo "<td>" . $row["requestDate"] . "</td>";
                   echo "<td>" . $row["requestTime"] . "</td>";
 
@@ -76,13 +78,15 @@
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Approved'>
-                                <button type='submit' name='approve'>Approve</button>
+                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
+                                <button type='submit' name='approve'><i class='fas fa-check-square'></i><button>
                             </form>";
 
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Declined'>
-                                <button type='submit' name='decline'>Decline</button>
+                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
+                                <button type='submit' name='decline'><i class='fas fa-times-circle'></i></button>
                               </form>";
                   } else {
                       echo $row["requestStatus"];
@@ -95,7 +99,8 @@
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
-                                <button type='submit'>Update</button>
+                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
+                                <button type='submit'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>";
                   echo "</tr>";

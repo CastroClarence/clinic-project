@@ -14,13 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $date = isset($_POST["date"]) ? $_POST["date"] : "";
     $time = isset($_POST["time"]) ? $_POST["time"] : "";
     $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
+    $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
 
-    // Check if the form was submitted from the approve button
     if (isset($_POST["approve"])) {
         $requestStatus = "Approved";
     }
 
-    // Check if the form was submitted from the decline button
     if (isset($_POST["decline"])) {
         $requestStatus = "Declined";
     }
@@ -85,11 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 <div class="am-row">
                     <div class="am-col-6">
                         <p>Request Status: </p>
-                        <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Service ID" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
+                        <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Request Status" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
                     </div>
                     <div class="am-col-6">
-                        <p>Name: </p>
-                        <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Service ID" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
+                        <p>Patient Status: </p>
+                        <input type="text" name="patientStatus" id="patientStatus" placeholder="Enter New Patient Status" value="<?php echo $patientStatus; ?>" readonly>
                     </div>
 
                 </div>
