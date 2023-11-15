@@ -1,3 +1,6 @@
+<?php
+  include("../phpFiles/dbConnect.php");
+?>
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -45,7 +48,7 @@
                   <div class="calendar-footer">
                   </div>
                   <div class="date-time-formate">
-                    <div class="day-text-formate">TODAY</div>
+                    <!-- <div class="day-text-formate">TODAY</div> -->
                     <div class="date-time-value">
                       <div class="time-formate"></div>
                       <div class="date-formate"></div>
@@ -67,11 +70,44 @@
                 <table class = "mainTbl" cellspacing = "0">
                   <tr>
                     <th class="head">Request ID</th>
-                    <th class="head">Patient ID</th>
-                    <th class="head">Service ID</th>
-                    <th class="head">Appointment Date</th>
-                    <th class="head">Appointment Time</th>
+                    <th class="head">Patient Name</th>
+                    <th class="head">Services</th>
+                    <th class="head">Date</th>
+                    <th class="head">Time</th>
+                    <th class="head">Notes</th>
                    </tr>
+                   <?php
+                      if(isset($_POST["dateSubmit"])){
+                        $inputDate = $_POST["inputDate"];
+                        
+                        $searchDate = "SELECT appointments.requestID, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
+                        FROM appointments INNER JOIN patients ON appointments.patientID = patients.patientID WHERE appointments.requestDate = '$inputDate'";
+
+                        try{
+                          $resultApproved = mysqli_query($conn, $searchDate);
+                        }catch(mysqli_sql_exception){
+                          echo "Error Searching";
+                        }
+                        
+                        if(mysqli_num_rows($resultApproved) > 0){
+                          echo "<script>document.getElementById('inputDate').value = '$inputDate'</script>";
+                          while($row = mysqli_fetch_assoc($resultApproved)){
+                            echo "<tr>";
+                            echo "<td>" . " ". $row["requestID"] . " ". "</td>";
+                            echo "<td>" . " ". $row["patientFirstName"] . " ". $row["patientLastName"] . "</td>";
+                            echo "<td>" . " ". $row["requestServices"] . " ". "</td>";
+                            echo "<td>" . " ". $row["requestDate"] . " ". "</td>";
+                            echo "<td>" . " ". $row["requestTime"] . " ". "</td>";
+                            echo "<td>" . " ". $row["requestNotes"] . " ". "</td>";
+                            echo "</tr>";                            
+                          }
+                        }else{
+                            echo "<tr><th colspan = '6'>No Results</th></tr>";
+                        }
+
+                      }
+
+                   ?>
                 </table>
               </div>
             </div>

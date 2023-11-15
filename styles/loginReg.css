@@ -31,10 +31,14 @@
 }
 
 .leftSide{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+    display: flex;
     width: 50%;
     height: 100%;
     overflow: auto;
-    padding: 5em;
+    padding:5em;
     text-align: center;
     background-color: #ffffff;
     animation-name:moveIn;
