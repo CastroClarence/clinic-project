@@ -1,3 +1,37 @@
+<?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include("../phpFiles/dbConnect.php");
+  session_start();
+
+
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+  // Collect form data
+  $firstName = $_POST["firstName"];
+  $lastName = $_POST["lastName"];
+  $mobileNumber = $_POST["mobileNumber"];
+  $age = $_POST["Age"];
+  $sex = $_POST["s-select"];
+  $occupation = $_POST["occupation"];
+  $email = $_POST["email"];
+  $homeAddress = $_POST["homeAddress"];
+
+  $sql = "INSERT INTO patients (patientFirstName, patientLastName, patientMobileNo, patientAge, patientSex, patientOccupation, patientEmail, patientAddress)
+            VALUES ('$firstName', '$lastName', '$mobileNumber', '$age', '$sex', '$occupation', '$email', '$homeAddress')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Patient added successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+  }
+?>
+
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -10,15 +44,24 @@
             <?php include('sidebar.php'); ?>
             <div class="form_container">
             <h1 class="form-title">Add Patient</h1>
-            <form action="#">
+            <form method="post" action="#">
               <div class="main-user-info">
                 <div class="user-input-box">
-                  <label for="fullName">Full Name: </label>
+                  <label for="firstName">First Name: </label>
                   <input type="text"
-                          id="fullName"
-                          name="fullName"
-placeholder="Enter Full Name"/>
-    </div>
+                          id="firstName"
+                          name="firstName"
+                          placeholder="Enter First Name"/>
+                </div>
+
+                <div class="user-input-box">
+                  <label for="lastName">Last Name: </label>
+                  <input type="text"
+                          id="lastName"
+                          name="lastName"
+                          placeholder="Enter Last Name"/>
+                </div>
+
                 <div class="user-input-box">
                   <label for="mobileNumber">Mobile Number: </label>
                   <input type="text"
@@ -26,27 +69,23 @@ placeholder="Enter Full Name"/>
                           name="mobileNumber"
                           placeholder="Enter Mobile Number"/>
                 </div>
+
                 <div class="user-input-box">
                   <label for="Age">Age: </label>
-                  <input type="Age"
+                  <input type="number"
                           id="Age"
                           name="Age"
                           placeholder="Enter Age"/>
                 </div>
-                <div class="user-input-box">
+
+                <div class="sex-selection">
                   <label for="sex">Sex: </label>
-                  <input type="text"
-                          id="sex"
-                          name="sex"
-                          placeholder="Enter Sex (Male/Female)"/>
+                          <select name="s-select">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                          </select>
                 </div>
-                <div class="user-input-box">
-                  <label for="birthDate">Birth Date: </label>
-                  <input type="text"
-                          id="birthDate"
-                          name="birthDate"
-                          placeholder="Enter Birth Date"/>
-                </div>
+
                 <div class="user-input-box">
                   <label for="occupation">Occupation: </label>
                   <input type="text"
@@ -54,6 +93,7 @@ placeholder="Enter Full Name"/>
                           name="occupation"
                           placeholder="Enter Occupation"/>
                 </div>
+
                 <div class="user-input-box">
                   <label for="email">Email: </label>
                   <input type="text"
@@ -61,6 +101,7 @@ placeholder="Enter Full Name"/>
                           name="email"
                           placeholder="Enter Email"/>
                 </div>
+                
                 <div class="user-input-box">
                   <label for="homeAddress">Home Address: </label>
                   <input type="text"

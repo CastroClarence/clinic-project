@@ -47,6 +47,8 @@
             <div id="reqTbl">
 
                 <div id="search-container">
+                    <button><a href="addPatient.php">Add</a></button>
+                    
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>">
                     </form>
