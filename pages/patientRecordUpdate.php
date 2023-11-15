@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     //$patientBalance = isset($_POST["patientBalance"]) ? $_POST["patientBalance"] : "";
 
 
-    $updateQuery = "UPDATE patients SET patientFirstName = '$patientFirstName', patientFirstName = '$patientLastName', patientAge = '$patientAge', patientSex = '$patientSex', patientMobileNo = '$patientMobileNo', patientEmail = '$patientEmail', patientAddress = '$patientAddress', patientOccupation = '$patientOccupation', patientBalance = '$patientBalance' WHERE patientID ='$patientID'";
+    $updateQuery = "UPDATE patients SET patientFirstName = '$patientFirstName', patientLastName = '$patientLastName', patientAge = '$patientAge', patientSex = '$patientSex', patientMobileNo = '$patientMobileNo', patientEmail = '$patientEmail', patientAddress = '$patientAddress', patientOccupation = '$patientOccupation' WHERE patientID ='$patientID'";
     
     if ($conn->query($updateQuery) === TRUE) {
         $updateMessage = "Record updated successfully";
