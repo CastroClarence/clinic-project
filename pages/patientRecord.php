@@ -57,7 +57,7 @@
                 <?php
                     if ($result->num_rows > 0) {
                         echo "<table>";
-                        echo "<tr><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>Sex</th><th>Mobile Number</th><th>Email</th><th>Address</th><th>Occupation</th><th>Balance</th><th>Action</th></tr>";
+                        echo "<tr><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>Sex</th><th>Mobile Number</th><th>Email</th><th>Address</th><th>Occupation</th><th>Balance</th><th>Status</th><th>Action</th></tr>";
 
                     while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
@@ -71,6 +71,7 @@
                     echo "<td>" . $row["patientAddress"] . "</td>";
                     echo "<td>" . $row["patientOccupation"] . "</td>";
                     echo "<td>" . $row["patientBalance"] . "</td>";
+                    echo "<td>" . $row["patientStatus"] . "</td>";
 
                     //update and delete buttons
                     echo "<td>

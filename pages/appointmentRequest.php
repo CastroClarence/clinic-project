@@ -13,7 +13,7 @@
   }
 
   //normal function
-  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, requests.requestDate, requests.requestTime, requests.requestStatus
+  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID
           WHERE requests.requestStatus ='Pending'";
@@ -61,7 +61,7 @@
           <?php
             if ($result->num_rows > 0) {
                 echo "<table>";
-                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr>";
+                echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Patient Status</th><th>Date</th><th>Time</th><th>Appointment Status</th><th>Action</th></tr>";
 
                 while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
@@ -69,6 +69,7 @@
                   echo "<td>" . $row["patientID"] . "</td>";
                   echo "<td>" . $row["patientFirstName"] . "</td>";
                   echo "<td>" . $row["patientLastName"] . "</td>";
+                  echo "<td>" . $row["patientStatus"] . "</td>";
                   echo "<td>" . $row["requestDate"] . "</td>";
                   echo "<td>" . $row["requestTime"] . "</td>";
 
