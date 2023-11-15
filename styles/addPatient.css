@@ -9,7 +9,7 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: #f4fafa;
+  background: #f4f4f4;
   height: 100vh;
 }
 
@@ -59,7 +59,7 @@ body{
     margin: 5px 0;
 }
 
-.user-input-box input{
+.user-input-box input, select{
     height: 55px;
     width: 95%;
     border-radius: 5px;
@@ -67,6 +67,7 @@ body{
     border: 1px solid grey;
     padding: 0 10px;
 }
+
 
 .form-submit-btn input{
     display: block;
@@ -84,6 +85,22 @@ body{
     background: #8edaf1;
     color: rgb(255, 255, 255);
 }
+.sex-selection{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+    
+}
+
+.sex-selection label{
+    width: 95%;
+    color: #38a095;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
 
 @media(max-width: 600px){
     .container{

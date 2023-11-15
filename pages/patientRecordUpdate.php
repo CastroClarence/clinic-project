@@ -10,7 +10,7 @@ $patientMobileNo = "";
 $patientEmail = "";
 $patientAddress = "";
 $patientOccupation = "";
-$patientBalance = "";
+//$patientBalance = "";
 $updateMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $patientEmail = isset($_POST["patientEmail"]) ? $_POST["patientEmail"] : "";
     $patientAddress = isset($_POST["patientAddress"]) ? $_POST["patientAddress"] : "";
     $patientOccupation = isset($_POST["patientOccupation"]) ? $_POST["patientOccupation"] : "";
-    $patientBalance = isset($_POST["patientBalance"]) ? $_POST["patientBalance"] : "";
+    //$patientBalance = isset($_POST["patientBalance"]) ? $_POST["patientBalance"] : "";
 
 
     $updateQuery = "UPDATE patients SET patientFirstName = '$patientFirstName', patientFirstName = '$patientLastName', patientAge = '$patientAge', patientSex = '$patientSex', patientMobileNo = '$patientMobileNo', patientEmail = '$patientEmail', patientAddress = '$patientAddress', patientOccupation = '$patientOccupation', patientBalance = '$patientBalance' WHERE patientID ='$patientID'";
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $patientEmail = $row["patientEmail"];
         $patientAddress = $row["patientAddress"];
         $patientOccupation = $row["patientOccupation"];
-        $patientBalance = $row["patientBalance"];
+        //$patientBalance = $row["patientBalance"];
     }
 }
 ?>
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../styles/oldPatient.css">
+    <link rel="stylesheet" href="../styles/patientForm.css">
 </head>
 <body>
 
@@ -84,10 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                     <input type="number" name="patientID" id="patientID" value="<?php echo $patientID; ?>" readonly>
                 </div>
 
-                <div class="am-col-6">
-                    <p>Balance</p>
-                    <input type="number" name="patientBalance" id="patientBalance" placeholder="Enter New Balance" value="<?php echo $patientBalance; ?>">
-                </div>
             </div>
 
             <div class="am-row">
