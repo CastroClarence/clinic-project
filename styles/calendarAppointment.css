@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@
     border: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Jost', sans-serif;
 }
 
 .container{
@@ -19,11 +20,12 @@
   padding-top: 10px;
   color: #38a095;
   margin-bottom: 1em;
+  padding-left: 1.5em;
   /* border:3px solid black; */
 }
 
 .titleCont h1{
-  font-size: 1.5em;
+  font-size: 2.3em;
 }
 
 .main{
@@ -88,8 +90,16 @@
   /* border: 3px solid rgb(255, 0, 0); */
 }
 .mainTbl{
+  overflow: hidden;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  border-collapse: collapse;
   width: 100%;
-  border-bottom: 3px solid black;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* border-bottom: 3px solid black; */
 }
 
 .head{
@@ -98,19 +108,11 @@
   margin:0;
 }
 
-.mainTbl th, td{
-  border: 3px solid black;
-  border-right: none;
-  border-bottom: none;
+tr:nth-child(even) {
+  background-color: #E1EFED;
 }
 
-th:nth-last-child(1){
-  border-right: 3px solid black;
+tr:nth-child(odd) {
+  background-color: #CFE7E4;
 }
-
-
-
-
-
-
   
