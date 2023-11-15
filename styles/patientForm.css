@@ -25,14 +25,14 @@ h1{
     background-color: #f4fafa;
 }
 .am-body{
-    width: 50rem;
+    width: 650px;
     background-color: #9bcfca;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
 }
-input, textarea, select{
+input, textarea, select, button{
     width: 100%;
     background-color: #d6ebe9;
     border: none;
@@ -71,6 +71,7 @@ input, textarea, select{
 }
 .am-col-3{
     width: 30%;
+    
 }
 .am-col-6{
     width: 48%;

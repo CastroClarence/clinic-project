@@ -57,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles/oldPatient.css">
+    <link rel="stylesheet" href="../styles/requestUpdate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/appointmentRequestUpdate.css">
 </head>
 <body>
@@ -68,50 +69,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             </div>
 
             <form class="am-body-box" method="post" action="appointmentRequestUpdate.php">
-                <a href="appointmentRequest.php">Back</a>
+                <a href="appointmentRequest.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+
 
                 <div class="am-row">
                     <div class="am-col-6">
-                        <p>Appointment Request ID</p>
+                        <p>Appointment Request ID: </p>
                         <input type="number" name="requestID" id="requestID" value="<?php echo $requestID; ?>" readonly>
                     </div>
-                </div>
-                <div class="am-row">
                     <div class="am-col-6">
-                        <p>Patient ID</p>
+                        <p>Patient ID: </p>
                         <input type="number" name="patientID" id="patientID" placeholder="Enter New Patient ID" value="<?php echo $patientID; ?>">
                     </div>
-
+                </div>
+                <div class="am-row">
                     <div class="am-col-6">
-                        <p>Request Status</p>
+                        <p>Request Status: </p>
                         <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Service ID" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
                     </div>
+                    <div class="am-col-6">
+                        <p>Name: </p>
+                        <input type="text" name="requestStatus" id="requestStatus" placeholder="Enter New Service ID" value="<?php echo isset($_POST['newStatus']) ? htmlspecialchars($_POST['newStatus']) : $requestStatus; ?>" readonly>
+                    </div>
+
                 </div>
 
                 <div class="am-row">
-                        <div class="am-col-6">
-                            <p>Select Date</p>
+                <div class="am-col-6">
+                            <p>Select Date: </p>
                             <input type="date" name="date" id="date" value="<?php echo $date; ?>">
                         </div>
                         <div class="am-col-6">
-                            <p>Select Time</p>
+                            <p>Select Time: </p>
                             <input type="time" name="time" id="time" value="<?php echo $time; ?>">
                         </div>
-                    </div>
+                        
+                </div>
 
                 <div class="am-row">
-                    <div class="am-col-12">
+                    <div class="am-col-3">
                         <button type="submit" name="submit">Update Appointment</button>
                     </div>
                 </div>
-
             </form>
             <div class="update-message">
                 <?php echo $updateMessage; ?>
             </div>
 
+            <div class="am-footer">
+                    <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
+                </div>
         </div>
-
     </div>
 </body>
 </html>
