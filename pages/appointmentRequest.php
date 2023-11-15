@@ -78,14 +78,12 @@
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Approved'>
-                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
-                                <button type='submit' name='approve'><i class='fas fa-check-square'></i><button>
+                                <button type='submit' name='approve'><i class='fas fa-check-square'></i></button>
                             </form>";
 
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Declined'>
-                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
                                 <button type='submit' name='decline'><i class='fas fa-times-circle'></i></button>
                               </form>";
                   } else {
@@ -99,7 +97,6 @@
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
-                                <input type='hidden' name='patientStatus' value='{$row['patientStatus']}'>
                                 <button type='submit'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>";
