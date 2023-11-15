@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --bg: #f4f4f4;
+    --bg-darker: #eaf4f3;
+    --teal: #38a095;
+    --lightgreen: #cce1df;
+    --lightblue: #90cac4;
+    --blue: #8edaf1;
+} 
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: var(--bg);
+}
+
+.container{
+    display: flex;
+}
+
+main{
+    position: relative;
+    padding: 20px;
+    width: calc(100% - 100px);
+}
+
+.contain{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+} 
+
+.button, .search{
+    font-size: 1.2em;
+    background: none;
+}
+
+.search{
+    display: flex;
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.search input{
+    background: none;
+}
+
+.search i{
+    color: var(--teal);
+    padding: 0 10px 0 5px;
+    align-self: center;
+}
+
+.button{
+    background: var(--teal);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+.button a{
+    font-size: 16px;
+    color: var(--bg);
+}
+
+.button:hover, .button a:hover{
+    background: var(--bg);
+    color: var(--teal);
+}
+
+h1{
+    padding-top: 10px;
+    color: var(--teal);
+}
+
+table {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  th {
+    background-color: #5EB1A9;
+    color: white;
+  }
+  
+  /*alternating colors*/
+  tr:nth-child(even) {
+    background-color: #E1EFED;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #CFE7E4;
+  }
