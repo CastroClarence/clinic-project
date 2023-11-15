@@ -36,7 +36,9 @@ style for table
 }
 
 #search-container{
-  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 100px);
 }
 
 #search-container input{
