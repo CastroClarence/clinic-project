@@ -18,14 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
 
     if ($requestStatus == "Declined" && $patientStatus == "Not Verified") {
-        // Delete records from both requests and patients tables
+
         $deleteRequestsQuery = "DELETE FROM requests WHERE patientID = '$patientID'";
         $deletePatientsQuery = "DELETE FROM patients WHERE patientID = '$patientID'";
 
         $conn->query($deleteRequestsQuery);
         $conn->query($deletePatientsQuery);
 
-        // Close the connection and exit the script
         $conn->close();
 
         header("Location: appointmentRequest.php");
@@ -43,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     if (isset($_POST["approve"])) {
         $requestStatus = "Approved";
         
-        // Check if new Patient Status is set
         if (isset($_POST["newPatientStatus"])) {
             $patientStatus = $_POST["newPatientStatus"];
         }
