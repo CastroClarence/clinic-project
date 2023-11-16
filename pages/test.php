@@ -4,6 +4,7 @@
     $allTime = array("08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "16:00:00");
     $availableTime = $allTime;
     if(isset($_POST["submitSelectDate"])){
+        unset($_SESSION["firstName"]);
         $_SESSION["firstName"] = $_POST["firstName"];
         $_SESSION["selectedDate"] = $_POST["selectedDate"];
 
@@ -32,8 +33,16 @@
     }
 
     if(isset($_POST["finalSubmit"])){
-        echo  $_SESSION["firstName"];
-        echo  $_SESSION["selectedDate"];
+        $_SESSION["selectOption"] = $_POST["selectOption"];
+
+        echo $_SESSION["firstName"] . "<br>";
+        echo $_SESSION["selectedDate"] . "<br>";
+        echo $_SESSION["selectOption"] . "<br>";
+
+        if(empty($_SESSION["firstName"])){
+            echo "no laman fname";
+        }
+
     }
 ?>
 <!DOCTYPE html>
@@ -44,35 +53,53 @@
     <title>Document</title>
 </head>
 <body>
-    <form action = "test.php" method = "post">
+    <form action = "test.php" method = "post" autocomplete="off">
         <label for= "firstName">Enter First Name:</label>
         <input type = "text" id = "firstName" name = "firstName" required>
         <label for= "selectDate">Choose Date:</label>
         <input type = "date" id = "selectDate" name = "selectedDate" required>
-        <input type = "submit" name = "submitSelectDate"  id = "submitSelectDate" value = "SEND" onclick = "showSubmitBtn()">
+        <input type = "submit" name = "submitSelectDate"  id = "submitSelectDate" value = "SEND" onclick = "e.preventDefault()">
     </form>
 
-    <form action = "test.php" method = "post">
+    <form action = "test.php" method = "post" autocomplete="off">
         <?php
             if(!empty($_POST["submitSelectDate"])){
-                // echo "<script>document.getElementById('finalSubmit').className = 'submitBtnAfter'</script>";
                 echo "<script>document.getElementById('firstName').value = '$firstName'</script>";
                 echo "<script>document.getElementById('selectDate').value = '$selectedDate'</script>";
             }
+        ?>
+        <label for = "dateSelect"> Choose Time: </label>
+        <?php
+            if(!empty($_POST["submitSelectDate"])){
+                echo '<select name="selectOption" id = "dateSelect">?';    
+            }else{
+                echo '<select name="selectOption" id = "dateSelect" disabled>';
+            }
 
-            echo "<p>Select Time:</p>
-            <select name='selectOption' id = 'dateSelect'>";
-           
             foreach($availableTime as $content){
                 $displayTime = strtotime($content);
                 $finalTime = date("h:i A", $displayTime);
-                echo"<option value= $content name = '$content'> $finalTime </option>";
-             }
-
-             if(!empty($_POST["submitSelectDate"])){
-                echo"<input type ='submit' name = 'finalSubmit'  id = 'finalSubmit' value = 'FINAL SUBMIT'>";
-             }
+                echo "<option value= '$content'> $finalTime </option>";
+            }
+            echo "</select>";
+        ?>
+        
+        <?php 
+            if(!empty($_POST["submitSelectDate"])){
+            echo"<input type ='submit' name = 'finalSubmit'  id = 'finalSubmit' value = 'FINAL SUBMIT' onclick = 'confirmSubmit()'>";
+            }
         ?>
     </form>
+
+    <script>
+        function confirmSubmit(){
+            let subRes = confirm("Submit?");
+            if(subRes == true){
+                return true;
+            }else{
+                event.preventDefault()
+            }
+        }
+    </script>
 </body>
 </html>
