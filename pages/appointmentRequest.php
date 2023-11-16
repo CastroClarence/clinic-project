@@ -54,6 +54,7 @@
 
           <div id="search-container">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <i class="fas fa-search"></i>
               <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>">
             </form>
           </div>
@@ -81,11 +82,19 @@
                                 <button type='submit' name='approve'><i class='fas fa-check-square'></i></button>
                             </form>";
 
+                      if ($row["patientStatus"] != "Verified") {
+                        echo "<input type='hidden' name='newPatientStatus' value='Verified'>";
+                      }
+
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Declined'>
                                 <button type='submit' name='decline'><i class='fas fa-times-circle'></i></button>
                               </form>";
+
+                      if ($row["patientStatus"] == "Verified") {
+                        echo "<input type='hidden' name='deletePatientRecord' value='true'>";
+                      }
                   } else {
                       echo $row["requestStatus"];
                   }

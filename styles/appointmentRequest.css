@@ -27,7 +27,9 @@ style for table
     /* flex-direction: column; */
     /* flex: 1; */
 }
-
+h1{
+  color: #38a095;
+}
 #reqTbl{
   display: flex;
   flex-direction: column;
@@ -38,12 +40,22 @@ style for table
 #search-container{
   display: flex;
   width: calc(100% - 100px);
+  justify-content: end;
+  align-items: end;
 }
 
 #search-container input{
   border: 1px solid #58AD9D;
-  border-radius: 10px;
+  border-radius: 20px;
   align-self: flex-end;
+  width: 13rem;
+  height: 30px;
+}
+
+#search-container i{
+  color: #38a095;
+  margin-right: 7px;
+
 }
 
 table {
@@ -59,11 +71,13 @@ th, td {
   padding: 8px;
   text-align: center;
   word-wrap: break-word;
+
 }
 
 th {
   background-color: #5EB1A9;
   color: white;
+
 }
 
 /*alternating colors*/
@@ -76,9 +90,13 @@ tr:nth-child(odd) {
 }
 
 button{
-  cursor: pointer;
   font-size: 20px;
   color: #38a095;
+  background-color: #E1EFED;
+  justify-content: space-between;
+}
+button:hover{
+  color: rgb(177, 174, 174);
 }
 
 
