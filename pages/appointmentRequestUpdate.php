@@ -4,6 +4,7 @@ include("../phpFiles/dbConnect.php");
 $requestID = "";
 $patientID = "";
 $requestStatus = "";
+$patientStatus = "";
 $date = "";
 $time = "";
 $updateMessage = "";
@@ -24,6 +25,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $requestStatus = "Declined";
     }
 
+    if (isset($_POST["approve"])) {
+        $requestStatus = "Approved";
+        
+        // Check if new Patient Status is set
+        if (isset($_POST["newPatientStatus"])) {
+            $patientStatus = $_POST["newPatientStatus"];
+        }
+    }
+    
+    if (isset($_POST["decline"])) {
+        $requestStatus = "Declined";
+    
+        // Check if deletePatientRecord is set
+        if (isset($_POST["deletePatientRecord"])) {
+            // Implement logic to delete patient record
+            $deletePatientID = $patientID; // You need to define the patientID variable
+            $deletePatientQuery = "DELETE FROM patients WHERE patientID = '$deletePatientID'";
+            $conn->query($deletePatientQuery);
+        }
+    }
+    
+
     $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '$date', requestTime = '$time', requestStatus = '$requestStatus' WHERE requestID = $requestID";
     
     if ($conn->query($updateQuery) === TRUE) {
@@ -36,7 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 } else {
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
 
-    $selectQuery = "SELECT * FROM requests WHERE requestID = $requestID";
+    $selectQuery = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
+                    FROM requests
+                    LEFT JOIN patients ON requests.patientID = patients.patientID
+                    WHERE requests.requestStatus ='Pending'";
     $result = $conn->query($selectQuery);
 
     if ($result->num_rows > 0) {
@@ -46,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $date = $row["requestDate"];
         $time = $row["requestTime"];
         $requestStatus = $row["requestStatus"];
+        $patientStatus = $row["patientStatus"];
     }
 }
 ?>
