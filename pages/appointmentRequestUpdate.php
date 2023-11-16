@@ -17,6 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
     $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
 
+    if ($requestStatus == "Declined" && $patientStatus == "Not Verified") {
+        // Delete records from both requests and patients tables
+        $deleteRequestsQuery = "DELETE FROM requests WHERE patientID = '$patientID'";
+        $deletePatientsQuery = "DELETE FROM patients WHERE patientID = '$patientID'";
+
+        $conn->query($deleteRequestsQuery);
+        $conn->query($deletePatientsQuery);
+
+        // Close the connection and exit the script
+        $conn->close();
+
+        header("Location: appointmentRequest.php");
+        exit;
+    }
+
     if (isset($_POST["approve"])) {
         $requestStatus = "Approved";
     }
@@ -34,23 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         }
     }
     
-    if (isset($_POST["decline"])) {
-        $requestStatus = "Declined";
-    
-        // Check if deletePatientRecord is set
-        if (isset($_POST["deletePatientRecord"])) {
-            // Implement logic to delete patient record
-            $deletePatientID = $patientID; // You need to define the patientID variable
-            $deletePatientQuery = "DELETE FROM patients WHERE patientID = '$deletePatientID'";
-            $conn->query($deletePatientQuery);
-        }
-    }
-    
 
     $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '$date', requestTime = '$time', requestStatus = '$requestStatus' WHERE requestID = $requestID";
     
     if ($conn->query($updateQuery) === TRUE) {
         $updateMessage = "Record updated successfully";
+
+        $updatePatientStatusQuery = "UPDATE patients SET patientStatus = '$patientStatus' WHERE patientID = $patientID";
+        $conn->query($updatePatientStatusQuery);
     } else {
         $updateMessage = "Error updating record: " . $conn->error;
     }
@@ -60,10 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
 
     $selectQuery = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
-                    FROM requests
-                    LEFT JOIN patients ON requests.patientID = patients.patientID
-                    WHERE requests.requestStatus ='Pending'";
+                FROM requests
+                LEFT JOIN patients ON requests.patientID = patients.patientID
+                WHERE requests.requestID = $requestID";
+
     $result = $conn->query($selectQuery);
+
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -72,7 +80,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $date = $row["requestDate"];
         $time = $row["requestTime"];
         $requestStatus = $row["requestStatus"];
-        $patientStatus = $row["patientStatus"];
+        if (isset($_POST["approve"]) && $row["patientStatus"] != "Verified") {
+            $patientStatus = "Verified";
+        }
+        else {
+            $patientStatus = $row["patientStatus"];
+        }
     }
 }
 ?>
@@ -105,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                     </div>
                     <div class="am-col-6">
                         <p>Patient ID: </p>
-                        <input type="number" name="patientID" id="patientID" placeholder="Enter New Patient ID" value="<?php echo $patientID; ?>">
+                        <input type="number" name="patientID" id="patientID" placeholder="Enter New Patient ID" value="<?php echo $patientID; ?>" readonly>
                     </div>
                 </div>
                 <div class="am-row">

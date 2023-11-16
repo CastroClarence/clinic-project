@@ -39,15 +39,13 @@ h1{
 
 #search-container{
   display: flex;
-  width: calc(100% - 100px);
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  width: calc(100% - 20px);
 }
 
 #search-container input{
   border: 1px solid #58AD9D;
   border-radius: 20px;
-  align-self: flex-end;
   width: 13rem;
   height: 30px;
 }
