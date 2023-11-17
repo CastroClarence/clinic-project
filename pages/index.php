@@ -61,7 +61,7 @@
             
         <div class="popup-container" id="popup">
             <img src="../images/close.png" alt="" onclick="closePopup()">
-            <iframe src="optionAppointment.html" frameborder="0"></iframe>
+            <iframe src="optionAppointment.php" frameborder="0"></iframe>
             
         </div>
         </div>
