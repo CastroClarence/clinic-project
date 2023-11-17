@@ -97,31 +97,6 @@
         }else{
             echo "NO ID FOUND!";
         }  
-
-
-
-
-       
-
-
-
-        echo $_SESSION["firstName"] . "<br>";
-        echo $_SESSION["lastName"] . "<br>";
-        echo $_SESSION["age"] . "<br>";
-        echo $_SESSION["sex"] . "<br>";
-        echo $_SESSION["mobileNum"] . "<br>";
-        echo $_SESSION["email"] . "<br>";
-        echo $_SESSION["address"] . "<br>";
-        echo $_SESSION["occupation"] . "<br>";
-        echo $_SESSION["selectedDate"] . "<br>";
-        echo $_SESSION["selectOption"]. "<br>";
-        echo $_SESSION["serviceChosen"]. "<br>";
-        echo $_SESSION["notes"]. "<br>";
-
-
-        if(empty($_SESSION["firstName"])){
-            echo "no laman fname";
-        }
     }
 ?>
 
@@ -262,6 +237,7 @@
                                 document.getElementById('submitInfo').classList.add('hideConfirmButton');
                                 document.getElementById('confirmCheckbox').classList.add('hideConfirmButton');
                                 document.getElementById('labelConfirm').classList.add('hideConfirmButton');
+                                
                                 document.getElementById('fname').readOnly = true;
                                 document.getElementById('lname').readOnly = true;
                                 document.getElementById('age').readOnly = true;
