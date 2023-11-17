@@ -31,20 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         exit;
     }
 
-    if (isset($_POST["approve"])) {
-        $requestStatus = "Approved";
-    }
-
-    if (isset($_POST["decline"])) {
-        $requestStatus = "Declined";
-    }
-
-    if (isset($_POST["approve"])) {
-        $requestStatus = "Approved";
-        
-        if (isset($_POST["newPatientStatus"])) {
-            $patientStatus = $_POST["newPatientStatus"];
-        }
+    switch ($_POST['submit']) {
+        case 'approve':
+            $requestStatus = 'Approved';
+    
+            if (isset($_POST['newPatientStatus'])) {
+                $patientStatus = $_POST['newPatientStatus'];
+            }
+    
+            break;
+        case 'decline':
+            $requestStatus = 'Declined';
+            break;
     }
     
 
