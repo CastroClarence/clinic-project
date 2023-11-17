@@ -46,16 +46,20 @@ h1{
 
 #search-container{
   display: flex;
+<<<<<<< HEAD
   width: calc(100% - 100px);
   justify-content: end;
   align-items: end;
   margin-top: -10px;
+=======
+  justify-content: flex-end;
+  width: calc(100% - 20px);
+>>>>>>> 4b45b3417493addb045c52bb13b62d2e2a580849
 }
 
 #search-container input{
   border: 1px solid #58AD9D;
   border-radius: 20px;
-  align-self: flex-end;
   width: 13rem;
   height: 45px;
 }

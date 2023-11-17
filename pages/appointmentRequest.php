@@ -82,21 +82,24 @@
                                 <input type='hidden' name='newStatus' value='Approved'>
                                 <button type='submit' name='approve'><i class='fas fa-check-square'></i></button>
                             </form>";
-
                       if ($row["patientStatus"] != "Verified") {
                         echo "<input type='hidden' name='newPatientStatus' value='Verified'>";
                       }
+
 
                       echo "<form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Declined'>
                                 <button type='submit' name='decline'><i class='fas fa-times-circle'></i></button>
                               </form>";
+<<<<<<< HEAD
 
                       if ($row["patientStatus"] == "Verified") {
                         echo "<input type='hidden' name='deletePatientRecord' value='true'>";
                       }
                       echo "</div>";
+=======
+>>>>>>> 4b45b3417493addb045c52bb13b62d2e2a580849
                   } else {
                       echo $row["requestStatus"];
                   }
