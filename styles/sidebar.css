@@ -3,8 +3,8 @@
     font-family: 'Jost', sans-serif;
 }
 :root {
-    --bg: #f4fafa;
     --green: #39a096;
+    --lightblue: #a0cad8;
     --white: #f4f4f4;
     --darkwhite: #f4fafa;
 } 
@@ -20,7 +20,7 @@ nav{
     color: var(--green);
     overflow: hidden;
     transition: all 0.5s linear;
-    background:  linear-gradient(45deg,#a0cad8,#39a096);
+    background:  linear-gradient(45deg, var(--lightblue), var(--green));
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
 

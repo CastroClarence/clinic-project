@@ -47,7 +47,7 @@
             <div class="main-content">
                 <div class="contain">
                     <div class="button">
-                        <a href="newTransaction.php">New</a>
+                        <a href="addTransaction.php"><i class="fa-solid fa-plus"></i></a>
                     </div>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="search">
                         <input type="text" placeholder="Search" name="searchterm">

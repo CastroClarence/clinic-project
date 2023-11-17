@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
 :root {
     --bg: #f4f4f4;
@@ -16,7 +16,7 @@
     border: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Jost", sans-serif;
 }
 
 body{
@@ -57,6 +57,7 @@ main{
 
 .search i{
     color: var(--teal);
+    font-size: 14px;
     padding: 0 10px 0 5px;
     align-self: center;
 }
@@ -68,25 +69,34 @@ main{
     padding: 0 5px;
 }
 
-.button a{
-    font-size: 16px;
+.button a, .button input{
+    font-size: 18px;
     color: var(--bg);
+    text-align:center
 }
 
-.button:hover, .button a:hover{
+.button:hover, .button a:hover, .button input:hover{
     background: var(--bg);
     color: var(--teal);
 }
 
+.btn-cont{
+    display: flex;
+    justify-content: flex-start;
+}
+
 h1{
-    padding-top: 10px;
+    padding: 10px 0;
     color: var(--teal);
+}
+
+.main-content{
+    text-align: center;
 }
 
 table {
     overflow: hidden;
     border-radius: 10px;
-    border: 1px solid black;
     margin-top: 10px;
     border-collapse: collapse;
     width: 100%;
@@ -111,3 +121,43 @@ table {
   tr:nth-child(odd) {
     background-color: #CFE7E4;
   }
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 75px;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.form-container span{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--teal);
+}
+
+.form-container input, textarea{
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-container input{
+    height: 40px;
+}
+
+.form-container textarea{
+    resize: none;
+}
+
+.btn-submit{
+    width: 20%;
+    align-self: center;
+}
+
+.btn-submit input{
+    background: transparent;
+    height: auto;
+    cursor: pointer;
+}
