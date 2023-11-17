@@ -36,26 +36,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../styles/patientRecord.css">
+    <link rel="stylesheet" href="../styles/transaction.css">
 </head>
 <body>
     <div class="container">
         <?php include('sidebar.php'); ?> 
-        <div class="table-container">
+        <main>
             <h1 class="header">Patient Record</h1>
 
-            <div id="reqTbl">
-
-                <div id="search-container">  
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <i class="fas fa-search"></i>
+            <div class="main-content">
+                <div class="contain">  
+                    <div class="button">
+                        <a href="addPatient.php"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="search">
                         <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>" placeholder="  Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
                 </div>
-                <div id="add-patient">
-                    <button><a href="addPatient.php"><i class="fa-solid fa-user-plus"></i></a></button>
-                </div>
-
                 <?php
                     if ($result->num_rows > 0) {
                         echo "<table>";
@@ -96,7 +94,7 @@
                     $conn->close();
                 ?>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>

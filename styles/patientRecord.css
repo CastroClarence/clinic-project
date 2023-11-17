@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+:root {
+  --bg: #f4f4f4;
+  --bg-darker: #eaf4f3;
+  --teal: #38a095;
+  --lightgreen: #cce1df;
+  --lightblue: #90cac4;
+  --blue: #8edaf1;
+} 
+
 *{
   margin: 0;
   padding: 0;
@@ -52,9 +62,8 @@ h1{
   margin-bottom: -24px;
 }
 
+
 #search-container input{
-  border: 1px solid #58AD9D;
-  border-radius: 20px;
   align-self: flex-end;
   width: 13rem;
   height: 45px;

@@ -8,7 +8,6 @@
     die("Connection failed: " . $conn->connect_error);
 }
 
-  // Collect form data
   $firstName = $_POST["firstName"];
   $lastName = $_POST["lastName"];
   $mobileNumber = $_POST["mobileNumber"];
@@ -27,8 +26,6 @@
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    // Close connection
     $conn->close();
   }
 ?>

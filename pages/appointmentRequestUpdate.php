@@ -58,6 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     }
 
     $conn->close();
+
+    
 } else {
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
 

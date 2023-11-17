@@ -34,6 +34,7 @@ main{
 }
 
 .contain{
+    height: 30px;
     display: flex;
     justify-content: flex-end;
     gap: 15px;
@@ -161,3 +162,21 @@ table {
     height: auto;
     cursor: pointer;
 }
+
+/*css for approve & decline*/
+.action-buttons {
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action-buttons button {
+    font-size: 23px;
+    background-color:transparent;
+    color: #38a095;
+  }
+  .action-buttons button:hover{
+    color: #acafaf;
+    transform-origin: 0.5s;
+  }
