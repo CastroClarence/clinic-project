@@ -55,7 +55,7 @@
           <div id="search-container">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <i class="fas fa-search"></i>
-              <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>">
+              <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>" placeholder="  Search">
             </form>
           </div>
 
@@ -76,7 +76,8 @@
 
                   echo "<td>";
                   if ($row["requestStatus"] == "Pending") {
-                      echo "<form action='appointmentRequestUpdate.php' method='post'>
+                      echo "<div class='action-buttons'>
+                            <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='newStatus' value='Approved'>
                                 <button type='submit' name='approve'><i class='fas fa-check-square'></i></button>
@@ -95,6 +96,7 @@
                       if ($row["patientStatus"] == "Verified") {
                         echo "<input type='hidden' name='deletePatientRecord' value='true'>";
                       }
+                      echo "</div>";
                   } else {
                       echo $row["requestStatus"];
                   }
@@ -103,6 +105,7 @@
 
                   //update and delete buttons
                   echo "<td>
+                          <div class='action-buttons'>
                             <form action='appointmentRequestUpdate.php' method='post'>
                                 <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                 <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
@@ -112,6 +115,7 @@
                   echo "</tr>";
                   
                 }
+                echo "</div>";
                 
                 echo "</table>";
             } else {

@@ -36,7 +36,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../styles/appointmentRequest.css">
+    <link rel="stylesheet" href="../styles/patientRecord.css">
 </head>
 <body>
     <div class="container">
@@ -46,12 +46,14 @@
 
             <div id="reqTbl">
 
-                <div id="search-container">
-                    <button><a href="addPatient.php">Add</a></button>
-                    
+                <div id="search-container">  
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>">
+                        <i class="fas fa-search"></i>
+                        <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>" placeholder="  Search">
                     </form>
+                </div>
+                <div id="add-patient">
+                    <button><a href="addPatient.php"><i class="fa-solid fa-user-plus"></i></a></button>
                 </div>
 
                 <?php
@@ -75,14 +77,16 @@
 
                     //update and delete buttons
                     echo "<td>
+                            <div class='action-buttons'>
                                 <form action='patientRecordUpdate.php' method='post'>
                                     <input type='hidden' name='patientID' value='{$row['patientID']}'>
-                                    <button type='submit'>Update</button>
+                                    <button type='submit'><i class='fas fa-edit'></i></button>
                                 </form>
                             </td>";
                     echo "</tr>";
-                    
+                    echo "</div>";
                     }
+                    
                     
                     echo "</table>";
                     } else {
