@@ -17,9 +17,10 @@
   $occupation = $_POST["occupation"];
   $email = $_POST["email"];
   $homeAddress = $_POST["homeAddress"];
+  $patientBalance = $_POST["patientBalance"];
 
-  $sql = "INSERT INTO patients (patientFirstName, patientLastName, patientMobileNo, patientAge, patientSex, patientOccupation, patientEmail, patientAddress)
-            VALUES ('$firstName', '$lastName', '$mobileNumber', '$age', '$sex', '$occupation', '$email', '$homeAddress')";
+  $sql = "INSERT INTO patients (patientFirstName, patientLastName, patientMobileNo, patientAge, patientSex, patientOccupation, patientEmail, patientAddress, patientBalance)
+            VALUES ('$firstName', '$lastName', '$mobileNumber', '$age', '$sex', '$occupation', '$email', '$homeAddress', '$patientBalance')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Patient added successfully";
@@ -108,6 +109,15 @@
                           id="homeAddress"
                           name="homeAddress"
                           placeholder="Enter Home Address"/>
+                </div>
+
+                <div class="user-input-box">
+                  <label for="patientBalance">Balance: </label>
+                  <input type="number"
+                          id="patientBalance"
+                          name="patientBalance"
+                          placeholder="Enter Balance"
+                          value="0.00" readonly/>
                 </div>
             </form>
             <div class="form-submit-btn">
