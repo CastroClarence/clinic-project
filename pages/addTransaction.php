@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Record</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
     <link rel="stylesheet" href="../styles/transaction.css">
+    <?php include('header.php'); ?>
 </head>
 <body>
     <div class="container">
@@ -17,27 +17,30 @@
                     <a href="transaction.php">Back</a>
                 </div>
             </div>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-container">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-container" id="forms">
                 <div>
                     <span>Patient ID</span>
-                    <input type="number" id="patientid" name="patientid" placeholder="Enter Patient ID">
+                    <input type="number" id="patientid" name="patientid" placeholder="Enter Patient ID" required>
                 </div>
                 <div>
                     <span>Charge Amount</span>
-                    <input type="number" id="chargeamount" name="chargeamount" placeholder="Enter Charge Amount">
+                    <input type="number" id="chargeamount" name="chargeamount" placeholder="Enter Charge Amount" required>
                 </div>
                 <div>
                     <span>Amount Paid</span>
-                    <input type="number" id="amountpaid" name="amountpaid" placeholder="Enter Amount Paid">
+                    <input type="number" id="amountpaid" name="amountpaid" placeholder="Enter Amount Paid" required>
                 </div>
                 <div>
                     <span>Notes</span>
                     <textarea id="notes" name="notes" rows="3" cols="50" placeholder="Enter your Notes"></textarea>
                 </div>
                 <div class="button btn-submit">
-                    <input type="submit" name="submit" value="Submit">
+                    <input type="submit" id="form-btn" name="submit" value="Submit">
                 </div>
             </form>
+            <script>
+                insertAlert('form-btn', 'forms');
+            </script>
         </main>
     </div>
 </body>
@@ -80,6 +83,7 @@
             header("Location: transaction.php");
         } else {
             echo "Error: " . $conn->error;
+            echo "<script>msgAlert('Something went wrong.', 'error', 'transaction.php');</script>";
         }
     }
 ?>
