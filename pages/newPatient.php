@@ -13,7 +13,6 @@
         $_SESSION["email"] = $_POST["email"]; 
         $_SESSION["address"] = $_POST["address"]; 
         $_SESSION["occupation"] = $_POST["occupation"]; 
-       
 
         $firstName = $_POST["fname"];
         $lastName = $_POST["lname"];
@@ -37,12 +36,9 @@
         $_SESSION["selectedDate"] = $_POST["selectedDate"];
         $selectedDate = $_POST["selectedDate"];
         echo "<script>document.getElementById('date').value = '$selectedDate'</script>";
+
         $checkDates = "SELECT requestTime FROM requests WHERE requestDate = '$selectedDate'";
-        try{
-            $results = mysqli_query($conn, $checkDates);
-        }catch(mysqli_sql_exception){
-            echo "Error Searching";
-        }
+        $results = mysqli_query($conn, $checkDates);
         if(mysqli_num_rows($results) > 0){
             while($row = mysqli_fetch_assoc($results)){
                 foreach($availableTime as $content){
@@ -74,12 +70,8 @@
 
         $findID = "SELECT * FROM patients WHERE patientEmail = '{$_SESSION["email"]}'";
 
-        try{
-            $resultID = mysqli_query($conn, $findID);
-        }catch(mysqli_sql_exception){
-            echo "Error Searching";
-        }
-
+        $resultID = mysqli_query($conn, $findID);
+       
         if(mysqli_num_rows($resultID) > 0){
             $row = mysqli_fetch_assoc($resultID);
             $patientID = $row["patientID"];
@@ -90,7 +82,21 @@
 
             try{
                 $resultID = mysqli_query($conn, $insertToAppointment);
-                header("Location: ../pages/index.php");
+                
+                unset($_SESSION["firstName"]);
+                unset($_SESSION["lastName"]);
+                unset($_SESSION["age"]);
+                unset($_SESSION["sex"]);
+                unset($_SESSION["mobileNum"]);
+                unset($_SESSION["email"]);
+                unset($_SESSION["address"]);
+                unset($_SESSION["occupation"]);
+                unset($_SESSION["selectedDate"]);
+                unset($_SESSION["selectOption"]);
+                unset($_SESSION["serviceChosen"]);
+                unset($_SESSION["notes"]);
+                
+                echo "<script> parent.window.location = '../pages/index.php'</script>";
             }catch(mysqli_sql_exception){
                 echo "Error Searching";
             }
@@ -98,13 +104,30 @@
             echo "NO ID FOUND!";
         }  
     }
+
+    function disableInput(){
+        echo "<script>document.getElementById('submitInfo').classList.remove('dateLay');
+        document.getElementById('submitInfo').classList.add('hideConfirmButton');
+        document.getElementById('confirmCheckbox').classList.add('hideConfirmButton');
+        document.getElementById('labelConfirm').classList.add('hideConfirmButton');
+        document.getElementById('fname').readOnly = true;
+        document.getElementById('lname').readOnly = true;
+        document.getElementById('age').readOnly = true;
+        document.getElementById('email').readOnly = true;
+        document.getElementById('email').readOnly = true;
+        document.getElementById('sex').disabled = true;
+        document.getElementById('mobileNum').readOnly = true;
+        document.getElementById('email').readOnly = true;
+        document.getElementById('address').readOnly = true;
+        document.getElementById('occupation').readOnly = true;</script>";
+    }
 ?>
 
 <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>Old Patient Appointment</title>
+      <title>New Patient Appointment</title>
       <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
       <link rel="stylesheet" href="../styles/patientForm.css" />
       <!-- Font Awesome Cdn Link -->
@@ -115,7 +138,8 @@
             <div class="am-body">
             <div class="am-head">
                 <h1>Appointment Request</h1>
-            </div> 
+            </div>
+            <a href="optionAppointment.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
             <p class = "error">
                 <?php
                     if(isset( $errorPrompt["emailRegExist"])){
@@ -196,24 +220,9 @@
                                 document.getElementById('sex').value = '$sex';
                                 document.getElementById('mobileNum').value = '$mobileNum';
                                 document.getElementById('address').value = '$address';
-                                document.getElementById('occupation').value = '$occupation';
+                                document.getElementById('occupation').value = '$occupation';</script>";
                                 
-                                document.getElementById('submitInfo').classList.remove('dateLay');
-                                document.getElementById('submitInfo').classList.add('hideConfirmButton');
-                                document.getElementById('confirmCheckbox').classList.add('hideConfirmButton');
-                                document.getElementById('labelConfirm').classList.add('hideConfirmButton');
-
-
-                                document.getElementById('fname').readOnly = true;
-                                document.getElementById('lname').readOnly = true;
-                                document.getElementById('age').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('sex').disabled = true;
-                                document.getElementById('mobileNum').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('address').readOnly = true;
-                                document.getElementById('occupation').readOnly = true;</script>";
+                                disableInput();
                             }
                         }
                     ?>
@@ -230,24 +239,9 @@
                                 document.getElementById('email').value = '{$_SESSION["email"]}';
                                 document.getElementById('mobileNum').value = '{$_SESSION["mobileNum"]}';
                                 document.getElementById('address').value = '{$_SESSION["address"]}';
-                                document.getElementById('occupation').value = '{$_SESSION["occupation"]}';
+                                document.getElementById('occupation').value = '{$_SESSION["occupation"]}';</script>";
 
-                                document.getElementById('submitInfo').classList.remove('dateLay');
-                                document.getElementById('submitInfo').classList.add('hideConfirmButton');
-                                document.getElementById('submitInfo').classList.add('hideConfirmButton');
-                                document.getElementById('confirmCheckbox').classList.add('hideConfirmButton');
-                                document.getElementById('labelConfirm').classList.add('hideConfirmButton');
-                                
-                                document.getElementById('fname').readOnly = true;
-                                document.getElementById('lname').readOnly = true;
-                                document.getElementById('age').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('sex').disabled = true;
-                                document.getElementById('mobileNum').readOnly = true;
-                                document.getElementById('email').readOnly = true;
-                                document.getElementById('address').readOnly = true;
-                                document.getElementById('occupation').readOnly = true;</script>";
+                                disableInput();
                             }else{
                                 echo "<input type='date' name='selectedDate' id='date' class = 'dateLay' disabled>";
                             }
@@ -333,6 +327,6 @@
         
         <script src ="../scripts/dateToday.js"></script>
         <script src ="../scripts/checkRequired.js"></script>
-        <script src ="../scripts/newPatient.js"></script>
+        <script src ="../scripts/formAppLanding.js"></script>
     </body>
   </html>

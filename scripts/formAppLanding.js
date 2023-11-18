@@ -3,18 +3,15 @@ function confirmSubmit(){
     if(subRes == true){
         return true;
     }else{
-        event.preventDefault()
+        e.preventDefault();
     }
 }
 function infoSubmit(){
     let subRes = confirm("Are your information correct? No changes after checking time.");
     if(subRes == true){
-        if(document.getElementById('sex').disabled =true){
-            document.getElementById('sex').disabled =false;
-        }
         return true;
     }else{
-        event.preventDefault()
+        e.preventDefault();
     }
 }
 
