@@ -27,24 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
         $conn->close();
 
+        $deleteMessage = "Records deleted successfully";
+
         header("Location: appointmentRequest.php");
         exit;
     }
-
-    switch ($_POST['submit']) {
-        case 'approve':
-            $requestStatus = 'Approved';
-    
-            if (isset($_POST['newPatientStatus'])) {
-                $patientStatus = $_POST['newPatientStatus'];
-            }
-    
-            break;
-        case 'decline':
-            $requestStatus = 'Declined';
-            break;
-    }
-    
 
     $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '$date', requestTime = '$time', requestStatus = '$requestStatus' WHERE requestID = $requestID";
     
@@ -78,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $date = $row["requestDate"];
         $time = $row["requestTime"];
         $requestStatus = $row["requestStatus"];
+
         if (isset($_POST["approve"]) && $row["patientStatus"] != "Verified") {
             $patientStatus = "Verified";
         }

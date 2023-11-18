@@ -68,10 +68,17 @@ body{
     padding: 0 10px;
 }
 
+.form-submit-btn{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
 
 .form-submit-btn input{
     display: block;
-    width: 85vw;
+    width: 60vw;
     margin-top: 10px;
     font-size: 20px;
     padding: 10px;
