@@ -1,79 +1,110 @@
 <?php
-include("../phpFiles/dbConnect.php");
+    session_start();
 
-$requestID = "";
-$patientID = "";
-$requestStatus = "";
-$patientStatus = "";
-$date = "";
-$time = "";
-$updateMessage = "";
+    include("../phpFiles/dbConnect.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-    $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
-    $patientID = isset($_POST["patientID"]) ? $_POST["patientID"] : "";
-    $date = isset($_POST["date"]) ? $_POST["date"] : "";
-    $time = isset($_POST["time"]) ? $_POST["time"] : "";
-    $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
-    $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
+    $requestID = "";
+    $patientID = "";
+    $requestStatus = "";
+    $patientStatus = "";
+    $date = "";
+    $time = "";
+    $updateMessage = "";
+    $allTime = array("08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "16:00:00");
+    $availableTime = $allTime;
 
-    if ($requestStatus == "Declined" && $patientStatus == "Not Verified") {
+    //php of selected date
+    if(isset($_POST["submitSelectDate"])){
+        $_SESSION["selectedDate"] = $_POST["selectedDate"];
+        $selectedDate = $_POST["selectedDate"];
+        echo "<script>document.getElementById('date').value = '$selectedDate'</script>";
+        $checkDates = "SELECT requestTime FROM requests WHERE requestDate = '$selectedDate'";
+        try{
+            $results = mysqli_query($conn, $checkDates);
+        }catch(mysqli_sql_exception){
+            echo "Error Searching";
+        }
+        if(mysqli_num_rows($results) > 0){
+            while($row = mysqli_fetch_assoc($results)){
+                foreach($availableTime as $content){
+                    if($row["requestTime"] == $content){
+                        $indexNumber = array_search($content, $availableTime);
+                        unset($availableTime[$indexNumber]);
+                    }       
+                }
+            }
+        }else{
+            $availableTime = $allTime;
+        }
+    }
 
-        $deleteRequestsQuery = "DELETE FROM requests WHERE patientID = '$patientID'";
-        $deletePatientsQuery = "DELETE FROM patients WHERE patientID = '$patientID'";
 
-        $conn->query($deleteRequestsQuery);
-        $conn->query($deletePatientsQuery);
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["finalSubmit"])) {
+        $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
+        $patientID = isset($_POST["patientID"]) ? $_POST["patientID"] : "";
+        $date = isset($_POST["date"]) ? $_POST["date"] : "";
+        $time = isset($_POST["time"]) ? $_POST["time"] : "";
+        $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
+        $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
+        $_SESSION["selectOption"] = $_POST["selectOption"];
+
+        if ($requestStatus == "Declined" && $patientStatus == "Not Verified") {
+
+            $deleteRequestsQuery = "DELETE FROM requests WHERE patientID = '$patientID'";
+            $deletePatientsQuery = "DELETE FROM patients WHERE patientID = '$patientID'";
+
+            $conn->query($deleteRequestsQuery);
+            $conn->query($deletePatientsQuery);
+
+            $conn->close();
+
+            $deleteMessage = "Records deleted successfully";
+
+            header("Location: appointmentRequest.php");
+            exit;
+        }
+
+        $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '{$_SESSION["selectedDate"]}', requestTime = '{$_SESSION["selectOption"]}', requestStatus = '$requestStatus' WHERE requestID = $requestID";
+        
+        if ($conn->query($updateQuery) === TRUE) {
+            $updateMessage = "Record updated successfully";
+
+            $updatePatientStatusQuery = "UPDATE patients SET patientStatus = '$patientStatus' WHERE patientID = $patientID";
+            $conn->query($updatePatientStatusQuery);
+        } else {
+            $updateMessage = "Error updating record: " . $conn->error;
+        }
 
         $conn->close();
 
-        $deleteMessage = "Records deleted successfully";
-
-        header("Location: appointmentRequest.php");
-        exit;
-    }
-
-    $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '$date', requestTime = '$time', requestStatus = '$requestStatus' WHERE requestID = $requestID";
-    
-    if ($conn->query($updateQuery) === TRUE) {
-        $updateMessage = "Record updated successfully";
-
-        $updatePatientStatusQuery = "UPDATE patients SET patientStatus = '$patientStatus' WHERE patientID = $patientID";
-        $conn->query($updatePatientStatusQuery);
+        
     } else {
-        $updateMessage = "Error updating record: " . $conn->error;
-    }
+        $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
 
-    $conn->close();
+        $selectQuery = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
+                    FROM requests
+                    LEFT JOIN patients ON requests.patientID = patients.patientID
+                    WHERE requests.requestID = $requestID";
 
-    
-} else {
-    $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
-
-    $selectQuery = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestStatus
-                FROM requests
-                LEFT JOIN patients ON requests.patientID = patients.patientID
-                WHERE requests.requestID = $requestID";
-
-    $result = $conn->query($selectQuery);
+        $result = $conn->query($selectQuery);
 
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
 
-        $patientID = $row["patientID"];
-        $date = $row["requestDate"];
-        $time = $row["requestTime"];
-        $requestStatus = $row["requestStatus"];
+            $patientID = $row["patientID"];
+            $date = $row["requestDate"];
+            $time = $row["requestTime"];
+            $requestStatus = $row["requestStatus"];
 
-        if (isset($_POST["approve"]) && $row["patientStatus"] != "Verified") {
-            $patientStatus = "Verified";
-        }
-        else {
-            $patientStatus = $row["patientStatus"];
+            if (isset($_POST["approve"]) && $row["patientStatus"] != "Verified") {
+                $patientStatus = "Verified";
+            }
+            else {
+                $patientStatus = $row["patientStatus"];
+            }
         }
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -120,20 +151,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 </div>
 
                 <div class="am-row">
-                <div class="am-col-6">
-                            <p>Select Date: </p>
-                            <input type="date" name="date" id="date" value="<?php echo $date; ?>">
+                    <div class="am-col-6">
+                        <p>Select Date: </p>
+                        <input type='date' name='selectedDate' id='date' class = 'dateLay' required>
+                        <input type ='submit' name = 'submitSelectDate'  id = 'submitSelectDate' class = 'dateLay' value = 'CHECK AVAILABLE TIME' onclick = 'e.preventDefault()'>
+                    </div>
+                    
+                    <!-- Time -->
+                    <div class="am-col-6">
+                        <div>
+                            <label for = "dateSelect"> Choose Time: </label>
+                            <?php
+                                if((!empty($_POST["submitSelectDate"]))){
+                                    echo "<script>document.getElementById('date').value = '$selectedDate'</script>";
+                                    echo '<select name="selectOption" id = "dateSelect">?';    
+                                }else{
+                                    echo '<select name="selectOption" id = "dateSelect" disabled>';
+                                }
+
+                                foreach($availableTime as $content){
+                                    $displayTime = strtotime($content);
+                                    $finalTime = date("h:i A", $displayTime);
+                                    echo "<option value= '$content'> $finalTime </option>";
+                                }
+                                echo "</select>";
+                            ?>
                         </div>
-                        <div class="am-col-6">
-                            <p>Select Time: </p>
-                            <input type="time" name="time" id="time" value="<?php echo $time; ?>">
-                        </div>
+                    </div>
                         
                 </div>
 
                 <div class="am-row">
                     <div class="am-col-3">
-                        <button type="submit" name="submit">Update Appointment</button>
+                    <?php
+                                if((!empty($_POST["submitSelectDate"]))){
+                                    echo '<button type="submit" name="finalSubmit" id ="finalSubmit" value = "SUBMIT APPOINTMENT" onclick = "confirmSubmit()">Update Appointment</button>'; 
+                                }else{
+                                    echo '<button type="submit" name="finalSubmit" id ="finalSubmit" value = "SUBMIT APPOINTMENT" onclick = "confirmSubmit()" disabled>Update Appointment</button>';
+                                }
+                            ?>
                     </div>
                 </div>
             </form>
@@ -146,5 +202,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 </div>
         </div>
     </div>
+
+    <script src ="../scripts/dateToday.js"></script>
+    <script src ="../scripts/newPatient.js"></script>
 </body>
 </html>
