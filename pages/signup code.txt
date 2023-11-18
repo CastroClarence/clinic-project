@@ -1,0 +1,14 @@
+<h1>Sign Up</h1>
+    <form autocomplete="off" action = "loginReg.php" id = "formReg" class = "inputFormReg" name ="formReg" method = "post">
+        <input type ="text" id = "fNReg" class = "inputReg" name = "fNReg" placeholder="First Name" required>
+        <input type ="text" id = "lNReg" class = "inputReg" name = "lNReg" placeholder="Last Name" required>
+        <input type ="email" id = "emailReg" class = "inputLogin" name = "emailReg" placeholder="Email" required><br>
+        <input type ="password" id = "passReg" class = "inputReg" name = "passReg" 
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?_&]{8,}$"
+        title="Password must be at least 8 characters with a mix of uppercase and lowercase letters, numbers, and special characters."
+        placeholder="Password" onchange="confirmPassword()"  required>
+        <input type ="password" id = "confirmPassReg" class = "inputReg" name = "confirmPassReg" placeholder="Confirm Password" onkeyup="confirmPassword()" required>
+        <img src = "../images/hidePass.png" id ="passImageReg" class = "passImg"><br>
+        <input type = "submit" id ="regBtn" class = "mainBtn" name = "register" value = "REGISTER" >
+    </form>
+    <br><p>Already have an account? </p><button onclick ="showLog()" class = "btnInquiry"> Login</button> 

@@ -12,10 +12,10 @@
         <div class="center">
             <h1>Select Patient</h1>
             <form method="post">
-                <a href="oldPatient.php" target="_parent">
+                <a href="oldPatient.php" target="_self">
               <input type="button" value="Old Patient">
             </a>
-            <a href="newPatient.php" target="_parent">
+            <a href="newPatient.php" target="_self">
               <input type="button" value="New Patient">
             </a>
             </form>

@@ -85,7 +85,7 @@ input, textarea, select, button{
 }
 .am-body-box{
     padding: 20px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 .disabled{
     cursor: none;
@@ -158,7 +158,20 @@ input[type="checkbox"]{
     display: none;
 }
 
-#submitInfo:disabled{
-    background-color: #aeaeae;
+#submitInfo:disabled, #submitInfoOld:disabled{
+    background-color: #acafaf;
 }
 
+i{
+    font-size: 1.3rem;
+    color: #38a095;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0.5em;
+    left: 1em;
+}
+i:hover{
+    background-color: #9bcfca;
+    transition: 0.5s;
+    color: #f4f4f4;
+}

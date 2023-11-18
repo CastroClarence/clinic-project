@@ -36,8 +36,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Record</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
     <link rel="stylesheet" href="../styles/transaction.css">
+    <?php include('header.php'); ?>
 </head>
 <body>
     <div class="container">

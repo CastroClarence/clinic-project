@@ -114,8 +114,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/requestUpdate.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/appointmentRequestUpdate.css">
+    <?php include('header.php'); ?>
 </head>
 <body>
     <div class="am-container">
@@ -124,7 +124,7 @@
                 <h1>Appointment Request Update</h1>
             </div>
 
-            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php">
+            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php" id="upd-form">
                 <a href="appointmentRequest.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
 
 
@@ -193,9 +193,10 @@
                     </div>
                 </div>
             </form>
-            <div class="update-message">
-                <?php echo $updateMessage; ?>
-            </div>
+                <!-- d pa naganaaaaaaaaaaa -->
+                <!-- <script> -->
+                <!--     updateAlert('upd-btn', 'upd-form'); -->
+                <!-- </script> -->
 
             <div class="am-footer">
                     <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
