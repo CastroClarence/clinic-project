@@ -71,15 +71,15 @@ h2{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    -webkit-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    -moz-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    box-shadow: 3px 3px 10px 9.5px #c3c3c3;
+    -webkit-box-shadow: 2px 2px 3px 1px #c3c3c3;
+    -moz-box-shadow: 2px 2px 3px 1px #c3c3c3;
+    box-shadow: 2px 2px 3px 1px #c3c3c3;
 }
 
 .users .card{
     width: 25%;
     margin: 10px;
-    background: var(--teal);
+    background: linear-gradient(45deg, var(--lightblue), var(--green));
     text-align: center;
     border-radius: 15px;
     padding: 10px;
@@ -100,8 +100,7 @@ h1{
 #chartContainer {
     border-radius: 10px; /* Adjust the value as needed */
     overflow: hidden; /* Ensures the border-radius is applied */
-    -webkit-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    -moz-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    ma
+    -webkit-box-shadow: 2px 2px 3px 5px #c3c3c3;
+    -moz-box-shadow: 2px 2px 3px 5px #c3c3c3;
+    box-shadow: 2px 2px 3px 5px #c3c3c3;
 }
