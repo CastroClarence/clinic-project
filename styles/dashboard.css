@@ -79,7 +79,7 @@ h2{
 .users .card{
     width: 25%;
     margin: 10px;
-    background: var(--teal);
+    background: linear-gradient(45deg, var(--lightblue), var(--green));
     text-align: center;
     border-radius: 15px;
     padding: 10px;
@@ -103,5 +103,4 @@ h1{
     -webkit-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
     -moz-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
     box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    ma
 }
