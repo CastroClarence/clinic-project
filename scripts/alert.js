@@ -78,14 +78,14 @@ function updateAlert(buttonId, formId) {
 //     });
 // }
 
-function msgAlert(msg, msgIcon, location) {
+function msgAlert(msg, msgIcon/*, location*/) {
     Swal.fire({
         title: msg,
         icon: msgIcon,
         confirmButtonColor: "#38a095"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.replace(location);
-        }
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         window.location.replace(location);
+    //     }
     }); 
 }

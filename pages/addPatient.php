@@ -22,7 +22,8 @@
             VALUES ('$firstName', '$lastName', '$mobileNumber', '$age', '$sex', '$occupation', '$email', '$homeAddress', '$patientBalance')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Patient added successfully";
+        $conn->close();
+        header('location: patientRecord.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -36,13 +37,14 @@
       <meta charset="UTF-8" />
       <title>Dashboard</title>
       <link rel="stylesheet" href="../styles/addPatient.css" />
+        <?php include('header.php'); ?>
     </head>
     <body>
       <div class="container">
             <?php include('sidebar.php'); ?>
             <div class="form_container">
             <h1 class="form-title">Add Patient</h1>
-            <form method="post" action="#">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add-form" >
               <div class="main-user-info">
                 <div class="user-input-box">
                   <label for="firstName">First Name: </label>
@@ -116,10 +118,13 @@
                           placeholder="Enter Balance"
                           value="0.00" readonly/>
                 </div>
+                <div class="form-submit-btn">
+                  <input type="submit" id="submit-btn" value="Add">
+                </div>
             </form>
-            <div class="form-submit-btn">
-              <input type="submit" value="Add">
-            </div>
+            <script>
+                insertAlert('submit-btn', 'add-form');
+            </script>
           </div>
         </div>
     </body>
