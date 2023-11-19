@@ -100,7 +100,7 @@ h1{
 #chartContainer {
     border-radius: 10px; /* Adjust the value as needed */
     overflow: hidden; /* Ensures the border-radius is applied */
-    -webkit-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    -moz-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    box-shadow: 3px 3px 10px 9.5px #c3c3c3;
+    -webkit-box-shadow: 2px 2px 3px 5px #c3c3c3;
+    -moz-box-shadow: 2px 2px 3px 5px #c3c3c3;
+    box-shadow: 2px 2px 3px 5px #c3c3c3;
 }
