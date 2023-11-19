@@ -16,7 +16,7 @@
     $sqlAmountCharged = "SELECT SUM(transChargeAmount) AS amountCharged FROM transactions";
     $resultAmountCharged = $conn->query($sqlAmountCharged);
 
-    $sql = "SELECT transDate, transChargeAmount, transAmountPaid FROM transactions";
+    $sql = "SELECT transDate, transChargeAmount, transAmountPaid, transTime FROM transactions";
     $result = $conn->query($sql);
 
     $data = array();
@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="../styles/dashboard.css" />
         <script type="text/javascript" src ="../scripts/dashboard.js"></script>
         <script>
-        var chartData = <?php echo json_encode($data); ?> ;
+            var chartData = <?php echo json_encode($data); ?>;
         </script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>        
     </head>
@@ -65,7 +65,7 @@
                             ?>
                         </div>
 
-                        <i class="fa-solid fa-hand-holding-dollar fa-2xl" style="color: #f4f4f4;"></i>
+                        <i class="fa-solid fa-hand-holding-dollar fa-2xl"></i>
                     </div>
                     <div class="card">
                         <div class="per">
@@ -80,7 +80,7 @@
                             ?>
                         </div>
 
-                        <i class="fa-solid fa-user fa-2xl" style="color: #f4f4f4;"></i>
+                        <i class="fa-solid fa-user fa-2xl"></i>
                     </div>
                     <div class="card">
                         <div class="per">
@@ -95,7 +95,7 @@
                             ?>
                         </div>
 
-                        <i class="fa-solid fa-calendar fa-2xl" style="color: #f4f4f4;"></i>
+                        <i class="fa-solid fa-calendar fa-2xl"></i>
                     </div>
                     <div class="card">
                         <div class="per">
@@ -103,14 +103,14 @@
                             <?php
                             if ($resultAmountCharged->num_rows > 0) {
                                 $rowAmountCharged = $resultAmountCharged->fetch_assoc();
-                                echo "<h2>₱ " . $rowAmountCharged["amountCharged"] . "</h2>";
+                                echo "<h2>₱" . $rowAmountCharged["amountCharged"] . "</h2>";
                             } else {
-                                echo "<h2>₱ 0.00</h2>";
+                                echo "<h2>₱0.00</h2>";
                             }
                             ?>
                         </div>
 
-                        <i class="fa-solid fa-money-bill fa-2xl" style="color: #f4f4f4;"></i>
+                        <i class="fa-solid fa-money-bill fa-2xl"></i>
                     </div>
                 </div>
 
