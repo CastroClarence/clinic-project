@@ -125,9 +125,14 @@
             </div>
 
             <form class="am-body-box" method="post" action="appointmentRequestUpdate.php" id="upd-form">
-                <a href="appointmentRequest.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
-
-
+                <?php
+                    if($row["requestStatus"] == "Approved" && $row["patientStatus"] == "Verified"){
+                        echo "<a href='calendarAppointment.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
+                    }else{
+                        echo "<a href='appointmentRequest.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
+                    }
+                ?>
+            
                 <div class="am-row">
                     <div class="am-col-6">
                         <p>Appointment Request ID: </p>

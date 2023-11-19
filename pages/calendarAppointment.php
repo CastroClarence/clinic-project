@@ -8,6 +8,7 @@
       <title>Calendar</title>
       <link rel="stylesheet" href="../styles/calendarAppointment.css" />
       <link rel="stylesheet" href="../styles/calendarDisplay.css" />
+      <link rel="stylesheet" href="../styles/transaction.css">
     </head>
     <body>
         <div class="container">
@@ -75,12 +76,13 @@
                     <th class="head">Date</th>
                     <th class="head">Time</th>
                     <th class="head">Notes</th>
+                    <th class="head">Action</th>
                    </tr>
                    <?php
                       if(isset($_POST["dateSubmit"])){
                         $inputDate = $_POST["inputDate"];
                         
-                        $searchDate = "SELECT appointments.requestID, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
+                        $searchDate = "SELECT appointments.requestID, appointments.requestStatus, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
                         FROM appointments INNER JOIN patients ON appointments.patientID = patients.patientID WHERE appointments.requestDate = '$inputDate'";
 
                         try{
@@ -99,6 +101,15 @@
                             echo "<td>" . " ". $row["requestDate"] . " ". "</td>";
                             echo "<td>" . " ". $row["requestTime"] . " ". "</td>";
                             echo "<td>" . " ". $row["requestNotes"] . " ". "</td>";
+
+                            echo "<td>
+                                  <div class='action-buttons'>
+                                    <form action='appointmentRequestUpdate.php' method='post'>
+                                        <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                        <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
+                                        <button type='submit'><i class='fas fa-edit'></i></button>
+                                    </form>
+                            </td>";
                             echo "</tr>";                            
                           }
                         }else{
