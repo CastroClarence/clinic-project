@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Jost', sans-serif;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
@@ -15,6 +15,9 @@ section{
 
 header{
     margin-bottom: 90px;
+}
+body{
+    background-color: #faf4f4;
 }
 
 nav{
@@ -204,10 +207,12 @@ nav img{
 
 #about p{
     text-align: justify;
+    font-size: 25px;
 }
 
 #about img{
     width: 40vw;
+    margin-top: -50px;
 }
 
 .about-container{
@@ -228,14 +233,15 @@ nav img{
     align-items: baseline;
     background-color: white;
     gap: 10px;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
-    padding: 15px
+    padding: 15px;
+    font-size: 16px;
 }
 
 .service-container img{
     align-self: center;
-    height: 55px;
+    height: 80px;
 }
 
 .service-content{

@@ -94,7 +94,7 @@
         <article class="about-container">
 
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi enim aperiam labore sed provident qui repudiandae, eveniet obcaecati quis perspiciatis sit officia debitis adipisci quos incidunt aliquam quo iure ullam a id vel et veniam. Odio ut inventore quos ad repellendus. A enim aliquid debitis quis aliquam culpa excepturi delectus iure. Fugiat, asperiores consectetur? Aliquid libero repudiandae perspiciatis quisquam. Unde aspernatur, perferendis similique ex corporis sed excepturi tempora ut voluptate autem consectetur a, laborum atque harum commodi ducimus doloribus consequatur quos, debitis iusto dolore rem nostrum? Tenetur incidunt quos quae? Doloribus dolores modi ea voluptas tenetur consequatur iste aperiam consectetur alias distinctio porro debitis, tempore quisquam in illo vero dolore! Velit possimus nobis assumenda quia laudantium sapiente eum, doloremque sit architecto sequi libero natus consequatur necessitatibus fugit dolor asperiores quasi eaque ea, unde saepe, nesciunt beatae ducimus odit? Nemo iste ad et sunt expedita culpa reprehenderit maxime laboriosam, est sapiente debitis error ipsum doloremque esse! Alias, nostrum. Placeat iste facere tempore earum aspernatur, quod numquam error dignissimos odit voluptate enim totam inventore dolor neque. Voluptate quaerat culpa debitis assumenda officia laborum doloremque? Odio maiores animi quod mollitia. Ea libero enim aut necessitatibus? Enim explicabo consectetur eos fugit, nam molestiae!
+            Elevate your dental experience at Dr. Ruth S. Luneta-Alolod's Dental Clinic, your gateway to optimal oral health and radiant smiles. Located at National Highway Sta Rita Batangas City our clinic is a testament to precision, care, and innovation in dentistry. Our clinic welcomes you to a haven where your dental needs are met with unwavering dedication. Beyond providing exceptional clinical care, our clinic is designed to offer a soothing environment that transforms your dental visits into uplifting experiences. Come, contact us now, and be a part of our dental family, where your journey to a brighter smile begins!
             </p>
 
             <img src="../images/clinic-img.png" alt="clinic-img">
@@ -109,14 +109,13 @@
         <div class="service-container">
             <div>
                 <img src="../images/initialConsultation.png" alt="consultation-img">
-
                 <div class="service-content">
                     <h2>
                         Consultation
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, accusamus!
+                    Our comprehensive consultation services involve thorough oral examinations and personalized treatment plans to address your dental concerns effectively.
                     </p>
                 </div>
 
@@ -131,7 +130,7 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, corrupti?
+                    Achieve a straighter, more aligned smile through our expert orthodontic treatments, tailored to enhance both aesthetics and functionality.
                     </p>
                 </div>
 
@@ -145,8 +144,8 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, libero?
-                    </p>      
+                    Experience precise and minimally invasive surgical procedures, ensuring optimal outcomes for a range of dental conditions.                
+                    </p>  <br>    
                 </div>
 
             </div>
@@ -159,8 +158,9 @@
                     </h2>
                     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, eum?
+                    Our skilled team performs gentle and efficient tooth extractions, prioritizing patient comfort and promoting oral health.
                     </p>
+                    <br> 
                 </div>
 
   
@@ -174,8 +174,9 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, numquam?
+                    Restore your teeth to their natural strength and appearance with our high-quality dental restoration services, including fillings and crowns.
                     </p>
+                    <br> 
                 </div>
 
             </div>
@@ -188,7 +189,7 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, nostrum.
+                    Maintain optimal oral health with professional dental cleanings and preventive measures, safeguarding against common dental issues.
                     </p>
                 </div>
 
@@ -202,7 +203,7 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, odio.
+                    Alleviate pain and preserve your natural teeth through our expertly conducted root canal treatments, focusing on long-term oral health.
                     </p>
                 </div>
 
@@ -216,8 +217,9 @@
                     </h2>
     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, similique!
+                    Enhance both function and aesthetics with our customized prosthetic solutions, including bridges and dental implants.
                     </p>
+                    <br> 
                 </div>
 
             </div>
@@ -230,8 +232,9 @@
                     </h2>
     
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, laudantium.
+                    Regain confidence in your smile and functionality with our meticulously crafted dentures, tailored to meet your individual needs.
                     </p>
+
                 </div>
             </div>
 
@@ -243,8 +246,8 @@
                     </h2>
     
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, laudantium.
-                    </p>
+                    Achieve a brighter, whiter smile with our safe and effective teeth bleaching procedures, designed to enhance your overall dental appearance.
+                    <br> 
                 </div>
             </div>
         </div>
