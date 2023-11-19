@@ -180,3 +180,9 @@ table {
     color: #acafaf;
     transform-origin: 0.5s;
   }
+.fa-trash:before {
+    color: #38a095;
+}
+.fa-edit:before{
+    color: #38a095;
+}
