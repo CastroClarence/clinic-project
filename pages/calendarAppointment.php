@@ -16,7 +16,7 @@
         <div class="main">
           <div class = "titleCont">
             <h1>Calendar</h1>
-          </div>  
+          </div>
           <div class = "mainCont">
               <div class = "contianer">
                 <div class="calendar">
@@ -68,6 +68,9 @@
                 </form>
               </div>
               <div class = "searchResult">
+                <div class="button" id = "addApp">
+                      <a href="addAppointment.php"><i class="fa-solid fa-plus"></i></a>
+                </div>
                 <table class = "mainTbl" cellspacing = "0">
                   <tr>
                     <th class="head">Request ID</th>
@@ -99,7 +102,7 @@
                             echo "<td>" . " ". $row["patientFirstName"] . " ". $row["patientLastName"] . "</td>";
                             echo "<td>" . " ". $row["requestServices"] . " ". "</td>";
                             echo "<td>" . " ". $row["requestDate"] . " ". "</td>";
-                            echo "<td>" . " ". $row["requestTime"] . " ". "</td>";
+                            echo "<td>" . " ". date("h:i A",strtotime($row["requestTime"])) . " ". "</td>";
                             echo "<td>" . " ". $row["requestNotes"] . " ". "</td>";
 
                             echo "<td>
@@ -109,11 +112,11 @@
                                         <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
                                         <button type='submit'><i class='fas fa-edit'></i></button>
                                     </form>
-                            </td>";
+                                  </td>";
                             echo "</tr>";                            
                           }
                         }else{
-                            echo "<tr><th colspan = '6'>No Results</th></tr>";
+                            echo "<tr><th colspan = '7' id = 'noRes'>No Results</th></tr>";
                         }
 
                       }

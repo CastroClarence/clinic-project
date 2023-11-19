@@ -52,21 +52,20 @@
             $row = mysqli_fetch_assoc($resultID);
             $patientID = $row["patientID"];
 
-            $insertToAppointment = "INSERT INTO requests(patientID, requestServices, requestDate, requestTime, requestNotes)
+            $insertToAppointment = "INSERT INTO requests(patientID, requestServices, requestDate, requestTime, requestNotes, requestStatus)
             VALUES('$patientID', '{$_SESSION["serviceChosen"]}', '{$_SESSION["selectedDate"]}', '{$_SESSION["selectOption"]}',
-            '{$_SESSION["notes"]}')";
+            '{$_SESSION["notes"]}', 'Approved')";
 
             try{
                 $resultID = mysqli_query($conn, $insertToAppointment);
                 
-
                 unset($_SESSION["email"]);
                 unset($_SESSION["selectedDate"]);
                 unset($_SESSION["selectOption"]);
                 unset($_SESSION["serviceChosen"]);
                 unset($_SESSION["notes"]);
                 
-                echo "<script> parent.window.location = '../pages/index.php'</script>";
+                echo "<script> parent.window.location = '../pages/calendarAppointment.php'</script>";
             }catch(mysqli_sql_exception){
                 echo "Error Searching";
             }
@@ -88,7 +87,7 @@
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>Old Patient Appointment</title>
+      <title>Add Appointment</title>
       <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
       <link rel="stylesheet" href="../styles/patientForm.css" />
       <!-- Font Awesome Cdn Link -->
@@ -110,7 +109,7 @@
                         }
                     ?>
                 </p>
-               <form class="am-body-box" action = "oldPatient.php" autocomplete="off" method = "post">
+               <form class="am-body-box" action = "addAppointment.php" autocomplete="off" method = "post">
                     <div>
                         <div>
                             <p>Email: </p>
@@ -124,7 +123,7 @@
                     </div>
                 </form>
 
-                <form class="am-body-box" action = "oldPatient.php" autocomplete="off" method = "post">
+                <form class="am-body-box" action = "addAppointment.php" autocomplete="off" method = "post">
                     <?php
                         if(!empty($_POST["submitInfoOld"])){
                             if($errorPrompt["emailRegExist"] == "Email Doesn't Exist!<br>"){
@@ -157,7 +156,7 @@
                             ?>
                     </div>
                 </form>
-                <form class="am-body-box" action = "oldPatient.php" autocomplete="off" method = "post"  id = "timeServiceForm">
+                <form class="am-body-box" action = "addAppointment.php" autocomplete="off" method = "post"  id = "timeServiceForm">
                     <div class="timeCont">
                         <label for = "dateSelect"> Choose Time: </label>
                         <?php
