@@ -158,7 +158,7 @@
                 <div class="am-row">
                     <div class="am-col-6">
                         <p>Select Date: </p>
-                        <input type='date' name='selectedDate' id='date' class = 'dateLay' required>
+                        <input type='date' name='selectedDate' id='date' class = 'dateLay' value='<?php echo $date; ?>' required>
                         <input type ='submit' name = 'submitSelectDate'  id = 'submitSelectDate' class = 'dateLay' value = 'CHECK AVAILABLE TIME' onclick = 'e.preventDefault()'>
                     </div>
                     
@@ -198,10 +198,10 @@
                     </div>
                 </div>
             </form>
-                <!-- d pa naganaaaaaaaaaaa -->
-                <!-- <script> -->
-                <!--     updateAlert('upd-btn', 'upd-form'); -->
-                <!-- </script> -->
+
+            <script>
+                updateAlert('finalSubmit', 'upd-form');
+            </script>
 
             <div class="am-footer">
                     <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
