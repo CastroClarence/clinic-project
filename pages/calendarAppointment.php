@@ -8,6 +8,7 @@
       <title>Calendar</title>
       <link rel="stylesheet" href="../styles/calendarAppointment.css" />
       <link rel="stylesheet" href="../styles/calendarDisplay.css" />
+      <link rel="stylesheet" href="../styles/transaction.css">
     </head>
     <body>
         <div class="container">
@@ -15,7 +16,7 @@
         <div class="main">
           <div class = "titleCont">
             <h1>Calendar</h1>
-          </div>  
+          </div>
           <div class = "mainCont">
               <div class = "contianer">
                 <div class="calendar">
@@ -67,6 +68,9 @@
                 </form>
               </div>
               <div class = "searchResult">
+                <div class="button" id = "addApp">
+                      <a href="addAppointment.php"><i class="fa-solid fa-plus"></i></a>
+                </div>
                 <table class = "mainTbl" cellspacing = "0">
                   <tr>
                     <th class="head">Request ID</th>
@@ -75,12 +79,13 @@
                     <th class="head">Date</th>
                     <th class="head">Time</th>
                     <th class="head">Notes</th>
+                    <th class="head">Action</th>
                    </tr>
                    <?php
                       if(isset($_POST["dateSubmit"])){
                         $inputDate = $_POST["inputDate"];
                         
-                        $searchDate = "SELECT appointments.requestID, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
+                        $searchDate = "SELECT appointments.requestID, appointments.requestStatus, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
                         FROM appointments INNER JOIN patients ON appointments.patientID = patients.patientID WHERE appointments.requestDate = '$inputDate'";
 
                         try{
@@ -97,12 +102,21 @@
                             echo "<td>" . " ". $row["patientFirstName"] . " ". $row["patientLastName"] . "</td>";
                             echo "<td>" . " ". $row["requestServices"] . " ". "</td>";
                             echo "<td>" . " ". $row["requestDate"] . " ". "</td>";
-                            echo "<td>" . " ". $row["requestTime"] . " ". "</td>";
+                            echo "<td>" . " ". date("h:i A",strtotime($row["requestTime"])) . " ". "</td>";
                             echo "<td>" . " ". $row["requestNotes"] . " ". "</td>";
+
+                            echo "<td>
+                                  <div class='action-buttons'>
+                                    <form action='appointmentRequestUpdate.php' method='post'>
+                                        <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                        <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
+                                        <button type='submit'><i class='fas fa-edit'></i></button>
+                                    </form>
+                                  </td>";
                             echo "</tr>";                            
                           }
                         }else{
-                            echo "<tr><th colspan = '6'>No Results</th></tr>";
+                            echo "<tr><th colspan = '7' id = 'noRes'>No Results</th></tr>";
                         }
 
                       }
