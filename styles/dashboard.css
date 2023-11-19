@@ -71,9 +71,9 @@ h2{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    -webkit-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    -moz-box-shadow: 3px 3px 10px 9.5px #c3c3c3;
-    box-shadow: 3px 3px 10px 9.5px #c3c3c3;
+    -webkit-box-shadow: 2px 2px 3px 1px #c3c3c3;
+    -moz-box-shadow: 2px 2px 3px 1px #c3c3c3;
+    box-shadow: 2px 2px 3px 1px #c3c3c3;
 }
 
 .users .card{
