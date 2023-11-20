@@ -1,7 +1,7 @@
 <?php
+  include("../pages/login.php");
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include("../phpFiles/dbConnect.php");
-  session_start();
 
 
   if ($conn->connect_error) {
@@ -37,7 +37,7 @@
       <meta charset="UTF-8" />
       <title>Dashboard</title>
       <link rel="stylesheet" href="../styles/addPatient.css" />
-        <?php include('header.php'); ?>
+      <?php include('header.php'); ?>
     </head>
     <body>
       <div class="container">

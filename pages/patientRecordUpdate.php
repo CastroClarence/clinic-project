@@ -1,5 +1,6 @@
 <?php
 include("../phpFiles/dbConnect.php");
+include("../pages/login.php");
 
 $patientID = "";
 $patientFirstName = "";
@@ -65,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <?php include("../pages/header.php");?>
     <link rel="stylesheet" href="../styles/patientForm.css">
 </head>
 <body>

@@ -1,6 +1,6 @@
 <?php
 include("../phpFiles/dbConnect.php");
-session_start();
+include("../pages/login.php");
 
 $message = ""; // Variable to store the success or error message
 
@@ -46,9 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <?php include("../pages/header.php");?>
     <link rel="stylesheet" href="../styles/requestUpdate.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="am-container">
@@ -61,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="accountManagement.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
 
                 <?php if (!empty($message)): ?>
-                    <div class="message <?php echo (strpos($message, 'Error') !== false) ? 'error-message' : ''; ?>"><?php echo $message; ?></div>
+                    <div class="error-message <?php echo (strpos($message, 'Error') !== false) ? 'error-message' : ''; ?>"><?php echo $message; ?></div>
                 <?php endif; ?>
 
                 <div class="am-row">
@@ -81,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="am-col-6">
                         <p>Password: </p>
-                        <input type="password" name="accPassword" id="accPassword" placeholder="Enter Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?_&]{8,}$"
+                        <input type="text" name="accPassword" id="accPassword" placeholder="Enter Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?_&]{8,}$"
                         title="Password must be at least 8 characters with a mix of uppercase and lowercase letters, numbers, and special characters."
                         placeholder="Password" onchange="confirmPassword()"  required> 
                     </div>

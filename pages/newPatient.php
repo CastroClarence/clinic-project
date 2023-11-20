@@ -83,19 +83,6 @@
             try{
                 $resultID = mysqli_query($conn, $insertToAppointment);
                 
-                unset($_SESSION["firstName"]);
-                unset($_SESSION["lastName"]);
-                unset($_SESSION["age"]);
-                unset($_SESSION["sex"]);
-                unset($_SESSION["mobileNum"]);
-                unset($_SESSION["email"]);
-                unset($_SESSION["address"]);
-                unset($_SESSION["occupation"]);
-                unset($_SESSION["selectedDate"]);
-                unset($_SESSION["selectOption"]);
-                unset($_SESSION["serviceChosen"]);
-                unset($_SESSION["notes"]);
-                
                 echo "<script> parent.window.location = '../pages/index.php'</script>";
             }catch(mysqli_sql_exception){
                 echo "Error Searching";
@@ -128,10 +115,8 @@
     <head>
       <meta charset="UTF-8" />
       <title>New Patient Appointment</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
+      <?php include("../pages/header.php");?>
       <link rel="stylesheet" href="../styles/patientForm.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
         <div class="am-container">
@@ -153,17 +138,17 @@
                     <div class="am-row">
                         <div class="am-col-6">
                             <p>First Name: </p>
-                            <input type="text" name="fname" id="fname" placeholder="Enter First Name" required>
+                            <input type="text" name="fname" id="fname" placeholder="e.g. Juan" required>
                         </div>
                         <div class="am-col-6">
                             <p>Last Name: </p>
-                            <input type="text" name="lname" id="lname" placeholder="Enter Last Name" required>
+                            <input type="text" name="lname" id="lname" placeholder="e.g. Dela Cruz" required>
                         </div>
                     </div>
                     <div class="am-row">
                         <div class="am-col-6">
                             <p>Age: </p>
-                            <input type="number" name="age" id="age" placeholder="Enter Age Number" required>
+                            <input type="number" name="age" id="age" min = 1 placeholder="e.g. 18" required>
                         </div>
                         <div class="am-col-6">
                             <p>Sex: </p>
@@ -177,21 +162,21 @@
                     <div class="am-row">
                         <div class="am-col-6">
                             <p>Mobile Number: </p>
-                            <input type="text" name="mobileNum" id="mobileNum" placeholder="Enter Mobile Number" required>
+                            <input type="text" name="mobileNum" id="mobileNum" placeholder="e.g. 09**-****-***" required>
                         </div>
                         <div class="am-col-6">
                             <p>Email Address: </p>
-                            <input type="email" name="email" id="email" placeholder="Enter Email Address" required>
+                            <input type="email" name="email" id="email" placeholder="e.g. sample@gmail.com" required>
                         </div>
                     </div>
                     <div class="am-row">
                         <div class="am-col-6">
                             <p>Address: </p>
-                            <input type="text" name="address" id="address" placeholder="Enter Address" required>
+                            <input type="text" name="address" id="address" placeholder="e.g. National Highway, Sta Rita,Batangas City, Batangas, Philippines " required>
                         </div>
                         <div class="am-col-6">
                             <p>Occupation: </p>
-                            <input type="text" name="occupation" id="occupation" placeholder="Enter Occupation" required>
+                            <input type="text" name="occupation" id="occupation" placeholder="e.g. Student/Dentist/Unemployed" required>
                         </div>
                     </div>
                     <div>
@@ -305,7 +290,7 @@
                     <div class="am-row">
                         <div class="am-col-12">
                             <p>Appointment Notes (Optional):</p>
-                            <textarea name="notes" id="notes" cols="3" rows="10"></textarea>
+                            <textarea name="notes" id="notes" cols="3" rows="10" placeholder="Please provide any additional information."></textarea>
                         </div>
                     </div>
                     <div class="buttonCont">

@@ -34,10 +34,8 @@ h1{
 .am-body{
     width: 650px;
     background-color: #9bcfca;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 input, textarea, select{
     width: 100%;
@@ -142,9 +140,10 @@ i:hover{
 }
 .message {
     text-align: center;
-    color: #4CAF50; /* Green color for success message */
+    color: #4CAF50;
 }
 
 .error-message {
-    color: #FF0000; /* Red color for error message */
+    text-align: center;
+    color: #FF0000;
 }

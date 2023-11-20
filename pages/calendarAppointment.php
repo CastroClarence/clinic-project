@@ -1,18 +1,26 @@
 <?php
   include("../phpFiles/dbConnect.php");
+  include("../pages/login.php");
 ?>
 <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Calendar</title>
+      <?php include("../pages/header.php");?>
       <link rel="stylesheet" href="../styles/calendarAppointment.css" />
       <link rel="stylesheet" href="../styles/calendarDisplay.css" />
       <link rel="stylesheet" href="../styles/transaction.css">
     </head>
     <body>
         <div class="container">
-            <?php include('sidebar.php'); ?>
+        <?php 
+            if($_SESSION["accRole"] == "Admin"){
+                include('adminSidebar.php'); 
+            }else{
+                include('sidebar.php'); 
+            } 
+          ?>
         <div class="main">
           <div class = "titleCont">
             <h1>Calendar</h1>

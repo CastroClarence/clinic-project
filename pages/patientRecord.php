@@ -1,6 +1,6 @@
 <?php
   include("../phpFiles/dbConnect.php");
-  session_start();
+  include("../pages/login.php");
   
   $searchKeyword = "";
 
@@ -36,11 +36,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <?php include("../pages/header.php");?>
     <link rel="stylesheet" href="../styles/transaction.css">
 </head>
 <body>
     <div class="container">
-        <?php include('sidebar.php'); ?> 
+        <?php 
+            if($_SESSION["accRole"] == "Admin"){
+                include('adminSidebar.php'); 
+            }else{
+                include('sidebar.php'); 
+            } 
+        ?>
         <main>
             <h1 class="header">Patient Record</h1>
 

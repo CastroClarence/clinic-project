@@ -1,3 +1,4 @@
+<?php include("../pages/login.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,7 +1,6 @@
 <?php
   include("../phpFiles/dbConnect.php");
-
-  session_start();
+  include("../pages/login.php");
 
   $updateMessage = "";  
   $searchKeyword = "";
@@ -75,7 +74,7 @@
 
           switch ($patientStatus) {
               case "Verified":
-                  $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Decline' WHERE requestID = $requestID";
+                  $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Decline', requestDate = null, requestTime = null WHERE requestID = $requestID";
 
                   if ($conn->query($updateRequestStatusQuery) === TRUE) {
                       $updateMessage = "Record updated successfully";
@@ -120,7 +119,13 @@
 </head>
 <body>
     <div class="container">
-        <?php include('sidebar.php'); ?>    
+        <?php 
+            if($_SESSION["accRole"] == "Admin"){
+                include('adminSidebar.php'); 
+            }else{
+                include('sidebar.php'); 
+            } 
+        ?>  
         <main>
           <h1>Appointment Request</h1>
           <div class="main-content">
@@ -145,7 +150,7 @@
                     echo "<td>" . $row["patientMobileNo"] . "</td>";
                     echo "<td>" . $row["patientStatus"] . "</td>";
                     echo "<td>" . $row["requestDate"] . "</td>";
-                    echo "<td>" . $row["requestTime"] . "</td>";
+                    echo "<td>" . " ". date("h:i A",strtotime($row["requestTime"])) . " ". "</td>";
                     echo "<td>" . $row["requestNotes"] . "</td>";
   
                     echo "<td>";

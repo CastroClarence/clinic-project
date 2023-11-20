@@ -59,13 +59,6 @@
             try{
                 $resultID = mysqli_query($conn, $insertToAppointment);
                 
-
-                unset($_SESSION["email"]);
-                unset($_SESSION["selectedDate"]);
-                unset($_SESSION["selectOption"]);
-                unset($_SESSION["serviceChosen"]);
-                unset($_SESSION["notes"]);
-                
                 echo "<script> parent.window.location = '../pages/index.php'</script>";
             }catch(mysqli_sql_exception){
                 echo "Error Searching";
@@ -89,10 +82,8 @@
     <head>
       <meta charset="UTF-8" />
       <title>Old Patient Appointment</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
+      <?php include("../pages/header.php");?>
       <link rel="stylesheet" href="../styles/patientForm.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
         <div class="am-container">
@@ -114,7 +105,7 @@
                     <div>
                         <div>
                             <p>Email: </p>
-                            <input type="email" name="email" id="email" placeholder="Enter Email Address">
+                            <input type="email" name="email" id="email" placeholder="e.g. example@gmail.com">
                         </div>
                     </div>
                     <div>
@@ -214,7 +205,7 @@
                     <div class="am-row">
                         <div class="am-col-12">
                             <p>Appointment Notes (Optional):</p>
-                            <textarea name="notes" id="notes" cols="3" rows="10"></textarea>
+                            <textarea name="notes" id="notes" cols="3" rows="10" placeholder="Please provide any additional information."></textarea>
                         </div>
                     </div>
                     <div class="buttonCont">

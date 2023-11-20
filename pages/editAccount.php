@@ -1,6 +1,6 @@
 <?php
 include("../phpFiles/dbConnect.php");
-session_start();
+include("../pages/login.php");
 
 $accountID = "";
 $accFirstName = "";
@@ -62,8 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/requestUpdate.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php include("../pages/header.php");?>
 </head>
 <body>
     <div class="am-container">

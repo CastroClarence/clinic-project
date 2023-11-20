@@ -3,10 +3,8 @@
     <head>
       <meta charset="UTF-8" />
       <title>Appointment</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
       <link rel="stylesheet" href="../styles/optionAppointment.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <?php include("../pages/header.php");?>
     </head>
     <body>
         <div class="center">

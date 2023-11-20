@@ -1,6 +1,6 @@
 <?php
     include("../phpFiles/dbConnect.php");
-    session_start();
+    include("../pages/login.php");
     $errorPrompt["emailRegExist"] = "";
     $allTime = array("08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "16:00:00");
     $availableTime = $allTime;
@@ -88,10 +88,8 @@
     <head>
       <meta charset="UTF-8" />
       <title>Add Appointment</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
       <link rel="stylesheet" href="../styles/patientForm.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <?php include("../pages/header.php");?>
     </head>
     <body>
         <div class="am-container">
@@ -99,7 +97,7 @@
                <div class="am-head">
                 <h1>Appointment Request</h1>
                </div>
-               <a href="optionAppointment.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+               <a href="calendarAppointment.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
                <p class = "error">
                     <?php
                         if(isset( $errorPrompt["emailRegExist"])){
@@ -113,7 +111,7 @@
                     <div>
                         <div>
                             <p>Email: </p>
-                            <input type="email" name="email" id="email" placeholder="Enter Email Address">
+                            <input type="email" name="email" id="email" placeholder="e.g. sample@gmail.com">
                         </div>
                     </div>
                     <div>

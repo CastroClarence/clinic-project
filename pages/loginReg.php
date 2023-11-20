@@ -25,12 +25,8 @@
             }else{
                 $_SESSION["activeUser"] = $row["accFirstName"] . " ". $row["accLastName"];
                 $_SESSION["accRole"] = $dbAccountRole;
-                if($dbAccountRole == "Admin"){
-                    //Go to admin dashboard
-                    header("Location: index.php"); //temporary
-                }else{
-                    header("Location: dashboard.php");
-                }
+                $_SESSION['loggedIn'] = true;
+                header("Location: dashboard.php");
             }
         }else{
             $errorPrompt["noEmail"] = "Email Doesn't Exist<br>";
@@ -44,7 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logoIcon.ico"/>
+    <?php include("../pages/header.php");?>
     <link rel="stylesheet" href = "../styles/loginReg.css">
     <script type="text/javascript" src ="../scripts/loginLoad.js"></script>
 </head>

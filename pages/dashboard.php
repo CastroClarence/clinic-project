@@ -1,6 +1,6 @@
 <?php
     include("../phpFiles/dbConnect.php");
-    session_start();
+    include("../pages/login.php");
     
     $sqlTotalTransactions = "SELECT COUNT(transactionID) AS totalTransactions FROM transactions";
     $resultTotalTransactions = $conn->query($sqlTotalTransactions);
@@ -35,6 +35,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Dashboard</title>
+        <?php include("../pages/header.php");?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/KrwHSqkcS59mzxz2Lspz71bM7wQTtC1U6NhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../styles/dashboard.css" />
         <script type="text/javascript" src ="../scripts/dashboard.js"></script>
@@ -46,7 +47,13 @@
 
     <body>
         <div class="container">
-            <?php include('sidebar.php'); ?>
+            <?php 
+            if($_SESSION["accRole"] == "Admin"){
+                include('adminSidebar.php'); 
+            }else{
+                include('sidebar.php'); 
+            } 
+            ?>
             <section class="main">
                 <div class="main-top">
                     <h1>Dashboard</h1>

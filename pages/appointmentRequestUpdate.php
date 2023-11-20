@@ -1,7 +1,6 @@
 <?php
-    session_start();
-
     include("../phpFiles/dbConnect.php");
+    include("../pages/login.php");
 
     $requestID = "";
     $patientID = "";

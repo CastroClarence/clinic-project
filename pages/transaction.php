@@ -1,6 +1,6 @@
 <?php
     include("../phpFiles/dbConnect.php");
-    session_start();   
+    include("../pages/login.php");
 
     $searchterm = "";
 
@@ -41,7 +41,13 @@
 </head>
 <body>
     <div class="container">
-        <?php include('sidebar.php'); ?>
+        <?php 
+            if($_SESSION["accRole"] == "Admin"){
+                include('adminSidebar.php'); 
+            }else{
+                include('sidebar.php'); 
+            } 
+        ?>
         <main>
             <h1>Transaction Record</h1>
             <div class="main-content">
