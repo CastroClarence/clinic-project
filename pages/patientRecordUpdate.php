@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <?php include("../pages/header.php");?>
-    <link rel="stylesheet" href="../styles/patientForm.css">
+    <link rel="stylesheet" href="../styles/requestUpdate.css">
 </head>
 <body>
 
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         </div>
 
         <form class="am-body-box" method="post" action="patientRecordUpdate.php">
-            <a href="patientRecord.php">Back</a>
+        <a href="patientRecord.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
 
             <div class="am-row">
                 <div class="am-col-6">

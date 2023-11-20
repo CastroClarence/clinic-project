@@ -48,7 +48,7 @@
             </script>
             <div class="am-footer">
                     <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
-                </div>
+            </div>
         </main>
     </div>
 </body>

@@ -106,7 +106,7 @@
                     </div>
                     <div class="card">
                         <div class="per">
-                            <p>Total Amount Charged</p>
+                            <p>Total Recievable Dashboard</p>
                             <?php
                             if ($resultAmountCharged->num_rows > 0) {
                                 $rowAmountCharged = $resultAmountCharged->fetch_assoc();

@@ -104,7 +104,7 @@ input[type="checkbox"]{
     margin-top: 0.5rem;
     text-align: center;
   }
- p{
+ p, label{
     font-weight: 500;
     color: #040404
 }
@@ -114,7 +114,8 @@ input[type="checkbox"]{
 button{
     width: 30%;
     height: 80%;
-    background-color: #d6ebe9;
+    background-color: #38a095;
+    color: #d6ebe9;
     border: none;
     outline: none;
     padding: 10px;
@@ -124,10 +125,11 @@ button{
     font-size: 15px;
 }
 button:hover{
-    background-color: #38a095;
+    background-color: #d6ebe9;
+    color: black;
     transition: 0.5s;
-    color: #d6ebe9;
 }
+
 i{
     font-size: 1.3rem;
     color: #38a095;
@@ -147,3 +149,16 @@ i:hover{
     text-align: center;
     color: #FF0000;
 }
+
+/*
+Update Msg of ApppointmentRequestUpdate
+*/
+
+.update-message {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #9bcfca;
+    text-align: center;
+    align-items: center;
+}
+

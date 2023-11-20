@@ -35,18 +35,23 @@
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Dashboard</title>
-      <link rel="stylesheet" href="../styles/addPatient.css" />
+      <!-- <link rel="stylesheet" href="../styles/addPatient.css" /> -->
+      <link rel="stylesheet" href="../styles/requestUpdate.css">
       <?php include('header.php'); ?>
     </head>
     <body>
-      <div class="container">
-            <?php include('sidebar.php'); ?>
-            <div class="form_container">
-            <h1 class="form-title">Add Patient</h1>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add-form" >
-              <div class="main-user-info">
-                <div class="user-input-box">
+      <div class="am-container">
+            <div class="am-body">
+              <div class="am-head">
+                <h1 class="form-title">Add Patient</h1>
+              </div>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add-form" class="am-body-box" >
+            <a href="patientRecord.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+
+              <div class="am-row">
+                <div class="am-col-6">
                   <label for="firstName">First Name: </label>
                   <input type="text"
                           id="firstName"
@@ -54,15 +59,17 @@
                           placeholder="Enter First Name"/>
                 </div>
 
-                <div class="user-input-box">
+                <div class="am-col-6">
                   <label for="lastName">Last Name: </label>
                   <input type="text"
                           id="lastName"
                           name="lastName"
                           placeholder="Enter Last Name"/>
                 </div>
+              </div>
 
-                <div class="user-input-box">
+              <div class="am-row">
+                <div class="am-col-6">
                   <label for="mobileNumber">Mobile Number: </label>
                   <input type="text"
                           id="mobileNumber"
@@ -70,15 +77,17 @@
                           placeholder="Enter Mobile Number"/>
                 </div>
 
-                <div class="user-input-box">
+                <div class="am-col-6">
                   <label for="Age">Age: </label>
                   <input type="number"
                           id="Age"
                           name="Age"
                           placeholder="Enter Age"/>
                 </div>
+              </div>
 
-                <div class="sex-selection">
+              <div class="am-row">
+                <div class="sex-selection am-col-6">
                   <label for="sex">Sex: </label>
                           <select name="s-select">
                                 <option value="Male">Male</option>
@@ -86,15 +95,17 @@
                           </select>
                 </div>
 
-                <div class="user-input-box">
+                <div class="am-col-6">
                   <label for="occupation">Occupation: </label>
                   <input type="text"
                           id="occupation"
                           name="occupation"
                           placeholder="Enter Occupation"/>
                 </div>
+              </div>
 
-                <div class="user-input-box">
+              <div class="am-row">
+                <div class="am-col-6">
                   <label for="email">Email: </label>
                   <input type="text"
                           id="email"
@@ -102,15 +113,17 @@
                           placeholder="Enter Email"/>
                 </div>
                 
-                <div class="user-input-box">
+                <div class="am-col-6">
                   <label for="homeAddress">Home Address: </label>
                   <input type="text"
                           id="homeAddress"
                           name="homeAddress"
                           placeholder="Enter Home Address"/>
                 </div>
+              </div>
 
-                <div class="user-input-box">
+              <div class="am-row">
+                <div class="am-col-6">
                   <label for="patientBalance">Balance: </label>
                   <input type="number"
                           id="patientBalance"
@@ -118,14 +131,21 @@
                           placeholder="Enter Balance"
                           value="0.00" readonly/>
                 </div>
-                <div class="form-submit-btn">
-                  <input type="submit" id="submit-btn" value="Add">
+              </div>
+
+              <div class="am-row">
+                <div class="form-submit-btn am-col-3">
+                  <button type="submit" id="submit-btn">Add Patient Record</button>
                 </div>
+              </div>
             </form>
             <script>
                 insertAlert('submit-btn', 'add-form');
             </script>
-          </div>
+            
+            <div class="am-footer">
+                    <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
+            </div>
         </div>
     </body>
   </html>
