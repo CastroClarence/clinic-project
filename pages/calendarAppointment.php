@@ -94,7 +94,7 @@
                         $inputDate = $_POST["inputDate"];
                         
                         $searchDate = "SELECT appointments.requestID, appointments.requestStatus, patients.patientFirstName, patients.patientLastName, appointments.requestServices, appointments.requestDate, appointments.requestTime, appointments.requestNotes 
-                        FROM appointments INNER JOIN patients ON appointments.patientID = patients.patientID WHERE appointments.requestDate = '$inputDate'";
+                        FROM appointments INNER JOIN patients ON appointments.patientID = patients.patientID WHERE appointments.requestDate = '$inputDate' ORDER BY appointments.requestTime ASC";
 
                         try{
                           $resultApproved = mysqli_query($conn, $searchDate);

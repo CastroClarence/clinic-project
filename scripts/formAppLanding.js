@@ -1,20 +1,3 @@
-function confirmSubmit(){
-    let subRes = confirm("Submit?");
-    if(subRes == true){
-        return true;
-    }else{
-        e.preventDefault();
-    }
-}
-function infoSubmit(){
-    let subRes = confirm("Are your information correct? No changes after checking time.");
-    if(subRes == true){
-        return true;
-    }else{
-        e.preventDefault();
-    }
-}
-
 function showButtonSubmit(){
     let chkbx = document.getElementById("confirmCheckbox");
     let btn = document.getElementById("submitInfo");
@@ -25,3 +8,10 @@ function showButtonSubmit(){
         btn.disabled =true;
     }
 }
+
+document.getElementById('timeServiceForm').addEventListener('submit', function(e) {
+    var confirmation = confirm('Are you sure? Do you want to submit this form?');
+    if (!confirmation) {
+      e.preventDefault();
+    }
+});

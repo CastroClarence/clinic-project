@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
+@keyframes blinkTextSuc{
+    0% {transform: scale(1);}
+    50%{transform: scale(1.1); color:rgb(108, 180, 108);}
+    100%{transform: scale(1);}
+}
+
+@keyframes blinkTextErr{
+    0% {transform: scale(1);}
+    50%{transform: scale(1.1);}
+    100%{transform: scale(1);}
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -15,7 +27,7 @@ h1{
     color: #f4fafa;
 }
 
-div p{
+div p{ 
     font-weight: bold;
 }
 .am-container{
@@ -149,9 +161,21 @@ input[type="checkbox"]{
 }
 
 .error{
-    padding-top:10px;
+    margin-inline:1.5em;
     color: red;
     text-align: center;
+    animation: blinkTextErr;
+    animation-duration: 1.2s;
+    font-size: 1.2em;
+}
+
+.success{
+    margin-inline:1.5em;
+    color: green;
+    text-align: center;
+    animation: blinkTextSuc;
+    animation-duration: 1.2s;
+    font-size: 1.2em;
 }
 
 .hideConfirmButton{

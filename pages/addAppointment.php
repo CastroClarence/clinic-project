@@ -2,6 +2,7 @@
     include("../phpFiles/dbConnect.php");
     include("../pages/login.php");
     $errorPrompt["emailRegExist"] = "";
+    $successPrompt["successSubmit"] = "";
     $allTime = array("08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00", "10:30:00", "11:00:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "16:00:00");
     $availableTime = $allTime;
 
@@ -58,14 +59,14 @@
 
             try{
                 $resultID = mysqli_query($conn, $insertToAppointment);
-                
+                $successPrompt["successSubmit"] = "Appointment Added Successfully!";
                 unset($_SESSION["email"]);
                 unset($_SESSION["selectedDate"]);
                 unset($_SESSION["selectOption"]);
                 unset($_SESSION["serviceChosen"]);
                 unset($_SESSION["notes"]);
                 
-                echo "<script> parent.window.location = '../pages/calendarAppointment.php'</script>";
+
             }catch(mysqli_sql_exception){
                 echo "Error Searching";
             }
@@ -100,13 +101,23 @@
                <a href="calendarAppointment.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
                <p class = "error">
                     <?php
-                        if(isset( $errorPrompt["emailRegExist"])){
+                        if(isset($errorPrompt["emailRegExist"])){
                             echo  $errorPrompt["emailRegExist"];
                         }else{
                             echo "";
                         }
                     ?>
                 </p>
+                <p class = "success">
+                    <?php
+                        if(isset($successPrompt["successSubmit"])){
+                            echo $successPrompt["successSubmit"];
+                        }else{
+                            echo "";
+                        }
+                    ?>   
+                </p>
+                
                <form class="am-body-box" action = "addAppointment.php" autocomplete="off" method = "post">
                     <div>
                         <div>
@@ -115,9 +126,9 @@
                         </div>
                     </div>
                     <div>
-                        <input type = "submit" name = "submitInfoOld"  id = "submitInfo" class = "dateLay" value = "SUBMIT INFORMATION" onclick = "infoSubmit()" disabled = true>
+                        <input type = "submit" name = "submitInfoOld"  id = "submitInfo" class = "dateLay" value = "SUBMIT INFORMATION" disabled = true>
                         <input type="checkbox" id="confirmCheckbox" name="confirmCheckbox[]" value="showSubmitInfo" onchange = "showButtonSubmit();">
-                        <label for = "confirmCheckbox" id ="labelConfirm">Before I proceed to checking time availability of my appointment request, I hereby certify that the information provided in this form is complete, true and correct to the best of my knowledge.</label>
+                        <label for = "confirmCheckbox" id ="labelConfirm">Before proceeding to check the time availability of the appointment request, I hereby certify that the information provided is complete, true and correct to the best of my knowledge.</label>
                     </div>
                 </form>
 
