@@ -16,7 +16,7 @@
     $sqlAmountCharged = "SELECT SUM(transChargeAmount) AS amountCharged FROM transactions";
     $resultAmountCharged = $conn->query($sqlAmountCharged);
 
-    $sql = "SELECT transDate, transChargeAmount, transAmountPaid, transTime FROM transactions";
+    $sql = "SELECT transDate, transChargeAmount, transAmountPaid, transTime FROM transactions ORDER BY transactions.transDate ASC, transactions.transTime ASC";
     $result = $conn->query($sql);
 
     $data = array();
