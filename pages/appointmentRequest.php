@@ -63,7 +63,7 @@
       $patientStatus = $patientData["patientStatus"];
       $patientID = $patientData["patientID"];
 
-    // get values from db
+    // get values from db//
       $patientStatusQuery = "SELECT patientStatus, patientID FROM patients WHERE patientID = (SELECT patientID FROM requests WHERE requestID = $requestID)";
       $patientStatusResult = $conn->query($patientStatusQuery);
 
