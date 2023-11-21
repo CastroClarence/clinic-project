@@ -27,6 +27,22 @@
         }
     }
 
+
+    // $allService = array();
+
+    // $serviceCheck = "SELECT requestServices from appointments";
+    // $services = mysqli_query($conn, $serviceCheck);
+
+    // if(mysqli_num_rows($services)>0){
+    //     while(mysqli_fetch_assoc($services)){
+    //         $serviceChosen = array();
+    //         $serviceChosen = explode(", ", $row["requestServices"]);
+    //         foreach($serviceChosen as $service){
+    //             array_push($allService, $service);
+    //         }
+    //     }
+    // }
+
     $conn->close();
 ?>
 

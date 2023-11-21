@@ -26,7 +26,7 @@ window.onload = function () {
             shared: true,
             fontFamily: "Jost, sans-serif",
         },
-        backgroundColor: "#F4F4F4",
+        backgroundColor: "#F4FAFA",
         data: [{
             type: "splineArea",
             name: "Charge Amount",

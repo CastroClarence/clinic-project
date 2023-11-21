@@ -36,7 +36,7 @@
   //if approve button is clicked
   if (isset($_POST["approve"])){
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
-    $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Approve' WHERE requestID = $requestID";
+    $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Approved' WHERE requestID = $requestID";
 
     $updatePatientStatusQuery = "UPDATE patients SET patientStatus = 'Verified' WHERE patientID = (SELECT patientID FROM requests WHERE requestID = $requestID)";
 
@@ -74,7 +74,7 @@
 
           switch ($patientStatus) {
               case "Verified":
-                  $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Decline', requestDate = null, requestTime = null WHERE requestID = $requestID";
+                  $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Declined', requestDate = null, requestTime = null WHERE requestID = $requestID";
 
                   if ($conn->query($updateRequestStatusQuery) === TRUE) {
                       $updateMessage = "Record updated successfully";
@@ -197,10 +197,10 @@
               }
   
             ?>
-            <script>
+            <!-- <script>
               updateAlert('decline', 'upd-form');
               updateAlert('approve', 'upd-form');
-            </script>
+            </script> -->
           </div>
 
         </main> 
