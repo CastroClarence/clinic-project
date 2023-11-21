@@ -18,94 +18,48 @@
     </script>
 </head>
 <body>
+<header>
+    <nav>
+    <div class="logo">
+            <a href="#"><img src="../images/logo1.png" alt="clinic-logo"></a>
+        </div>
+        <div class="nav-container">
+            <a href="#services">Services</a>
+            <a href="#about">Clinic</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
 
+<section id="hero" class="shadow">
     
-    <header>
-        <nav>
-            <div>
-                <a href="#"><img src="../images/clinic_logo.png" alt="clinic-logo"></a>
-            </div>
-
-            <div class="nav-container">
-                <a href="#services">Services</a>
-                <a href="#offer">Offers</a>
-                <a href="#about">Clinic</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="menu">
-                <img src="../images/hamburger.png" alt="menu.img">
-            </div>
-        </nav>
-    </header>
-
-    <section id="hero" class="shadow">
+    <div class="container">
         <div>
-            <img src="../images/hero2.png" alt="hero">
+            <h1>Empowering Healthy Smiles, <br>One Treatment at a Time.</h1>
+        </div>
+
+        <div class="button-container">
+            <!--To whatever page it is-->
+            <a href="#signup">
+                <button class="button" onclick="openPopup()">
+                    Make an appointment
+                </button>
+            </a> 
         </div>
         
-        <div class="container">
-            <div>
-                <h1>Empowering Healthy Smiles, One Treatment at a Time.</h1>
-            </div>
-    
-            <div class="button-container">
-                <p>+63 (920) 954 0792</p>
-                <!--To whatever page it is-->
-                <a href="#signup">
-                    <button class="button" onclick="openPopup()">
-                        Make an appointment
-                    </button>
-                </a> 
-            </div>
-            
         <div class="popup-container" id="popup">
             <img src="../images/close.png" alt="" onclick="closePopup()">
             <iframe src="optionAppointment.php" frameborder="0"></iframe>
-            
         </div>
-        </div>
+    </div>
 
-    </section>
-
-    <section id="offer">
-
-            <h1 class="heading">Special offers</h1>
-
-        <div class="offer-container">
-            <div class="shadow">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, delectus!</p>
-            </div>
-    
-            <div class="shadow">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, unde.</p>
-            </div>
-    
-            <div class="shadow">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, minus.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-
-        <h1 class="heading">Our clinic</h1>
-
-        <article class="about-container">
-
-            <p>
-            Elevate your dental experience at Dr. Ruth S. Luneta-Alolod's Dental Clinic, your gateway to optimal oral health and radiant smiles. Located at National Highway Sta Rita Batangas City our clinic is a testament to precision, care, and innovation in dentistry. Our clinic welcomes you to a haven where your dental needs are met with unwavering dedication. Beyond providing exceptional clinical care, our clinic is designed to offer a soothing environment that transforms your dental visits into uplifting experiences. Come, contact us now, and be a part of our dental family, where your journey to a brighter smile begins!
-            </p>
-
-            <img src="../images/clinic-img.png" alt="clinic-img">
-
-    </article>
-    </section>
+</section>
 
     <section id="services">
-
-        <h1 class="heading">Services</h1>
-
+        <div class="title">
+            <h1>OUR  SERVICES</h1>
+            <p>Exceeding expectations, our services are a testament <br>to dedication and excellence.</p>
+        </div>
         <div class="service-container">
             <div>
                 <img src="../images/initialConsultation.png" alt="consultation-img">
@@ -118,7 +72,6 @@
                     Our comprehensive consultation services involve thorough oral examinations and personalized treatment plans to address your dental concerns effectively.
                     </p>
                 </div>
-
                 
             </div>
 
@@ -132,6 +85,7 @@
                     <p>
                     Achieve a straighter, more aligned smile through our expert orthodontic treatments, tailored to enhance both aesthetics and functionality.
                     </p>
+                    
                 </div>
 
             </div>
@@ -144,8 +98,8 @@
                     </h2>
     
                     <p>
-                    Experience precise and minimally invasive surgical procedures, ensuring optimal outcomes for a range of dental conditions.                
-                    </p>  <br>    
+                    Experience precise and minimally invasive surgical procedures, ensuring optimal outcomes for a range of dental <br>conditions.                
+                    </p> 
                 </div>
 
             </div>
@@ -158,9 +112,8 @@
                     </h2>
                     
                     <p>
-                    Our skilled team performs gentle and efficient tooth extractions, prioritizing patient comfort and promoting oral health.
+                    Our skilled team performs gentle and efficient tooth extractions, prioritizing patient comfort and promoting oral <br>health.
                     </p>
-                    <br> 
                 </div>
 
   
@@ -170,13 +123,13 @@
                 <img src="../images/restoration.png" alt="">
                 <div class="service-content">
                     <h2>
+
                         Restoration
                     </h2>
     
                     <p>
-                    Restore your teeth to their natural strength and appearance with our high-quality dental restoration services, including fillings and crowns.
+                    Restore your teeth to their natural strength and appearance with our high-quality dental restoration services, including fillings<br> and crowns.
                     </p>
-                    <br> 
                 </div>
 
             </div>
@@ -217,9 +170,8 @@
                     </h2>
     
                     <p>
-                    Enhance both function and aesthetics with our customized prosthetic solutions, including bridges and dental implants.
+                    Enhance both function and aesthetics with our customized prosthetic solutions, including bridges and dental<br>  implants.
                     </p>
-                    <br> 
                 </div>
 
             </div>
@@ -247,15 +199,33 @@
     
                     <p>
                     Achieve a brighter, whiter smile with our safe and effective teeth bleaching procedures, designed to enhance your overall dental appearance.
-                    <br> 
                 </div>
             </div>
         </div>
     </section>
+        
+        <div class="title">
+            <h1>OUR  CLINIC</h1>
+            <p>Bringing joy to every smile, because your oral<br> health matters.</p>
+        </div>
+    
+    <section id="about">
+
+        <article class="about-container">
+        <img src="../images/clinic-img.png" alt="clinic-img">
+            <p>
+            Elevate your dental experience at Dr. Ruth S. Luneta-Alolod's Dental Clinic, your gateway to optimal oral health and radiant smiles. Located at National Highway Sta Rita Batangas City our clinic is a testament to precision, care, and innovation in dentistry. Our clinic welcomes you to a haven where your dental needs are met with unwavering dedication. Beyond providing exceptional clinical care, our clinic is designed to offer a soothing environment that transforms your dental visits into uplifting experiences. Come, contact us now, and be a part of our dental family, where your journey to a brighter smile begins!
+            </p>
+        </article>
+    </section>
+
+        <div class="title">
+            <h1>CONTACT</h1>
+            <p>Need assistance or have a question? Reach out to us anytime, <br> and we'll be happy to help!</p>
+        </div>
 
     <section id="contact">
 
-        <h1 class="heading">Contact</h1>
         
         <br>
         <!--div for whole contact section-->
@@ -305,8 +275,10 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7749.974137491473!2d121.037843!3d13.779653!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0f87a345ad4f%3A0x983d6dfced439c46!2sDr.%20Ruth%20Luneta-Alolod!5e0!3m2!1sen!2sph!4v1699700360910!5m2!1sen!2sph" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-
     </section>
+    <a href="#" class="back-to-top">
+		<span class="material-icons"><i class="fa-solid fa-arrow-up"></i></span>
+	</a>
 
 </body>
 </html>

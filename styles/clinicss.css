@@ -17,32 +17,27 @@ header{
     margin-bottom: 90px;
 }
 body{
-    background-color: #faf4f4;
+    background-color: #f4fafa;
 }
-
 nav{
-    background: rgba(255,255,255,0.7);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.35);
     display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
+    position: absolute;
     width: 100vw;
-    z-index: 1;
-    padding: 10px 100px 0px 80px;
+    align-items: center;
+    justify-content: center;
 }
 .nav-container{
     display: flex;
-    gap: 50px;
-    align-items: center;
+    gap: 70px;
+    margin-top: 30px;
 }
 
 .nav-container a{
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-decoration: none;
-    color: black;
+    color: #faf4f4;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #1e1d1d;
 }
 
 nav a:hover{
@@ -50,7 +45,9 @@ nav a:hover{
 }
 
 nav img{
-    height: 60px;
+    height: 5rem;
+    margin-right: 50rem;
+    margin-top: 50px;
 }
 
 .menu{
@@ -62,33 +59,37 @@ nav img{
     flex-direction: column;
 }
 
-#hero{
-    height: 85vh;
-    width: 92vw;
-    border-radius: 15px;
-    margin: auto;
-    background-color: #BCEAFA;
+.container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.shadow{
-    -webkit-box-shadow: 11px 8.5px 15px 3px #b0b0b0;
-    -moz-box-shadow: 11px 8.5px 15px 3px #b0b0b0;
-    box-shadow: 11px 8.5px 15px 3px #b0b0b0;
+#hero{
+    height: 120vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    background-image: url("../images/dental.png");
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+    background-repeat: no-repeat;
 }
+
 
 .container{
     gap: 15px;
+    margin-top: -22rem;
 }
 
 #hero h1{
     flex: 1.5fr;
     text-align: center;
-    font-size: calc(20px + 1.4vw);
+    font-size: calc(30px + 1.4vw);
     font-weight: bold;
     margin-top: auto;
+    color: #f4fafa;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 #hero img{
@@ -132,7 +133,7 @@ nav img{
     justify-content: space-evenly;
     align-items: center;
     gap: 30px;
-    background-color: #ffffff;
+    background-color: transparent;
     width: 500px;
     height: 90px;
     border-radius: 10px;
@@ -151,97 +152,99 @@ nav img{
     border-radius: 10px;
     height: 55px;
     width: 250px;
-    font-weight: 300px;
+    font-weight: 500;
     font-size: 1rem;
 }
 
-#offer{
-    height: 50vh;   
-}
-
-.offer-container{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 30px;
-}
-
-.offer-container div{
-    width: 420px;
-    height: 200px;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-.offer-container div:nth-child(1){
-    background-image: url(../images/specialOffers1.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
-
-.offer-container div:nth-child(2){
-    background-image: url(../images/specialOffers2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.offer-container div:nth-child(3){
-    background-image: url(../images/specialOffers3.png);
-    background-repeat: no-repeat;
-    background-position: center;
+.button:hover{
+    background-color: white;
+    color: #329F94;
+    transition: 0.5s;
+    font-weight: bold;
 }
 
 .heading{
-    display: inline-block;
-    border-bottom: 5px solid #329F94;
-    margin: 80px 0px 25px 0px;
+    display: flex;
+    font-size: 30px;
+    color: #329F94;
+    margin: 100px 0px 40px 0px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5px;
 }
 
+.title h1{
+    display: flex;
+    font-size: 20px;
+    color: #329F94;
+    margin-bottom: -30px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5px;
+    margin-top: 10px;
+}.title p{
+    display: flex;
+    font-size: 50px;
+    color: #164742;
+    margin: 50px 0px 40px 1px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -3px;
+}
 .about-container{
     display: flex;
     justify-content: center;
     align-content: center;
     gap: 50px;
+    margin-bottom: 100px;
 }
 
 
 #about p{
     text-align: justify;
     font-size: 25px;
+    margin-top: 90px;
 }
 
 #about img{
     width: 40vw;
-    margin-top: -50px;
+    margin-top: -19px;
 }
 
 .about-container{
     display:flex;
 }
 
-
 .service-container{
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
     column-gap: 15px;
-    row-gap: 5px;
+    row-gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 100px;
 }
 .service-container>div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
-    background-color: white;
+    background-color: #f4fafa;
     gap: 10px;
-    height: 250px;
-    border-radius: 10px;
+    height: 300px;
     padding: 15px;
     font-size: 16px;
 }
 
+h2 {
+    color: #329F94;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px rgb(167, 163, 163);
+}
+
 .service-container img{
     align-self: center;
-    height: 80px;
+    height: 90px;
 }
 
 .service-content{
@@ -263,11 +266,19 @@ nav img{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: #f4fafa;
+    height: 300px;
+    width: 600px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border-style: solid;
+    border-color: #329F94;
+    margin-bottom: 100px;
 }
 
 .info-container{
     display: flex;
-    gap: 50px;
+    gap: 1px;
 }
 
 .info-container > div{
@@ -276,7 +287,7 @@ nav img{
 }
 
 .info-container img{
-    height: 80px;
+    height: 60px;
 }
 
 .info-container p{
@@ -308,7 +319,30 @@ nav img{
     color: #329F94;
     background-color: white;
 }
+.back-to-top {
+	position: fixed;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	text-decoration: none;
+	transition: 0.2s ease-out;
+}
 
+.back-to-top span {
+	color: #329F94;
+	font-size: 3rem;
+	transition: 0.2s ease-out;
+}
+
+
+.back-to-top:hover span {
+	transform: translateY(-4px);
+}
 @media screen and (max-width:600px) {
 
     section{
@@ -353,7 +387,7 @@ nav img{
         gap: 30px;
     }
     #hero img{
-        display: none;
+        display: flex;
     }
 
     .button-container{
