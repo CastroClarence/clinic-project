@@ -15,7 +15,7 @@
   }
 
   //table view function
-  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, patients.patientStatus, requests.requestDate, requests.requestTime, requests.requestNotes, requests.requestStatus
+  $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, patients.patientStatus, requests.requestServices, requests.requestDate, requests.requestTime, requests.requestNotes, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID
           WHERE requests.requestStatus ='Pending'";
@@ -138,7 +138,7 @@
             <?php
               if ($result->num_rows > 0) {
                   echo "<table>";
-                  echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Patient Status</th><th>Date</th><th>Time</th><th>Notes</th><th>Appointment Status</th><th>Action</th></tr>";
+                  echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Patient Status</th><th>Services</th><th>Date</th><th>Time</th><th>Notes</th><th>Appointment Status</th><th>Action</th></tr>";
   
                   while ($row = $result->fetch_assoc()) {
                     $patientID = $row["patientID"];
@@ -149,6 +149,7 @@
                     echo "<td>" . $row["patientLastName"] . "</td>";
                     echo "<td>" . $row["patientMobileNo"] . "</td>";
                     echo "<td>" . $row["patientStatus"] . "</td>";
+                    echo "<td>" . $row["requestServices"] . "</td>";
                     echo "<td>" . $row["requestDate"] . "</td>";
                     echo "<td>" . " ". date("h:i A",strtotime($row["requestTime"])) . " ". "</td>";
                     echo "<td>" . $row["requestNotes"] . "</td>";
