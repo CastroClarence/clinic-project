@@ -18,7 +18,6 @@
   width: 100%;
   padding-top: 10px;
   color: #38a095;
-  margin-bottom: 1em;
   padding-left: 1.5em;
 }
 
@@ -36,11 +35,14 @@
 .mainCont{
   width: 100%;
   display: flex;
+  margin-top: 0;
 }
 .calendarCont{
   height: 10em;
   padding: 20px;
   width: 50%;
+  align-self: center;
+  justify-self  : center;
 }
 
 .appointmentCont{
