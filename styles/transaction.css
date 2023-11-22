@@ -116,9 +116,9 @@ table {
   }
   
   /*alternating colors*/
-  /* tr:nth-child(even) {
+  tr:nth-child(even) {
       background-color: #CFE7E4;
-} */
+}
 
 tr:nth-child(odd) {
     background-color: #E1EFED;
@@ -186,4 +186,41 @@ tr:nth-child(odd) {
 }
 .fa-edit:before{
     color: #38a095;
+}
+
+.paginationCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: 0.5rem;
+    background-color: #38a095;
+    color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0.5em
+}
+
+.paginationMain a{
+    font-size: 1.2em;
+    border-radius: 0.5em;
+    padding-inline: 0.5em;
+}
+.active{
+    color: #38a095;
+    background-color: white;
+}
+
+.notActive{
+    background-color: #38a095;
+    color: white;
+}
+
+.notActive:hover{
+    color: #c5d6d3;
 }

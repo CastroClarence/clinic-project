@@ -194,7 +194,7 @@
                   }
                   echo "</div>";
                   
-                  echo "</table>";
+                  echo "</table><br>";
               } else {
                   echo "No results";
               }

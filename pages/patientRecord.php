@@ -1,33 +1,34 @@
 <?php
-  include("../phpFiles/dbConnect.php");
-  include("../pages/login.php");
-  
-  $searchKeyword = "";
+    include("../phpFiles/dbConnect.php");
+    include("../pages/login.php");
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $searchKeyword = $_POST["searchKeyword"];
-  }
+    $searchKeyword = isset($_GET['searchKeyword']) ? $_GET['searchKeyword'] : '';
 
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+    $recordPerPage = 13;  
+    
+    if (isset($_GET["page"])) {    
+        $page = $_GET["page"];    
+    }    
+    else {    
+        $page = 1;    
+    }    
 
-  //normal function
-  $sql = "SELECT * FROM patients";
+    $startPage = ($page-1) * $recordPerPage;     
 
-  //search if search not empty
-  if (!empty($searchKeyword)) {
-      $sql .= " WHERE patientFirstName LIKE '%$searchKeyword%' OR patientLastName LIKE '%$searchKeyword%' OR patientID LIKE '%$searchKeyword%' OR patientAge LIKE '%$searchKeyword%' OR patientSex LIKE '%$searchKeyword%' OR patientMobileNo LIKE '%$searchKeyword%' OR patientEmail LIKE '%$searchKeyword%' OR patientAddress LIKE '%$searchKeyword%' OR patientOccupation LIKE '%$searchKeyword%' OR patientBalance LIKE '%$searchKeyword%' OR patientStatus LIKE '%$searchKeyword%'";
-  }
+    $sql = "SELECT * FROM patients";
 
-  $sql .= ";";
+    //search if search not empty
+    if (!empty($searchKeyword)) {
+        $sql .= " WHERE patientFirstName LIKE '%$searchKeyword%' OR patientLastName LIKE '%$searchKeyword%' OR patientID LIKE '%$searchKeyword%' OR patientAge LIKE '%$searchKeyword%' OR patientSex LIKE '%$searchKeyword%' OR patientMobileNo LIKE '%$searchKeyword%' OR patientEmail LIKE '%$searchKeyword%' OR patientAddress LIKE '%$searchKeyword%' OR patientOccupation LIKE '%$searchKeyword%' OR patientBalance LIKE '%$searchKeyword%' OR patientStatus LIKE '%$searchKeyword%'";
+    }
 
-  $result = $conn->query($sql);
+    $sql .= " LIMIT $startPage, $recordPerPage;";
 
-  if (!$result) {
-      die("Error in SQL query: " . $conn->error);
-  }
-
+    $result = $conn->query($sql);
+    $totalRecords = mysqli_num_rows($result);
+    if (!$result) {
+        die("Error in SQL query: " . $conn->error);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@
                     <div class="button">
                         <a href="addPatient.php"><i class="fa-solid fa-plus"></i></a>
                     </div>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="search">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="get" class="search">
                         <input type="text" name="searchKeyword" value="<?php echo $searchKeyword; ?>" placeholder="  Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
@@ -92,16 +93,67 @@
                     echo "</div>";
                     }
                     
-                    
-                    echo "</table>";
+                    echo "</table><br>";
                     } else {
                         echo "0 results";
                     }
-
-                    $conn->close();
                 ?>
+
+                <div class = "paginationCont">
+                    <div class = "paginationMain">
+                        <?php
+                            $query = "SELECT COUNT(*) FROM patients";
+                            $baseUrl = "patientRecord.php";
+                            if (!empty($searchKeyword)) {
+                                $query .= " WHERE patientFirstName LIKE '%$searchKeyword%' OR patientLastName LIKE '%$searchKeyword%' OR patientID LIKE '%$searchKeyword%' OR patientAge LIKE '%$searchKeyword%' OR patientSex LIKE '%$searchKeyword%' OR patientMobileNo LIKE '%$searchKeyword%' OR patientEmail LIKE '%$searchKeyword%' OR patientAddress LIKE '%$searchKeyword%' OR patientOccupation LIKE '%$searchKeyword%' OR patientBalance LIKE '%$searchKeyword%' OR patientStatus LIKE '%$searchKeyword%'";
+                                $baseUrl .= "?searchKeyword=$searchKeyword";
+                            }else{
+                                $baseUrl .= "?";
+                            }
+                            $query .= ";";  
+                            $countRes = mysqli_query($conn, $query);     
+                            $row = mysqli_fetch_row($countRes);     
+                            $totalRecords = $row[0];   
+                            
+                            $totalPages = ceil($totalRecords / $recordPerPage);      
+
+                            $start = max(1, $page - 2);
+                            $end = min($start + 4, $totalPages);
+
+                            if($end > $totalPages){
+                                $end = $totalPages;
+                            }
+                            
+                            if ($totalPages - $page < 4) {
+                                $start = max(1, $totalPages - 4);
+                                $end = $totalPages;
+                            }
+
+                            if($page>=2){
+                                echo "<a class = 'notActive' href='$baseUrl&page=1'> << </a>";
+                                echo "<a class = 'notActive' href='$baseUrl&page=".($page-1)."'> < </a>";   
+                                
+                            }       
+                                    
+                            for ($i=$start; $i<=$end; $i++) {   
+                                if ($i == $page) {   
+                                    $status = 'active';
+                                }               
+                                else {   
+                                    $status = 'notActive';
+                                }
+                                echo "<a class = '$status' href='$baseUrl&page=".$i."'><p>".$i."</p></a>";
+                            };     
+                    
+                            if($page<$totalPages){
+                                echo "<a class = 'notActive' href='$baseUrl&page=".($page+1)."'> > </a>"; 
+                                echo "<a class = 'notActive' href='$baseUrl&page=$totalPages'> >> </a>";   
+                            }
+                        ?>    
+                    </div>
+                </div>
             </div>
-        </main>
+            
     </div>
 </body>
 </html>
