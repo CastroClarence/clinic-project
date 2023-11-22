@@ -50,7 +50,7 @@ nav a:hover{
 }
 
 nav img{
-    height: 5rem;
+    height: 120px;
     margin-right: 50rem;
     margin-top: 50px;
 }
@@ -305,15 +305,6 @@ h2 {
     font-size: 0.8em;
 }
 
-.info-button{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.info-button > button{
-    width: 200px;
-}
 
 .info-loc iframe{
     margin: auto;

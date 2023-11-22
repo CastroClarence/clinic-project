@@ -260,16 +260,7 @@
                         </p>
                     </div>
                 </div>
-        
-                <div class="info-button">
-                    <button class="button" id="info-button2">
-                        Contact Now
-                    </button>
-        
-                    <button class="button" id="info-button3">
-                        How to get there?
-                    </button>
-                </div>
+    
             </div>
     
             <div class="info-loc">
