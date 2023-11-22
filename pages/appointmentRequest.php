@@ -23,7 +23,7 @@
 
   //search if search not empty
   if (!empty($searchKeyword)) {
-    $sql .= " AND (patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR patients.patientMobileNo LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%')";
+    $sql .= " AND (patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR patients.patientMobileNo LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestServices LIKE '%$searchKeyword%')";
   }
 
   $sql .= " LIMIT $startPage, $recordPerPage;";
@@ -36,7 +36,7 @@
   }
 
   //if approve button is clicked
-  if (isset($_POST["approve"])){
+  if (isset($_POST["approved"])){
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
     $updateRequestStatusQuery = "UPDATE requests SET requestStatus = 'Approved' WHERE requestID = $requestID";
 
@@ -45,16 +45,15 @@
     if ($conn->query($updateRequestStatusQuery) === TRUE && $conn->query($updatePatientStatusQuery) === TRUE){
       // Update patient status even if request update is successful
       $updateMessage = "Record updated successfully";
-      $conn->close();
+      header("Location: appointmentRequest.php");
     } else {
         $updateMessage = "Error updating request record: " . $conn->error;
     }
   }
 
   //if decline button is clicked
-  if (isset($_POST["decline"])) {
+  if (isset($_POST["declined"])) {
     $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
-    $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
 
     //get patientID & patientStatus from db
     $patientStatusQuery = "SELECT patientStatus, patientID FROM patients WHERE patientID = (SELECT patientID FROM requests WHERE requestID = $requestID)";
@@ -160,23 +159,15 @@
                         echo "<div class='action-buttons'>
                               <form action='appointmentRequest.php' method='post'>
                                   <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                  <button type='submit' name='approve' id='approve'><i class='fas fa-check-square'></i></button>
+                                  <button type='submit' name='approved' id='approve'><i class='fas fa-check-square'></i></button>
                               </form>";
-                        if ($row["patientStatus"] != "Verified") {
-                          echo "<input type='hidden' name='newPatientStatus' value='Verified'>";
-                        }
-  
   
                         echo "<form action='appointmentRequest.php' method='post'>
                                   <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                  <input type='hidden' name='newStatus' value='Declined'>
-                                  <button type='submit' name='decline' id='decline'><i class='fas fa-times-circle'></i></button>
+                                  <button type='submit' name='declined' id='decline'><i class='fas fa-times-circle'></i></button>
                                 </form>";
   
                         echo "</div>";
-  
-                    } else {
-                        echo $row["requestStatus"];
                     }
                     echo "</td>";
   
@@ -198,8 +189,8 @@
                   echo "<tr><td colspan = '12' id = 'noRes'>No Results</td></tr>";
                   echo "</table><br>";
               }
-  
             ?>
+
             <div class = "paginationCont">
                 <div class = "paginationMain">
                     <?php
@@ -210,7 +201,7 @@
 
                         $baseUrl = "appointmentRequest.php";
                         if (!empty($searchKeyword)) {
-                            $query .= " AND (patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR patients.patientMobileNo LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%')";
+                            $query .= " AND (patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR patients.patientMobileNo LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestServices LIKE '%$searchKeyword%')";
                             $baseUrl .= "?searchKeyword=$searchKeyword";
                         }else{
                             $baseUrl .= "?";

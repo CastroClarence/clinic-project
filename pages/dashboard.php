@@ -1,6 +1,19 @@
 <?php
     include("../phpFiles/dbConnect.php");
     include("../pages/login.php");
+
+    // get the date today
+    function getCurrentDate() {
+        return date('Y-m-d');
+      }
+
+    $currentDate = getCurrentDate();
+
+    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime, requests.requestNotes, requests.requestStatus
+    FROM requests
+    LEFT JOIN patients ON requests.patientID = patients.patientID
+    WHERE requests.requestDate ='$currentDate' AND requests.requestStatus = 'Approved'";
+    $resultRequestsToday = $conn->query($sqlRequestsToday);
     
     $sqlTotalTransactions = "SELECT COUNT(transactionID) AS totalTransactions FROM transactions";
     $resultTotalTransactions = $conn->query($sqlTotalTransactions);
@@ -27,21 +40,49 @@
         }
     }
 
+    $sql = "SELECT transDate, transChargeAmount, transAmountPaid, transTime FROM transactions ORDER BY transactions.transDate ASC, transactions.transTime ASC";
+    $result = $conn->query($sql);
 
-    // $allService = array();
+    $data = array();
 
-    // $serviceCheck = "SELECT requestServices from appointments";
-    // $services = mysqli_query($conn, $serviceCheck);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
 
-    // if(mysqli_num_rows($services)>0){
-    //     while(mysqli_fetch_assoc($services)){
-    //         $serviceChosen = array();
-    //         $serviceChosen = explode(", ", $row["requestServices"]);
-    //         foreach($serviceChosen as $service){
-    //             array_push($allService, $service);
-    //         }
-    //     }
-    // }//
+    $serviceCheck = "SELECT requestServices FROM requests WHERE requestStatus = 'Approved'";
+    $services = $conn->query($serviceCheck);
+
+    $allService = array();
+
+    if ($services && mysqli_num_rows($services) > 0) {
+        while ($row = mysqli_fetch_assoc($services)) {
+            $serviceChosen = explode(", ", $row['requestServices']);
+            $allService = array_merge($allService, $serviceChosen);
+        }
+    }
+        // Count the occurrences of each service
+    $serviceCounts = array_count_values($allService);
+
+    // Sort the services by count in descending order
+    arsort($serviceCounts);
+
+    // Take only the top 5 services
+    $top5Services = array_slice($serviceCounts, 0, 5);
+
+
+    if (!empty($allService)) {
+        $serviceCounts = array_count_values($allService);
+    }
+
+    $dataPoints = array();
+    foreach ($serviceCounts as $service => $count) {
+        $dataPoints[] = array("label" => $service, "y" => $count);
+    }
+
+
+    $dataPointsJson = json_encode($dataPoints);
 
     $conn->close();
 ?>
@@ -58,7 +99,11 @@
         <script>
             var chartData = <?php echo json_encode($data); ?>;
         </script>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>        
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
+        
+        <script>
+            var dataPoints = <?php echo $dataPointsJson; ?>;
+        </script>
     </head>
 
     <body>
@@ -74,7 +119,7 @@
                 <div class="main-top">
                     <h1>Dashboard</h1>
                 </div>
-                <div class="users">
+                <div class="grid-container">
                     <div class="card">
                         <div class="per">
                             <p>Total Transactions</p>
@@ -122,7 +167,7 @@
                     </div>
                     <div class="card">
                         <div class="per">
-                            <p>Total Recievable Dashboard</p>
+                            <p>Gross Income</p>
                             <?php
                             if ($resultAmountCharged->num_rows > 0) {
                                 $rowAmountCharged = $resultAmountCharged->fetch_assoc();
@@ -135,9 +180,34 @@
 
                         <i class="fa-solid fa-money-bill fa-2xl"></i>
                     </div>
+                    <div id="chartContainer"></div>
+
+                    <div id="pieContainer"></div>
+
+                    <?php
+                        if ($resultRequestsToday->num_rows > 0) {
+                            echo '<table>';
+                            echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Services</th><th>Time</th><th>Notes</th><th>Appointment Status</th>";
+
+                            while ($row = $resultRequestsToday->fetch_assoc()) {
+                            echo '<tr>';
+                            foreach ($row as $value) {
+                                echo '<td>' . $value . '</td>';
+                            }
+                            echo '</tr>';
+                            }
+                            echo '</table>';
+                        } else {
+                            echo '<p>No requests for today.</p>';
+                        }
+
+                    ?>
+
+                    <div class="bar">
+                        <p>Bar</p>
+                    </div>
                 </div>
 
-                <div id="chartContainer" style="height: 300px; width: 98%;"></div>
             </section>
         </div>
     </body>

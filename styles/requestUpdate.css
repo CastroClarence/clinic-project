@@ -52,8 +52,7 @@ input, textarea, select{
     padding: 20px 10px;
     text-align: center;
     color: #f4fafa;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+
 
 }
 .am-footer{
@@ -61,8 +60,7 @@ input, textarea, select{
     padding: 20px 10px;
     text-align: center;
     color: #f4fafa;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+
 
 }
 

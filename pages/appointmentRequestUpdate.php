@@ -41,27 +41,9 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["finalSubmit"])) {
         $requestID = isset($_POST["requestID"]) ? $_POST["requestID"] : "";
         $patientID = isset($_POST["patientID"]) ? $_POST["patientID"] : "";
-        $date = isset($_POST["date"]) ? $_POST["date"] : "";
-        $time = isset($_POST["time"]) ? $_POST["time"] : "";
         $requestStatus = isset($_POST["requestStatus"]) ? $_POST["requestStatus"] : "";
         $patientStatus = isset($_POST["patientStatus"]) ? $_POST["patientStatus"] : "";
         $_SESSION["selectOption"] = $_POST["selectOption"];
-
-        if ($requestStatus == "Declined" && $patientStatus == "Not Verified") {
-
-            $deleteRequestsQuery = "DELETE FROM requests WHERE patientID = '$patientID'";
-            $deletePatientsQuery = "DELETE FROM patients WHERE patientID = '$patientID'";
-
-            $conn->query($deleteRequestsQuery);
-            $conn->query($deletePatientsQuery);
-
-            $conn->close();
-
-            $deleteMessage = "Records deleted successfully";
-
-            header("Location: appointmentRequest.php");
-            exit;
-        }
 
         $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '{$_SESSION["selectedDate"]}', requestTime = '{$_SESSION["selectOption"]}', requestStatus = '$requestStatus' WHERE requestID = $requestID";
         
@@ -93,17 +75,10 @@
 
             $patientID = $row["patientID"];
             $date = $row["requestDate"];
-            $time = $row["requestTime"];
             $requestStatus = $row["requestStatus"];
-
-            if (isset($_POST["approve"]) && $row["patientStatus"] != "Verified") {
-                $patientStatus = "Verified";
-            }
-            else {
-                $patientStatus = $row["patientStatus"];
+            $patientStatus = $row["patientStatus"];
             }
         }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -122,9 +97,12 @@
                 <h1>Appointment Request Update</h1>
             </div>
 
-            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php" id="upd-form">
+            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php">
+
+                <!-- Code not needed kasi wala namang approved requestStatus here?? -->
+
                 <?php
-                    if($row["requestStatus"] == "Approved" && $row["patientStatus"] == "Verified"){
+                    if($requestStatus == "Approved" && $patientStatus == "Verified"){
                         echo "<a href='calendarAppointment.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
                     }else{
                         echo "<a href='appointmentRequest.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
@@ -197,9 +175,6 @@
                 </div>
             </form>
 
-            <script>
-                updateAlert('finalSubmit', 'upd-form');
-            </script>
 
             <div class="am-footer">
                     <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
@@ -207,7 +182,5 @@
         </div>
     </div>
 
-    <script src ="../scripts/dateToday.js"></script>
-    <script src ="../scripts/newPatient.js"></script>
 </body>
 </html>

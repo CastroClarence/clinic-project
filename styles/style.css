@@ -12,7 +12,7 @@
 }
 
 section{
-    height: calc(100% - 60px);
+    min-height: calc(100% - 60px);
     padding: 60px 80px;
 }
 
@@ -29,7 +29,8 @@ nav{
     position: absolute;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 15px 30px 15px 30px;
 }
 .nav-container{
     display: flex;
@@ -40,7 +41,7 @@ nav{
 .nav-container a{
     font-size: 1.3rem;
     text-decoration: none;
-    color: #faf4f4;
+    color: white;
     /* font-weight: bold; */
 
 }
@@ -50,9 +51,7 @@ nav a:hover{
 }
 
 nav img{
-    height: 120px;
-    margin-right: 50rem;
-    margin-top: 50px;
+    height: 5rem;
 }
 
 .menu{
@@ -93,7 +92,7 @@ nav img{
     font-size: calc(30px + 1.4vw);
     font-weight: bold;
     margin-top: auto;
-    color: #f4fafa;
+    color: white;
 }
 
 /*style for popup*/
@@ -346,231 +345,13 @@ h2 {
 .back-to-top:hover span {
 	transform: translateY(-4px);
 }
-@media screen and (max-width:600px) {
+/* @media screen and (max-width:600px) {
 
-    section{
-        padding: 0px 15px 0px 15px;
-
-    }
-
-    .heading{
-        display: inline-block;
-        border-bottom: 5px solid #329F94;
-        margin: 100px 0px 25px 0px;
-    }
-
-    nav{
-        padding: 5px 15px 0px 15px;
-    }
-
-    nav img{
-        width: 155px;
-        height: 55px;
-    }
-
-    .menu{
-        display: block;
-    }
-
-    .menu img{
-        width: 50px;
-        height: 40px;
-    }
-
-    #hero{
-        height: 80vh;
-        padding: 30px;
-    }
-
-    .nav-container{
-        display: none;
-    }
-
-    .container{
-        gap: 30px;
-    }
-    #hero img{
-        display: flex;
-    }
-
-    .button-container{
-        flex-direction: column;
-        height: 20vh;
-        width: 75vw;
-        gap: 5px;
-    }
-
-    #offer{
-        height: 90vh;   
-    }
-
-    #offer div{
-        height: 60vh;
-        width: 85vw;
-    }
-
-    .offer-container{
-        flex-direction: column;
-    }
-
-
-    #about, #services, #contact{
-        height: auto;
-    }
-    .about-container{
-        justify-content: center;
-        flex-direction: column-reverse;
-        gap: 15px;
-    }
-
-    #about img{
-        width: 90vw;
-        height: 30vh;
-    }
-
-    #services h2{
-        font-size: 1.21rem;
-    }
-
-    p{
-        font-size: 0.81rem;
-    }
-
-    .service-container img{
-        align-self: center;
-        height: 60px;
-    }
-
-    .service-container{
-        display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(40vw, 1fr));
-        column-gap: 10px;
-        row-gap: 15px;
-        grid-auto-flow: row;
-    }
-
-    .service-container>div{
-        width: 45vw;
-        height: auto;
-    }
-
-    .info-button{
-        flex-direction: column;
-        justify-content: center;
-        align-content   : center;
-    }
-
-    .info-container{
-        flex-direction: column;
-        width: 90vw;
-    }
-
-    .info-button{
-        justify-content: center;
-        align-content: center;
-        width: 95vw;
-        gap: 15px;
     
-    }
-
-    .button{
-        width: 200px;
-        font-size: 0.81rem;
-    }
-
-    .info-button button{
-        align-self: center;
-        width: 60%;
-    }
-
-    .info-container img{
-        width: 100px;
-    }
-
-    .divider{
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .info-loc iframe{
-        display: inline-block;
-        width: 80vw;
-        height: 30vh;
-    }
 }
 
 
 @media screen and (width:768px) {
 
 
-    #hero{
-        flex-direction: row;
-    }
-
-    #hero img{
-        width: 300px;
-    }
-
-    .button-container{
-        flex-direction: column;
-        height: 150px;
-        width: 300px;
-        gap: 5px;
-    }
-
-    .button{
-        width: 250px;
-    }
-
-    .about-container{
-        justify-content: center;
-        flex-direction: column-reverse;
-        gap: 15px;
-    }
-
-    #about img{
-        align-self: center;
-        width: 600px;
-        height: 250px;
-    }
-
-    #about, #services, #contact{
-        height: auto;
-    }
-
-    .service-container{
-        display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(35vw, 1fr));
-        column-gap: 10px;
-        row-gap: 15px;
-    }
-
-    .service-container>div{
-        width: 45vw;
-        height: auto;
-    }
-
-    .info-container{
-        flex-direction: column;
-        width: 90vw;
-    }
-
-    .info-button{
-        justify-content: center;
-        align-content: center;
-        width: 95vw;
-        gap: 15px;
-    }
-
-    .info-loc iframe{
-        display: inline-block;
-        width: 90vw;
-        height: 30vh;
-    }
-
-    .divider{
-        flex-direction: column;
-        gap: 10px;
-    }
-
-}
+} */

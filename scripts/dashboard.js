@@ -26,7 +26,7 @@ window.onload = function () {
             shared: true,
             fontFamily: "Jost, sans-serif",
         },
-        backgroundColor: "#F4FAFA",
+        backgroundColor: "white",
         data: [{
             type: "splineArea",
             name: "Charge Amount",
@@ -59,5 +59,21 @@ window.onload = function () {
         }
         chart.render();
     }
+
+
+    // Use the JSON data in JavaScript to create a chart
+    var chart = new CanvasJS.Chart("pieContainer", {
+        animationEnabled: true,
+        title: {
+            text: "Service Distribution"
+        },
+        data: [{
+            type: "pie",
+            dataPoints: dataPoints // No need for PHP echo in an external JS file
+        }]
+    });
+
+    chart.render();
+
 }
-//
+
