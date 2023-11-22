@@ -63,39 +63,39 @@
                     </form>
                 </div>
                 <?php
+                    echo "<table>";
+                    echo "<tr><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>Sex</th><th>Mobile Number</th><th>Email</th><th>Address</th><th>Occupation</th><th>Balance</th><th>Status</th><th>Action</th></tr>";
                     if ($result->num_rows > 0) {
-                        echo "<table>";
-                        echo "<tr><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>Sex</th><th>Mobile Number</th><th>Email</th><th>Address</th><th>Occupation</th><th>Balance</th><th>Status</th><th>Action</th></tr>";
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["patientID"] . "</td>";
+                        echo "<td>" . $row["patientFirstName"] . "</td>";
+                        echo "<td>" . $row["patientLastName"] . "</td>";
+                        echo "<td>" . $row["patientAge"] . "</td>";
+                        echo "<td>" . $row["patientSex"] . "</td>";
+                        echo "<td>" . $row["patientMobileNo"] . "</td>";
+                        echo "<td>" . $row["patientEmail"] . "</td>";
+                        echo "<td>" . $row["patientAddress"] . "</td>";
+                        echo "<td>" . $row["patientOccupation"] . "</td>";
+                        echo "<td>" . $row["patientBalance"] . "</td>";
+                        echo "<td>" . $row["patientStatus"] . "</td>";
 
-                    while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["patientID"] . "</td>";
-                    echo "<td>" . $row["patientFirstName"] . "</td>";
-                    echo "<td>" . $row["patientLastName"] . "</td>";
-                    echo "<td>" . $row["patientAge"] . "</td>";
-                    echo "<td>" . $row["patientSex"] . "</td>";
-                    echo "<td>" . $row["patientMobileNo"] . "</td>";
-                    echo "<td>" . $row["patientEmail"] . "</td>";
-                    echo "<td>" . $row["patientAddress"] . "</td>";
-                    echo "<td>" . $row["patientOccupation"] . "</td>";
-                    echo "<td>" . $row["patientBalance"] . "</td>";
-                    echo "<td>" . $row["patientStatus"] . "</td>";
-
-                    //update and delete buttons
-                    echo "<td>
-                            <div class='action-buttons'>
-                                <form action='patientRecordUpdate.php' method='post'>
-                                    <input type='hidden' name='patientID' value='{$row['patientID']}'>
-                                    <button type='submit'><i class='fas fa-edit'></i></button>
-                                </form>
-                            </td>";
-                    echo "</tr>";
-                    echo "</div>";
-                    }
-                    
-                    echo "</table><br>";
+                        //update and delete buttons
+                        echo "<td>
+                                <div class='action-buttons'>
+                                    <form action='patientRecordUpdate.php' method='post'>
+                                        <input type='hidden' name='patientID' value='{$row['patientID']}'>
+                                        <button type='submit'><i class='fas fa-edit'></i></button>
+                                    </form>
+                                </td>";
+                        echo "</tr>";
+                        echo "</div>";
+                        }
+                        
+                        echo "</table><br>";
                     } else {
-                        echo "0 results";
+                        echo "<tr><td colspan = '12' id = 'noRes'>No Results</td></tr>";
+                        echo "</table><br>";
                     }
                 ?>
 
@@ -110,45 +110,7 @@
                             }else{
                                 $baseUrl .= "?";
                             }
-                            $query .= ";";  
-                            $countRes = mysqli_query($conn, $query);     
-                            $row = mysqli_fetch_row($countRes);     
-                            $totalRecords = $row[0];   
-                            
-                            $totalPages = ceil($totalRecords / $recordPerPage);      
-
-                            $start = max(1, $page - 2);
-                            $end = min($start + 4, $totalPages);
-
-                            if($end > $totalPages){
-                                $end = $totalPages;
-                            }
-                            
-                            if ($totalPages - $page < 4) {
-                                $start = max(1, $totalPages - 4);
-                                $end = $totalPages;
-                            }
-
-                            if($page>=2){
-                                echo "<a class = 'notActive' href='$baseUrl&page=1'> << </a>";
-                                echo "<a class = 'notActive' href='$baseUrl&page=".($page-1)."'> < </a>";   
-                                
-                            }       
-                                    
-                            for ($i=$start; $i<=$end; $i++) {   
-                                if ($i == $page) {   
-                                    $status = 'active';
-                                }               
-                                else {   
-                                    $status = 'notActive';
-                                }
-                                echo "<a class = '$status' href='$baseUrl&page=".$i."'><p>".$i."</p></a>";
-                            };     
-                    
-                            if($page<$totalPages){
-                                echo "<a class = 'notActive' href='$baseUrl&page=".($page+1)."'> > </a>"; 
-                                echo "<a class = 'notActive' href='$baseUrl&page=$totalPages'> >> </a>";   
-                            }
+                            include("../pages/pagination.php");
                         ?>    
                     </div>
                 </div>

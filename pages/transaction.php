@@ -2,33 +2,36 @@
     include("../phpFiles/dbConnect.php");
     include("../pages/login.php");
 
-    $searchterm = "";
+    $searchKeyword = isset($_GET['searchKeyword']) ? $_GET['searchKeyword'] : '';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $searchterm = $_POST["searchterm"];
-    }
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $recordPerPage = 13;  
+      
+      if (isset($_GET["page"])) {    
+          $page = $_GET["page"];    
+      }    
+      else {    
+          $page = 1;    
+      }    
+  
+    $startPage = ($page-1) * $recordPerPage;
 
     $sql = "SELECT transactions.transactionID, transactions.patientID, patients.patientFirstName, patients.patientLastName, transactions.transChargeAmount, transactions.transAmountPaid, transactions.transTime, transactions.transDate, transactions.transNotes, patients.patientBalance
             FROM transactions
             JOIN patients on patients.patientID = transactions.patientID";
 
-    if (!empty($searchterm)) {
-        $sql .= " WHERE transactions.transactionID LIKE '%$searchterm%' OR transactions.patientID LIKE '%$searchterm%' OR patients.patientFirstName LIKE '%$searchterm%' OR patients.patientLastName LIKE '%$searchterm%' OR transactions.transDate LIKE '%$searchterm%' OR transactions.transNotes LIKE '%$searchterm%'";
+    if (!empty($searchKeyword)) {
+        $sql .= " WHERE transactions.transactionID LIKE '%$searchKeyword%' OR transactions.patientID LIKE '%$searchKeyword%' OR patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR transactions.transDate LIKE '%$searchKeyword%' OR transactions.transNotes LIKE '%$searchKeyword%'";
     }
 
-    $sql .= ";";
+    $sql .= " LIMIT $startPage, $recordPerPage;";
 
     $result = $conn->query($sql);
+    $totalRecords = mysqli_num_rows($result);
 
     if (!$result) {
         die("Error in SQL query: " . $conn->error);
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,26 +58,25 @@
                     <div class="button">
                         <a href="addTransaction.php"><i class="fa-solid fa-plus"></i></a>
                     </div>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="search">
-                        <input type="text" placeholder="Search" name="searchterm">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="get" class="search">
+                        <input type="text" placeholder="Search" name="searchKeyword">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
                 </div>
                 <?php 
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<th>Transaction ID</th>";
+                    echo "<th>Patient ID</th>";
+                    echo "<th>First Name</th>";
+                    echo "<th>Last Name</th>";
+                    echo "<th>Charge Amount</th>";
+                    echo "<th>Amount Paid</th>";
+                    echo "<th>Date</th>";
+                    echo "<th>Time</th>";
+                    echo "<th>Notes</th>";
+                    echo "</tr>";
                     if ($result->num_rows > 0){
-                        echo "<table>";
-                        echo "<tr>";
-                        echo "<th>Transaction ID</th>";
-                        echo "<th>Patient ID</th>";
-                        echo "<th>First Name</th>";
-                        echo "<th>Last Name</th>";
-                        echo "<th>Charge Amount</th>";
-                        echo "<th>Amount Paid</th>";
-                        echo "<th>Date</th>";
-                        echo "<th>Time</th>";
-                        echo "<th>Notes</th>";
-                        echo "</tr>";
-                        
                         while ($row = $result->fetch_assoc()){
                             echo "<tr>";
                             echo "<td>" . $row["transactionID"] . "</td>";
@@ -89,13 +91,27 @@
                             echo "</tr>";
                         }
 
-                        echo "</table>";
+                        echo "</table><br>";
                     }else{
-                        echo "0 results";
+                        echo "<tr><td colspan = '9' id = 'noRes'>No Results</td></tr>";
+                        echo "</table><br>";
                     }
-
-                    $conn->close();
                 ?>
+                <div class = "paginationCont">
+                    <div class = "paginationMain">
+                        <?php
+                            $query = "SELECT COUNT(*) FROM transactions JOIN patients on patients.patientID = transactions.patientID";
+                            $baseUrl = "transaction.php";
+                            if (!empty($searchKeyword)) {
+                                $query .= " WHERE transactions.transactionID LIKE '%$searchKeyword%' OR transactions.patientID LIKE '%$searchKeyword%' OR patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR transactions.transDate LIKE '%$searchKeyword%' OR transactions.transNotes LIKE '%$searchKeyword%'";
+                                $baseUrl .= "?searchKeyword=$searchKeyword";
+                            }else{
+                                $baseUrl .= "?";
+                            }
+                            include("../pages/pagination.php");
+                        ?>    
+                    </div>
+                </div>
             </div>
         </main>
     </div>
