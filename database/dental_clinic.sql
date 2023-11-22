@@ -166,7 +166,7 @@ CREATE TABLE `transactions` (
 --
 DROP TABLE IF EXISTS `appointments`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointments`  AS SELECT `requests`.`requestID` AS `requestID`, `requests`.`patientID` AS `patientID`, `requests`.`requestServices` AS `requestServices`, `requests`.`requestDate` AS `requestDate`, `requests`.`requestTime` AS `requestTime`, `requests`.`requestNotes` AS `requestNotes`, `requests`.`requestStatus` AS `requestStatus` FROM `requests` WHERE `requests`.`requestStatus` = 'Approved''Approved'  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointments`  AS SELECT `requests`.`requestID` AS `requestID`, `requests`.`patientID` AS `patientID`, `requests`.`requestServices` AS `requestServices`, `requests`.`requestDate` AS `requestDate`, `requests`.`requestTime` AS `requestTime`, `requests`.`requestNotes` AS `requestNotes`, `requests`.`requestStatus` AS `requestStatus` FROM `requests` WHERE `requests`.`requestStatus` = 'Approved';
 
 --
 -- Indexes for dumped tables
