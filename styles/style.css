@@ -1,28 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+
 
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
 
 section{
     height: calc(100% - 60px);
-    padding: 5px 80px 0px 80px;
+    padding: 60px 80px;
 }
 
 header{
     margin-bottom: 90px;
 }
 body{
-    background-color: #f4fafa;
+    background-image: url("../images/dental.png");
+    background-size: cover;
+    background-attachment:fixed;
 }
 nav{
     display: flex;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     justify-content: center;
 }
@@ -36,8 +41,8 @@ nav{
     font-size: 1.3rem;
     text-decoration: none;
     color: #faf4f4;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #1e1d1d;
+    /* font-weight: bold; */
+
 }
 
 nav a:hover{
@@ -66,15 +71,15 @@ nav img{
 
 #hero{
     height: 120vh;
-    width: 100%;
     margin: auto;
     display: flex;
-    background-image: url("../images/dental.png");
     justify-content: center;
     align-items: center;
     margin-top: -100px;
-    background-repeat: no-repeat;
+
+
 }
+
 
 
 .container{
@@ -89,12 +94,6 @@ nav img{
     font-weight: bold;
     margin-top: auto;
     color: #f4fafa;
-    text-shadow: 1px 1px 1px #000000;
-}
-
-#hero img{
-    flex: 1fr;
-    width: 600px;
 }
 
 /*style for popup*/
@@ -111,11 +110,12 @@ nav img{
     }
 
 .popup-container iframe{
-    margin-top: 80px;
-    width: 800px;
+    width: 700px;
     height: 80vh;
     border: none;
     border-radius: 10px;
+    background-color: transparent;
+
 }
 
 .popup-container>img{
@@ -182,7 +182,11 @@ nav img{
     align-items: center;
     letter-spacing: 5px;
     margin-top: 10px;
-}.title p{
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+}
+
+.title>p{
     display: flex;
     font-size: 50px;
     color: #164742;
@@ -197,49 +201,55 @@ nav img{
     justify-content: center;
     align-content: center;
     gap: 50px;
-    margin-bottom: 100px;
 }
 
 
-#about p{
+.about-container p{
+    flex: 2;
     text-align: justify;
     font-size: 25px;
-    margin-top: 90px;
+    align-self: center;
 }
 
 #about img{
-    width: 40vw;
-    margin-top: -19px;
+    flex: 1;
+    height: auto;
+    /* width: calc(600px - ); */
 }
 
-.about-container{
-    display:flex;
+#services{
+    background: rgba(244,250,250,0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(244,250,250,0.35);
 }
 
 .service-container{
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
-    column-gap: 15px;
-    row-gap: 15px;
-    margin-top: 5px;
-    margin-bottom: 100px;
+    align-items: baseline;
+    grid-template-columns: repeat( 3, minmax(300px, 1fr));
+    gap: 50px;
+    margin-inline: 70px;
+
 }
 .service-container>div{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: #f4fafa;
+    justify-content: space-evenly;
     gap: 10px;
-    height: 300px;
-    padding: 15px;
-    font-size: 16px;
 }
+
+
+.service-container>div:nth-child(10){
+    grid-column: 2/3;
+}
+
+
 
 h2 {
     color: #329F94;
     letter-spacing: 2px;
-    text-shadow: 1px 1px 1px rgb(167, 163, 163);
+    text-align: center;
 }
 
 .service-container img{
@@ -250,16 +260,18 @@ h2 {
 .service-content{
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: justify;
+    font-size: 1.2em;
 }
 
-#contact{
-    margin: 20px 0;
+#contact,#about {
+    background-color: #f4fafa;
 }
 
 .divider{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .contact-container{
@@ -270,10 +282,9 @@ h2 {
     height: 300px;
     width: 600px;
     border-radius: 15px;
-    margin-top: 40px;
     border-style: solid;
     border-color: #329F94;
-    margin-bottom: 100px;
+
 }
 
 .info-container{
@@ -306,6 +317,7 @@ h2 {
 
 .info-loc iframe{
     margin: auto;
+    
 }
 
 #info-button2{
@@ -321,8 +333,8 @@ h2 {
 }
 .back-to-top {
 	position: fixed;
-	bottom: 0.5rem;
-	right: 0.5rem;
+	bottom: 20px;
+	right: 20px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -491,7 +503,7 @@ h2 {
 
     .info-loc iframe{
         display: inline-block;
-        width: 90vw;
+        width: 80vw;
         height: 30vh;
     }
 }

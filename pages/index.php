@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinic</title>
     <?php include("../pages/header.php");?>
-    <link rel="stylesheet" href="../styles/clinicss.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
     <script>
         function openPopup() {
@@ -49,9 +49,10 @@
         
         <div class="popup-container" id="popup">
             <img src="../images/close.png" alt="" onclick="closePopup()">
-            <iframe src="optionAppointment.php" frameborder="0"></iframe>
+            <iframe src="optionAppointment.php" allowtransparency="true" frameborder="0" style="background-color: transparent;"></iframe>
+            
         </div>
-    </div>
+        </div>
 
 </section>
 
@@ -98,7 +99,7 @@
                     </h2>
     
                     <p>
-                    Experience precise and minimally invasive surgical procedures, ensuring optimal outcomes for a range of dental <br>conditions.                
+                    Experience precise and minimally invasive surgical procedures, ensuring optimal outcomes for a range of dental conditions.                
                     </p> 
                 </div>
 
@@ -112,7 +113,7 @@
                     </h2>
                     
                     <p>
-                    Our skilled team performs gentle and efficient tooth extractions, prioritizing patient comfort and promoting oral <br>health.
+                    Our skilled team performs gentle and efficient tooth extractions, prioritizing patient comfort and promoting oral health.
                     </p>
                 </div>
 
@@ -128,7 +129,7 @@
                     </h2>
     
                     <p>
-                    Restore your teeth to their natural strength and appearance with our high-quality dental restoration services, including fillings<br> and crowns.
+                    Restore your teeth to their natural strength and appearance with our high-quality dental restoration services, including fillings and crowns.
                     </p>
                 </div>
 
@@ -170,7 +171,7 @@
                     </h2>
     
                     <p>
-                    Enhance both function and aesthetics with our customized prosthetic solutions, including bridges and dental<br>  implants.
+                    Enhance both function and aesthetics with our customized prosthetic solutions, including bridges and dental implants.
                     </p>
                 </div>
 
@@ -204,12 +205,12 @@
         </div>
     </section>
         
+    
+    <section id="about">
         <div class="title">
             <h1>OUR  CLINIC</h1>
             <p>Bringing joy to every smile, because your oral<br> health matters.</p>
         </div>
-    
-    <section id="about">
 
         <article class="about-container">
         <img src="../images/clinic-img.png" alt="clinic-img">
@@ -219,13 +220,13 @@
         </article>
     </section>
 
+    
+    <section id="contact">
+        
         <div class="title">
             <h1>CONTACT</h1>
             <p>Need assistance or have a question? Reach out to us anytime, <br> and we'll be happy to help!</p>
         </div>
-
-    <section id="contact">
-
         
         <br>
         <!--div for whole contact section-->
