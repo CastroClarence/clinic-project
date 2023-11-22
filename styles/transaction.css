@@ -116,12 +116,12 @@ table {
   }
   
   /*alternating colors*/
-  tr:nth-child(even) {
+  /* tr:nth-child(even) {
+      background-color: #CFE7E4;
+} */
+
+tr:nth-child(odd) {
     background-color: #E1EFED;
-  }
-  
-  tr:nth-child(odd) {
-    background-color: #CFE7E4;
   }
 
 .form-container{
