@@ -1,6 +1,19 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
     <?php include("../pages/header.php");?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentLocation = window.location.href;
+
+            var menuLinks = document.querySelectorAll('.menu a');
+
+            menuLinks.forEach(function (link) {
+                if (link.href === currentLocation) {
+                    link.parentElement.classList.add('active');
+                }
+            });
+        });
+    </script>
 </head>
 
 <nav>

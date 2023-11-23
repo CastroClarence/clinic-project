@@ -99,3 +99,11 @@ nav:hover{
     width: calc(100% - 1rem);
 }
 
+.menu li.active {
+    background: var(--darkwhite);
+    color: var(--green);
+}
+
+.menu li.active a {
+    color: var(--green);
+}
