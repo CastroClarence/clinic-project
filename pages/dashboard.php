@@ -13,7 +13,7 @@
     $sqlRequestsToday = "SELECT appointments.requestID, appointments.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, appointments.requestServices, appointments.requestTime, appointments.requestNotes
     FROM appointments
     LEFT JOIN patients ON appointments.patientID = patients.patientID
-    WHERE appointments.requestDate ='$currentDate'";
+    WHERE appointments.requestDate ='$currentDate' ORDER BY appointments.requestTime ASC";
     $resultRequestsToday = $conn->query($sqlRequestsToday);
     
     $sqlTotalTransactions = "SELECT COUNT(transactionID) AS totalTransactions FROM transactions";
