@@ -63,40 +63,42 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
                 </div>
-                <?php 
-                    echo "<table>";
-                    echo "<tr>";
-                    echo "<th>Transaction ID</th>";
-                    echo "<th>Patient ID</th>";
-                    echo "<th>First Name</th>";
-                    echo "<th>Last Name</th>";
-                    echo "<th>Charge Amount</th>";
-                    echo "<th>Amount Paid</th>";
-                    echo "<th>Date</th>";
-                    echo "<th>Time</th>";
-                    echo "<th>Notes</th>";
-                    echo "</tr>";
-                    if ($result->num_rows > 0){
-                        while ($row = $result->fetch_assoc()){
-                            echo "<tr>";
-                            echo "<td>" . $row["transactionID"] . "</td>";
-                            echo "<td>" . $row["patientID"] . "</td>";
-                            echo "<td>" . $row["patientFirstName"] . "</td>";
-                            echo "<td>" . $row["patientLastName"] . "</td>";
-                            echo "<td>" . $row["transChargeAmount"] . "</td>";
-                            echo "<td>" . $row["transAmountPaid"] . "</td>";
-                            echo "<td>" . $row["transDate"] . "</td>";
-                            echo "<td>" . $row["transTime"] . "</td>";
-                            echo "<td>" . $row["transNotes"] . "</td>";
-                            echo "</tr>";
-                        }
+                <div class="table-container">
+                    <?php 
+                        echo "<table>";
+                        echo "<tr>";
+                        echo "<th>Transaction ID</th>";
+                        echo "<th>Patient ID</th>";
+                        echo "<th>First Name</th>";
+                        echo "<th>Last Name</th>";
+                        echo "<th>Charge Amount</th>";
+                        echo "<th>Amount Paid</th>";
+                        echo "<th>Date</th>";
+                        echo "<th>Time</th>";
+                        echo "<th>Notes</th>";
+                        echo "</tr>";
+                        if ($result->num_rows > 0){
+                            while ($row = $result->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>" . $row["transactionID"] . "</td>";
+                                echo "<td>" . $row["patientID"] . "</td>";
+                                echo "<td>" . $row["patientFirstName"] . "</td>";
+                                echo "<td>" . $row["patientLastName"] . "</td>";
+                                echo "<td>" . $row["transChargeAmount"] . "</td>";
+                                echo "<td>" . $row["transAmountPaid"] . "</td>";
+                                echo "<td>" . $row["transDate"] . "</td>";
+                                echo "<td>" . $row["transTime"] . "</td>";
+                                echo "<td>" . $row["transNotes"] . "</td>";
+                                echo "</tr>";
+                            }
 
-                        echo "</table><br>";
-                    }else{
-                        echo "<tr><td colspan = '9' id = 'noRes'>No Results</td></tr>";
-                        echo "</table><br>";
-                    }
-                ?>
+                            echo "</table><br>";
+                        }else{
+                            echo "<tr><td colspan = '9' id = 'noRes'>No Results</td></tr>";
+                            echo "</table><br>";
+                        }
+                    ?>
+                </div>
                 <div class = "paginationCont">
                     <div class = "paginationMain">
                         <?php

@@ -9,7 +9,7 @@
 
     $currentDate = getCurrentDate();
 
-    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime, requests.requestNotes, requests.requestStatus
+    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime
     FROM requests
     LEFT JOIN patients ON requests.patientID = patients.patientID
     WHERE requests.requestDate ='$currentDate' AND requests.requestStatus = 'Approved'";
@@ -84,6 +84,15 @@
 
     $dataPointsJson = json_encode($dataPoints);
 
+    $sqlBar = "SELECT
+        SUM(CASE WHEN patientAge BETWEEN 0 AND 12 THEN 1 ELSE 0 END) as Child,
+        SUM(CASE WHEN patientAge BETWEEN 13 AND 19 THEN 1 ELSE 0 END) as Teenager,
+        SUM(CASE WHEN patientAge BETWEEN 20 AND 39 THEN 1 ELSE 0 END) as Young_Adult,
+        SUM(CASE WHEN patientAge >= 40 THEN 1 ELSE 0 END) as Adult
+        FROM patients;";
+    $resultBar = $conn->query($sqlBar);
+    $rowBarChart = $resultBar->fetch_assoc();
+
     $conn->close();
 ?>
 
@@ -93,16 +102,13 @@
         <meta charset="UTF-8" />
         <title>Dashboard</title>
         <?php include("../pages/header.php");?>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/KrwHSqkcS59mzxz2Lspz71bM7wQTtC1U6NhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../styles/dashboard.css" />
         <script type="text/javascript" src ="../scripts/dashboard.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
         <script>
             var chartData = <?php echo json_encode($data); ?>;
-        </script>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
-        
-        <script>
             var dataPoints = <?php echo $dataPointsJson; ?>;
+            var barChartData = <?php echo json_encode($rowBarChart, JSON_NUMERIC_CHECK); ?>;
         </script>
     </head>
 
@@ -187,7 +193,7 @@
                     <?php
                         if ($resultRequestsToday->num_rows > 0) {
                             echo '<table>';
-                            echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Services</th><th>Time</th><th>Notes</th><th>Appointment Status</th>";
+                            echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Services</th><th>Time</th>";
 
                             while ($row = $resultRequestsToday->fetch_assoc()) {
                             echo '<tr>';
@@ -203,9 +209,7 @@
 
                     ?>
 
-                    <div class="bar">
-                        <p>Bar</p>
-                    </div>
+                    <div id="barContainer"></div>
                 </div>
 
             </section>

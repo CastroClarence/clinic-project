@@ -63,9 +63,12 @@ window.onload = function () {
 
     // Use the JSON data in JavaScript to create a chart
     var chart = new CanvasJS.Chart("pieContainer", {
+        theme: "light2", 
         animationEnabled: true,
         title: {
-            text: "Service Distribution"
+            text: "Service Distribution",
+            fontFamily: "Jost, sans-serif",
+            fontColor: "#38a095",
         },
         data: [{
             type: "pie",
@@ -73,6 +76,29 @@ window.onload = function () {
         }]
     });
 
+    chart.render();
+
+    var barDataPoints = [];
+    barDataPoints.push({ label: "Child", y: barChartData.Child });
+    barDataPoints.push({ label: "Teenager", y: barChartData.Teenager });
+    barDataPoints.push({ label: "Young Adult", y: barChartData.Young_Adult });
+    barDataPoints.push({ label: "Adult", y: barChartData.Adult });
+    var chart = new CanvasJS.Chart("barContainer", {
+        animationEnabled: true,
+        theme: "light2", 
+        title:{
+            text: "Customer Age Distribution",
+            fontFamily: "Jost, sans-serif",
+            fontColor: "#38a095",
+        },
+        axisY:{
+            includeZero: true
+        },
+        data: [{
+            type: "column", 
+            dataPoints: barDataPoints
+        }]
+    });
     chart.render();
 
 }

@@ -127,12 +127,8 @@
                 </div>
               </div>
             </form>
-            <script>
-                insertAlert('submit-btn', 'add-form');
-            </script>
-            
             <div class="am-footer">
-                    <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
+                <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
             </div>
         </div>
     </body>
