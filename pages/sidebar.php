@@ -1,3 +1,4 @@
+<?php include("../pages/login.php");?>
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/sidebar.css"/>
     <?php include("../pages/header.php");?>
