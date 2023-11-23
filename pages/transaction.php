@@ -17,14 +17,13 @@
 
     $sql = "SELECT transactions.transactionID, transactions.patientID, patients.patientFirstName, patients.patientLastName, transactions.transChargeAmount, transactions.transAmountPaid, transactions.transTime, transactions.transDate, transactions.transNotes, patients.patientBalance
             FROM transactions
-            JOIN patients on patients.patientID = transactions.patientID
-            ORDER BY transactions.transDate, transactions.transTime ASC";
+            JOIN patients on patients.patientID = transactions.patientID";
 
     if (!empty($searchKeyword)) {
         $sql .= " WHERE transactions.transactionID LIKE '%$searchKeyword%' OR transactions.patientID LIKE '%$searchKeyword%' OR patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR transactions.transDate LIKE '%$searchKeyword%' OR transactions.transNotes LIKE '%$searchKeyword%'";
     }
 
-    $sql .= " LIMIT $startPage, $recordPerPage;";
+    $sql .= "  ORDER BY transactions.transDate, transactions.transTime ASC LIMIT $startPage, $recordPerPage;";
 
     $result = $conn->query($sql);
     $totalRecords = mysqli_num_rows($result);

@@ -1,7 +1,8 @@
 <?php
     include("../phpFiles/dbConnect.php");
     include("../pages/login.php");
-
+    
+    $successPrompt["successSubmit"] = "";
     $requestID = "";
     $patientID = "";
     $requestStatus = "";
@@ -48,7 +49,7 @@
         $updateQuery = "UPDATE requests SET patientID = '$patientID', requestDate = '{$_SESSION["selectedDate"]}', requestTime = '{$_SESSION["selectOption"]}', requestStatus = '$requestStatus' WHERE requestID = $requestID";
         
         if ($conn->query($updateQuery) === TRUE) {
-            $updateMessage = "Record updated successfully";
+            $successPrompt["successSubmit"] = "Record Updated Successfully";
 
             $updatePatientStatusQuery = "UPDATE patients SET patientStatus = '$patientStatus' WHERE patientID = $patientID";
             $conn->query($updatePatientStatusQuery);
@@ -101,7 +102,15 @@
             <form class="am-body-box" method="post" action="appointmentRequestUpdate.php" id="updateAppointment">
 
                 <!-- Code not needed kasi wala namang approved requestStatus here?? -->
-
+                <p class = "success">
+                    <?php
+                        if(isset($successPrompt["successSubmit"])){
+                            echo $successPrompt["successSubmit"];
+                        }else{
+                            echo "";
+                        }
+                    ?>   
+                </p>
                 <?php
                     if($requestStatus == "Approved" && $patientStatus == "Verified"){
                         echo "<a href='calendarAppointment.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
@@ -109,7 +118,7 @@
                         echo "<a href='appointmentRequest.php'><i class='fas fa-arrow-alt-circle-left'></i></a>";
                     }
                 ?>
-            
+                
                 <div class="am-row">
                     <div class="am-col-6">
                         <p>Appointment Request ID: </p>

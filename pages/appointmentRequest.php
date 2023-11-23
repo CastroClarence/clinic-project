@@ -19,15 +19,14 @@
   $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, patients.patientStatus, requests.requestServices, requests.requestDate, requests.requestTime, requests.requestNotes, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID
-          WHERE requests.requestStatus ='Pending'
-          ORDER BY requests.requestDate ASC, requests.requestTime ASC";
+          WHERE requests.requestStatus ='Pending'";
 
   //search if search not empty
   if (!empty($searchKeyword)) {
     $sql .= " AND (patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR patients.patientMobileNo LIKE '%$searchKeyword%' OR requests.requestID LIKE '%$searchKeyword%' OR requests.patientID LIKE '%$searchKeyword%' OR requests.requestDate LIKE '%$searchKeyword%' OR requests.requestTime LIKE '%$searchKeyword%' OR requests.requestServices LIKE '%$searchKeyword%')";
   }
 
-  $sql .= " LIMIT $startPage, $recordPerPage;";
+  $sql .= " ORDER BY requests.requestDate ASC, requests.requestTime ASC LIMIT $startPage, $recordPerPage;";
 
   $result = $conn->query($sql);
   $totalRecords = mysqli_num_rows($result);

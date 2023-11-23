@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 06:48 PM
+-- Generation Time: Nov 23, 2023 at 07:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -98,7 +98,7 @@ INSERT INTO `patients` (`patientID`, `patientFirstName`, `patientLastName`, `pat
 (200008, 'Fernande', 'Tewkesbury.', 26, 'F', '0993-757-7386', 'ftewkesbury7@nationalgeographic.com', '4374 Cardinal Crossing', 'Electrical Engineer', 0.00, 'Verified'),
 (200009, 'Mill', 'Clifford', 51, 'M', '0950-252-2893', 'mclifford8@yolasite.com', '8300 Amoth Terrace', 'Financial Advisor', 0.00, 'Verified'),
 (200010, 'Bev', 'Cocker', 20, 'M', '0980-945-1834', 'bcocker9@arizona.edu', '1 Golf View Place', 'Human Resources Assistant IV', 0.00, 'Verified'),
-(200011, 'Jarvis', 'Bewshea', 60, 'M', '0937-626-2573', 'jbewsheaa@sciencedaily.com', '532 Amoth Avenue', 'Senior Cost Accountant', 24000.00, 'Verified'),
+(200011, 'Jarvis', 'Bewshea', 22, 'M', '0937-626-2573', 'jbewsheaa@sciencedaily.com', '532 Amoth Avenue', 'Senior Cost Accountant', 24000.00, 'Verified'),
 (200012, 'Tedie', 'Isbell', 67, 'M', '0956-931-3447', 'tisbellb@fc2.com', '744 Florence Hill', 'Financial Advisor', 0.00, 'Verified'),
 (200013, 'Mamie', 'Van Merwe', 32, 'F', '0903-364-3842', 'mvanmerwec@chron.com', '12 Kensington Terrace', 'Health Coach IV', 0.00, 'Verified'),
 (200014, 'Maurene', 'Wadesworth', 46, 'F', '0932-196-0069', 'mwadesworthd@fc2.com', '6 Barby Center', 'Senior Quality Engineer', 0.00, 'Verified'),
@@ -161,8 +161,8 @@ INSERT INTO `requests` (`requestID`, `patientID`, `requestServices`, `requestDat
 (300040, 200010, 'Crown', '2023-07-27', '10:00:00', '', 'Approved'),
 (300041, 200013, 'Consultation, Orthodontics Treatment', '2023-11-24', '09:00:00', '', 'Pending'),
 (300042, 200018, 'Bleaching', '2023-11-24', '13:30:00', '', 'Approved'),
-(300043, 200021, 'Extraction', '2023-11-24', '08:00:00', '', 'Pending'),
-(300044, 200043, 'Oral Prophylaxis', '2023-11-24', '10:00:00', '', 'Pending'),
+(300043, 200021, 'Extraction', '2023-11-24', '08:00:00', '', 'Approved'),
+(300044, 200043, 'Oral Prophylaxis', '2023-11-25', '08:30:00', '', 'Pending'),
 (300045, 200044, 'Orthodontics Treatment', '2023-11-25', '10:00:00', '', 'Pending'),
 (300046, 200019, 'Extraction', '2023-11-25', '13:00:00', '', 'Pending'),
 (300047, 200017, 'Consultation', '2023-11-25', '14:30:00', '', 'Pending'),

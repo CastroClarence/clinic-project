@@ -2,6 +2,7 @@
 include("../phpFiles/dbConnect.php");
 include("../pages/login.php");
 
+$successPrompt["successSubmit"] = "";
 $accountID = "";
 $accFirstName = "";
 $accLastName = "";
@@ -40,17 +41,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $accRole = $_POST["s-select"];
 
 
-    $sql = "UPDATE accounts SET accFirstName = '$accFirstName', accLastName= '$accLastName' , accPassword='$accPassword', accRole= '$accRole'  WHERE accountID = $accountID";
-    $result = $conn->query($sql);
-    if (!$result) {
-        echo  " <script>
-            alert('Edit Not Success !');
-        </script> ";
-        die();
-    }
-
-    header("location: ./accountManagement.php");
-    exit;
+        $sql = "UPDATE accounts SET accFirstName = '$accFirstName', accLastName= '$accLastName' , accPassword='$accPassword', accRole= '$accRole'  WHERE accountID = $accountID";
+        $result = $conn->query($sql);
+        $successPrompt["successSubmit"] = "Record Updated Successfully";
+        if (!$result) {
+            echo  " <script>
+                alert('Edit Not Success !');
+            </script> ";
+            die();
+        }
 }
 ?>
 
@@ -72,6 +71,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             </div>
 
             <form class="am-body-box" method="post" action="editAccount.php">
+                <p class = "success">
+                    <?php
+                        if(isset($successPrompt["successSubmit"])){
+                            echo $successPrompt["successSubmit"];
+                        }else{
+                            echo "";
+                        }
+                    ?>
+                </p>
                 <a href="accountManagement.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
 
                 <?php if (!empty($updateMessage)): ?>

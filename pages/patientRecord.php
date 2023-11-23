@@ -1,7 +1,7 @@
 <?php
     include("../phpFiles/dbConnect.php");
     include("../pages/login.php");
-
+    
     $searchKeyword = isset($_GET['searchKeyword']) ? $_GET['searchKeyword'] : '';
 
     $recordPerPage = 13;  
@@ -22,7 +22,7 @@
         $sql .= " WHERE patientFirstName LIKE '%$searchKeyword%' OR patientLastName LIKE '%$searchKeyword%' OR patientID LIKE '%$searchKeyword%' OR patientAge LIKE '%$searchKeyword%' OR patientSex LIKE '%$searchKeyword%' OR patientMobileNo LIKE '%$searchKeyword%' OR patientEmail LIKE '%$searchKeyword%' OR patientAddress LIKE '%$searchKeyword%' OR patientOccupation LIKE '%$searchKeyword%' OR patientBalance LIKE '%$searchKeyword%' OR patientStatus LIKE '%$searchKeyword%'";
     }
 
-    $sql .= " LIMIT $startPage, $recordPerPage;";
+    $sql .= " ORDER BY patientLastName ASC, patientFirstName ASC LIMIT $startPage, $recordPerPage;";
 
     $result = $conn->query($sql);
     $totalRecords = mysqli_num_rows($result);

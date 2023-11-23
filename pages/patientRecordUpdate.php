@@ -2,6 +2,7 @@
 include("../phpFiles/dbConnect.php");
 include("../pages/login.php");
 
+$successPrompt["successSubmit"] = "";
 $patientID = "";
 $patientFirstName = "";
 $patientLastName = "";
@@ -31,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $updateQuery = "UPDATE patients SET patientFirstName = '$patientFirstName', patientLastName = '$patientLastName', patientAge = '$patientAge', patientSex = '$patientSex', patientMobileNo = '$patientMobileNo', patientEmail = '$patientEmail', patientAddress = '$patientAddress', patientOccupation = '$patientOccupation' WHERE patientID ='$patientID'";
     
     if ($conn->query($updateQuery) === TRUE) {
-        $updateMessage = "Record updated successfully";
+        $successPrompt["successSubmit"] = "Record Updated Successfully";
+        // $updateMessage = "Record updated successfully";
     } else {
         $updateMessage = "Error updating record: " . $conn->error;
     }
@@ -76,6 +78,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         <div class="am-head">
             <h1>Patient Record Update</h1>
         </div>
+        <p class = "success">
+            <?php
+                if(isset($successPrompt["successSubmit"])){
+                    echo $successPrompt["successSubmit"];
+                }else{
+                    echo "";
+                }
+            ?>
+        </p>
 
         <form class="am-body-box" method="post" action="patientRecordUpdate.php">
         <a href="patientRecord.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
@@ -146,10 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 </div>
 
         </form>
-
-        <div class="update-message">
-            <?php echo $updateMessage; ?>
-        </div>
         <div class="am-footer">
                     <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
                 </div>
