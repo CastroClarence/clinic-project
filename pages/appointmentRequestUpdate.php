@@ -52,6 +52,7 @@
 
             $updatePatientStatusQuery = "UPDATE patients SET patientStatus = '$patientStatus' WHERE patientID = $patientID";
             $conn->query($updatePatientStatusQuery);
+
         } else {
             $updateMessage = "Error updating record: " . $conn->error;
         }

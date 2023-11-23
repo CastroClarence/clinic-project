@@ -256,7 +256,7 @@
                     <div>
                         <img src="../images/time.png" alt="time-logo">
                         <p>
-                            Mon-Fri <br>9:00AM - 4:00PM
+                            Mon-Sat <br>8:00AM - 5:00PM
                         </p>
                     </div>
                 </div>

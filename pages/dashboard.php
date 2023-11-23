@@ -198,7 +198,7 @@
                             }
                             echo '</table>';
                         } else {
-                            echo '<p>No requests for today.</p>';
+                            echo '<p class="no-result">No requests for today.</p>';
                         }
 
                     ?>

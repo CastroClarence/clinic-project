@@ -155,20 +155,15 @@
                     echo "<td>" . $row["requestNotes"] . "</td>";
   
                     echo "<td>";
-                    if ($row["requestStatus"] == "Pending") {
-                        echo "<div class='action-buttons'>
-                              <form action='appointmentRequest.php' method='post'>
-                                  <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                  <button type='submit' name='approved' id='approve'><i class='fas fa-check-square'></i></button>
-                              </form>";
-  
-                        echo "<form action='appointmentRequest.php' method='post'>
-                                  <input type='hidden' name='requestID' value='{$row['requestID']}'>
-                                  <button type='submit' name='declined' id='decline'><i class='fas fa-times-circle'></i></button>
-                                </form>";
-  
-                        echo "</div>";
-                    }
+                    echo "<div class='action-buttons'>
+                            <form action='appointmentRequest.php' method='post'>
+                                <input type='hidden' name='requestID' value='{$row['requestID']}'>
+                                <button type='submit' name='approved' id='approve' onclick = 'return confirm(\"Are you sure you want to approve this appointment?\");'><i class='fas fa-check-square'></i></button>
+                                <button type='submit' name='declined' id='decline' onclick = 'return confirm(\"Are you sure you want to decline this appointment?\");'><i class='fas fa-times-circle'></i></button>
+                            </form>";
+
+                    echo "</div>";
+
                     echo "</td>";
   
                     echo "<td>
@@ -176,19 +171,21 @@
                               <form action='appointmentRequestUpdate.php' method='post'>
                                   <input type='hidden' name='requestID' value='{$row['requestID']}'>
                                   <input type='hidden' name='requestStatus' value='{$row['requestStatus']}'>
-                                  <button type='submit'><i class='fas fa-edit'></i></button>
+                                  <button type='submit' onclick='openPopup()'><i class='fas fa-edit'></i></button>
+                                  
+                              </div>
                               </form>
                           </td>";
                     echo "</tr>";
                     
                   }
                   echo "</div>";
+                //   echo "</table><br>";
                   
-                  echo "</table><br>";
-              } else {
-                  echo "<tr><td colspan = '12' id = 'noRes'>No Results</td></tr>";
-                  echo "</table><br>";
-              }
+                } else {
+                    echo "<tr><td colspan = '12' id = 'noRes'>No Results</td></tr>";
+                }
+                echo "</table><br>";
             ?>
 
             <div class = "paginationCont">
@@ -210,9 +207,9 @@
                     ?>    
                 </div>
           </div>
-
         </main> 
   </div>
-
+    
+  <script src ="../scripts/confirmAppointment.js"></script>
 </body>
 </html>
