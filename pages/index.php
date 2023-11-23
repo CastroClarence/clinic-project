@@ -21,7 +21,7 @@
 <header>
     <nav>
     <div class="logo">
-            <a href="#"><img src="../images/logo1.png" alt="clinic-logo"></a>
+            <a href="#"><img src="../images/clinic_logo_white.png" alt="clinic-logo"></a>
         </div>
         <div class="nav-container">
             <a href="#services">Services</a>

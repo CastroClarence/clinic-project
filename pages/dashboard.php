@@ -3,16 +3,17 @@
     include("../pages/login.php");
 
     // get the date today
+    date_default_timezone_set('Asia/Manila');
     function getCurrentDate() {
         return date('Y-m-d');
       }
-
+    
     $currentDate = getCurrentDate();
 
-    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime, requests.requestNotes
-    FROM requests
-    LEFT JOIN patients ON requests.patientID = patients.patientID
-    WHERE requests.requestDate ='$currentDate' AND requests.requestStatus = 'Approved'";
+    $sqlRequestsToday = "SELECT appointments.requestID, appointments.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, appointments.requestServices, appointments.requestTime, appointments.requestNotes
+    FROM appointments
+    LEFT JOIN patients ON appointments.patientID = patients.patientID
+    WHERE appointments.requestDate ='$currentDate'";
     $resultRequestsToday = $conn->query($sqlRequestsToday);
     
     $sqlTotalTransactions = "SELECT COUNT(transactionID) AS totalTransactions FROM transactions";

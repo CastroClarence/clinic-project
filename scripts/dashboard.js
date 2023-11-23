@@ -2,6 +2,7 @@ window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer", {
         theme: "light2", 
         animationEnabled: true,
+        exportEnabled: true,
         zoomEnabled: true,
         title: {
             text: "Difference of Amount Charged & Amount Paid by Customers",
@@ -66,6 +67,7 @@ window.onload = function () {
     var chart = new CanvasJS.Chart("pieContainer", {
         theme: "light2", 
         animationEnabled: true,
+        exportEnabled: true,
         title: {
 
             text: "Service Distribution",
@@ -88,6 +90,7 @@ window.onload = function () {
     barDataPoints.push({ label: "Adult", y: barChartData.Adult });
     var chart = new CanvasJS.Chart("barContainer", {
         animationEnabled: true,
+        exportEnabled: true,
         theme: "light2", 
         title:{
             text: "Customer Age Distribution",
