@@ -76,7 +76,7 @@
                     echo "<td>
                             <div class='action-buttons'>
                                 <button class='edit'><a href='./editAccount.php?accountID=$row[accountID]'><i class='fas fa-edit'></i></a></button>
-                                <button class='delete'><a href='./deleteAccount.php?accountID=$row[accountID]'><i class='fa-solid fa-trash'></i></a></button>
+                                <button class='delete' onclick = 'return confirm(\"Are you sure you want to delete this account?\");'><a href='./deleteAccount.php?accountID=$row[accountID]'><i class='fa-solid fa-trash'></i></a></button>
                           </td>";
                     echo "</tr>";
                     

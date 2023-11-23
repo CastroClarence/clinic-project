@@ -17,7 +17,8 @@
 
     $sql = "SELECT transactions.transactionID, transactions.patientID, patients.patientFirstName, patients.patientLastName, transactions.transChargeAmount, transactions.transAmountPaid, transactions.transTime, transactions.transDate, transactions.transNotes, patients.patientBalance
             FROM transactions
-            JOIN patients on patients.patientID = transactions.patientID";
+            JOIN patients on patients.patientID = transactions.patientID
+            ORDER BY transactions.transDate, transactions.transTime ASC";
 
     if (!empty($searchKeyword)) {
         $sql .= " WHERE transactions.transactionID LIKE '%$searchKeyword%' OR transactions.patientID LIKE '%$searchKeyword%' OR patients.patientFirstName LIKE '%$searchKeyword%' OR patients.patientLastName LIKE '%$searchKeyword%' OR transactions.transDate LIKE '%$searchKeyword%' OR transactions.transNotes LIKE '%$searchKeyword%'";
@@ -87,7 +88,7 @@
                                 echo "<td>" . $row["transChargeAmount"] . "</td>";
                                 echo "<td>" . $row["transAmountPaid"] . "</td>";
                                 echo "<td>" . $row["transDate"] . "</td>";
-                                echo "<td>" . $row["transTime"] . "</td>";
+                                echo "<td>" . date("h:i A",strtotime($row["transTime"])) . "</td>";
                                 echo "<td>" . $row["transNotes"] . "</td>";
                                 echo "</tr>";
                             }

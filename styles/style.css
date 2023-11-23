@@ -113,6 +113,7 @@ nav img{
     border: none;
     border-radius: 10px;
     background-color: transparent;
+    z-index: 999;
 
 }
 

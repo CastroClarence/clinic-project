@@ -229,7 +229,7 @@
                         <div class="am-col-3">
                             <?php 
                                 if((!empty($_POST["submitSelectDateOld"]) and $errorPrompt["emailRegExist"] == "")){
-                                echo"<input type ='submit' name = 'finalSubmitOld'  id = 'finalSubmit' value = 'SUBMIT APPOINTMENT' onclick = 'confirmSubmit()'>";
+                                echo"<input type ='submit' name = 'finalSubmitOld'  id = 'finalSubmit' value = 'SUBMIT APPOINTMENT'>";
                                 }
                             ?>
                         </div>

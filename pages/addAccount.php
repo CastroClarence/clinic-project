@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="am-row">
                     <div class="am-col-3">
-                        <button type="submit" name="submit"> Add Account</button>
+                        <button type="submit" name="submit" onclick = "return confirm('Are you sure you want to add this account?');"> ADD ACCOUNT</button>
                     </div>
                 </div>
             </form>

@@ -66,10 +66,10 @@
     $serviceCounts = array_count_values($allService);
 
     // Sort the services by count in descending order
-    arsort($serviceCounts);
+    krsort($serviceCounts);
 
     // Take only the top 5 services
-    $top5Services = array_slice($serviceCounts, 0, 5);
+    $top5Services = array_slice($serviceCounts, 0, 4);
 
 
     if (!empty($allService)) {
@@ -77,7 +77,7 @@
     }
 
     $dataPoints = array();
-    foreach ($serviceCounts as $service => $count) {
+    foreach ($top5Services as $service => $count) {
         $dataPoints[] = array("label" => $service, "y" => $count);
     }
 
@@ -197,9 +197,14 @@
 
                             while ($row = $resultRequestsToday->fetch_assoc()) {
                             echo '<tr>';
-                            foreach ($row as $value) {
-                                echo '<td>' . $value . '</td>';
-                            }
+                            echo "<td>" . $row["requestID"] . "</td>";
+                            echo "<td>" . $row["patientID"] . "</td>";
+                            echo "<td>" . $row["patientFirstName"] . "</td>";
+                            echo "<td>" . $row["patientLastName"] . "</td>";
+                            echo "<td>" . $row["patientMobileNo"] . "</td>";
+                            echo "<td>" . $row["requestServices"] . "</td>";
+                            echo "<td>" . " ". date("h:i A",strtotime($row["requestTime"])) . " ". "</td>";
+                            echo "<td>" . $row["requestNotes"] . "</td>";
                             echo '</tr>';
                             }
                             echo '</table>';

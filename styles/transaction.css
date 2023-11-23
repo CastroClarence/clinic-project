@@ -176,6 +176,7 @@ tr:nth-child(odd) {
     font-size: 23px;
     background-color:transparent;
     color: #38a095;
+    cursor: pointer;
   }
 .action-buttons button:hover{
     color: #acafaf;

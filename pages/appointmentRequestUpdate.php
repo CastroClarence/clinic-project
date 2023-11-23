@@ -98,7 +98,7 @@
                 <h1>Appointment Request Update</h1>
             </div>
 
-            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php">
+            <form class="am-body-box" method="post" action="appointmentRequestUpdate.php" id="updateAppointment">
 
                 <!-- Code not needed kasi wala namang approved requestStatus here?? -->
 
@@ -167,9 +167,7 @@
                     <div class="am-col-3">
                     <?php
                                 if((!empty($_POST["submitSelectDate"]))){
-                                    echo '<button type="submit" name="finalSubmit" id ="finalSubmit" value = "SUBMIT APPOINTMENT" onclick = "confirmSubmit()">Update Appointment</button>'; 
-                                }else{
-                                    echo '<button type="submit" name="finalSubmit" id ="finalSubmit" value = "SUBMIT APPOINTMENT" onclick = "confirmSubmit()" disabled>Update Appointment</button>';
+                                    echo "<input type='submit' name='finalSubmit' id ='finalSubmit' value = 'SUBMIT UPDATE' onclick = 'return confirm(\"Are you sure you want to update this appointment?\");'>";
                                 }
                             ?>
                     </div>
@@ -182,6 +180,7 @@
                 </div>
         </div>
     </div>
-
+    <script src ="../scripts/formAppLanding.js"></script>
+    <script src ="../scripts/dateToday.js"></script>
 </body>
 </html>

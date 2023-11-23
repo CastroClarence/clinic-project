@@ -55,7 +55,7 @@
                   <input type="text"
                           id="firstName"
                           name="firstName"
-                          placeholder="Enter First Name"/>
+                          placeholder="Enter First Name" required/>
                 </div>
 
                 <div class="am-col-6">
@@ -63,7 +63,7 @@
                   <input type="text"
                           id="lastName"
                           name="lastName"
-                          placeholder="Enter Last Name"/>
+                          placeholder="Enter Last Name" required/>
                 </div>
               </div>
 
@@ -73,7 +73,7 @@
                   <input type="text"
                           id="mobileNumber"
                           name="mobileNumber"
-                          placeholder="Enter Mobile Number"/>
+                          placeholder="Enter Mobile Number" required/>
                 </div>
 
                 <div class="am-col-6">
@@ -81,7 +81,7 @@
                   <input type="number"
                           id="Age"
                           name="Age"
-                          placeholder="Enter Age"/>
+                          placeholder="Enter Age" required/>
                 </div>
               </div>
 
@@ -99,17 +99,17 @@
                   <input type="text"
                           id="occupation"
                           name="occupation"
-                          placeholder="Enter Occupation"/>
+                          placeholder="Enter Occupation" required/>
                 </div>
               </div>
 
               <div class="am-row">
                 <div class="am-col-6">
                   <label for="email">Email: </label>
-                  <input type="text"
+                  <input type="email"
                           id="email"
                           name="email"
-                          placeholder="Enter Email"/>
+                          placeholder="Enter Email" required/>
                 </div>
                 
                 <div class="am-col-6">
@@ -117,13 +117,13 @@
                   <input type="text"
                           id="homeAddress"
                           name="homeAddress"
-                          placeholder="Enter Home Address"/>
+                          placeholder="Enter Home Address" required/>
                 </div>
               </div>
 
               <div class="am-row">
                 <div class="form-submit-btn am-col-3">
-                  <button type="submit" id="submit-btn">Add Patient Record</button>
+                  <button type="submit" id="submit-btn" onclick = "return confirm('Are you sure you want to add this record?');">ADD RECORD</button>
                 </div>
               </div>
             </form>

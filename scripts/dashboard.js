@@ -9,6 +9,7 @@ window.onload = function () {
             fontColor: "#38a095",
         },
         axisX: {
+            title: "Date",
             valueFormatString: "DD MMM",
             fontFamily: "Jost, sans-serif",
         },
@@ -66,12 +67,14 @@ window.onload = function () {
         theme: "light2", 
         animationEnabled: true,
         title: {
+
             text: "Service Distribution",
             fontFamily: "Jost, sans-serif",
             fontColor: "#38a095",
         },
         data: [{
             type: "pie",
+            toolTipContent: "{y} (#percent %)",
             dataPoints: dataPoints // No need for PHP echo in an external JS file
         }]
     });
@@ -92,7 +95,11 @@ window.onload = function () {
             fontColor: "#38a095",
         },
         axisY:{
+            title: "Frequency",
             includeZero: true
+        },
+        axisX:{
+            title: "Age Group"
         },
         data: [{
             type: "column", 

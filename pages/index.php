@@ -167,7 +167,7 @@
                 <img src="../images/prosthetics.png" alt="Prosthetic-img">
                 <div class="service-content">
                     <h2>
-                        Prosthetic
+                        Crown
                     </h2>
     
                     <p>

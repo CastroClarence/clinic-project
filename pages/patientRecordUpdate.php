@@ -91,54 +91,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             <div class="am-row">
                 <div class="am-col-6">
                     <p>First Name</p>
-                    <input type="text" name="patientFirstName" id="patientFirstName" placeholder="Enter New First Name" value="<?php echo $patientFirstName; ?>">
+                    <input type="text" name="patientFirstName" id="patientFirstName" placeholder="Enter New First Name" value="<?php echo $patientFirstName; ?>" required>
                 </div>
 
                 <div class="am-col-6">
                     <p>Last Name</p>
-                    <input type="text" name="patientLastName" id="patientLastName" placeholder="Enter New Last Name" value="<?php echo $patientLastName; ?>">
+                    <input type="text" name="patientLastName" id="patientLastName" placeholder="Enter New Last Name" value="<?php echo $patientLastName; ?>" required>
                 </div>
             </div>
 
             <div class="am-row">
                 <div class="am-col-6">
                     <p>Age</p>
-                    <input type="number" name="patientAge" id="patientAge" placeholder="Enter New Age" value="<?php echo $patientAge; ?>">
+                    <input type="number" name="patientAge" id="patientAge" placeholder="Enter New Age" value="<?php echo $patientAge; ?>" required>
                 </div>
 
                 <div class="am-col-6">
                     <p>Sex</p>
-                    <input type="text" name="patientSex" id="patientSex" placeholder="Enter New Sex" value="<?php echo $patientSex; ?>">
+                    <select name="patientSex">
+                        <option value="M" <?php echo ($patientSex == 'M') ? 'selected' : ''; ?>>Male</option>
+                        <option value="F" <?php echo ($patientSex == 'F') ? 'selected' : ''; ?>>Female</option>
+                    </select>
                 </div>
             </div>
 
             <div class="am-row">
                 <div class="am-col-6">
                     <p>Mobile Number</p>
-                    <input type="text" name="patientMobileNo" id="patientMobileNo" placeholder="Enter New Mobile Number" value="<?php echo $patientMobileNo; ?>">
+                    <input type="text" name="patientMobileNo" id="patientMobileNo" placeholder="Enter New Mobile Number" value="<?php echo $patientMobileNo; ?>" required>
                 </div>
 
                 <div class="am-col-6">
                     <p>Email</p>
-                    <input type="text" name="patientEmail" id="patientEmail" placeholder="Enter New Email" value="<?php echo $patientEmail; ?>">
+                    <input type="email" name="patientEmail" id="patientEmail" placeholder="Enter New Email" value="<?php echo $patientEmail; ?>" required>
                 </div>
             </div>
 
             <div class="am-row">
                 <div class="am-col-6">
                     <p>Address</p>
-                    <input type="text" name="patientAddress" id="patientAddress" placeholder="Enter New Address" value="<?php echo $patientAddress; ?>">
+                    <input type="text" name="patientAddress" id="patientAddress" placeholder="Enter New Address" value="<?php echo $patientAddress; ?>" required>
                 </div>
 
                 <div class="am-col-6">
                     <p>Occupation</p>
-                    <input type="text" name="patientOccupation" id="patientOccupation" placeholder="Enter New Occupation" value="<?php echo $patientOccupation; ?>">
+                    <input type="text" name="patientOccupation" id="patientOccupation" placeholder="Enter New Occupation" value="<?php echo $patientOccupation; ?>" required>
                 </div>
             </div>
 
                 <div class="am-row">
                     <div class="am-col-12">
-                        <button type="submit" name="submit">Update Record</button>
+                        <button type="submit" name="submit" onclick = "return confirm('Are you sure you want to update this record?');">UPDATE RECORD</button>
                     </div>
                 </div>
 

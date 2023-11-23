@@ -92,8 +92,8 @@ h1{
     grid-column: 1/ span 3;
 }
 
-.bar{
-    height: 340px;
+.bar, table{
+    height: 300px ;
 }
 
 table{
@@ -131,6 +131,7 @@ th, td {
 }
 
 th {
+    height: 25px;
     background-color: #5EB1A9;
     color: white;
 }

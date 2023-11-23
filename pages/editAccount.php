@@ -104,7 +104,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 <div class="am-row">
                     <div class="am-col-6">
                         <p>Password: </p>
-                        <input type="password" name="accPassword" id="accPassword" placeholder="Enter Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?_&]{8,}$"
+                        <input type="text" name="accPassword" id="accPassword" placeholder="Enter Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?_&]{8,}$"
                         title="Password must be at least 8 characters with a mix of uppercase and lowercase letters, numbers, and special characters." value="<?php echo $accPassword; ?>" required>
                     </div>
                     <div class="am-col-6">
@@ -118,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
                 <div class="am-row">
                     <div class="am-col-3">
-                        <button type="submit" name="submit"> Update Account</button>
+                        <button type="submit" name="submit" onclick = "return confirm('Are you sure you want to update this account?');"> UPDATE ACCOUNT</button>
                     </div>
                 </div>
             </form>

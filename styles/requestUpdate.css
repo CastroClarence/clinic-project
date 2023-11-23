@@ -37,6 +37,7 @@ h1{
     width: 650px;
     background-color: #9bcfca;
     border-radius: 15px;
+    overflow: hidden;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 input, textarea, select{
@@ -111,7 +112,7 @@ input[type="checkbox"]{
 .am-footer>p{
     color: #f4fafa;
 }
-button{
+button, #finalSubmit, #submitSelectDate{
     width: 30%;
     height: 80%;
     background-color: #38a095;
@@ -121,10 +122,18 @@ button{
     padding: 10px;
     margin-top: 20px;
     resize: none;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 15px;
+    font-weight: bold;
 }
-button:hover{
+
+#submitSelectDate{
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 5px;
+}
+button:hover, #finalSubmit:hover, #submitSelectDate:hover{
     background-color: #d6ebe9;
     color: black;
     transition: 0.5s;

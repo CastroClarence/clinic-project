@@ -19,7 +19,8 @@
   $sql = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, patients.patientStatus, requests.requestServices, requests.requestDate, requests.requestTime, requests.requestNotes, requests.requestStatus
           FROM requests
           LEFT JOIN patients ON requests.patientID = patients.patientID
-          WHERE requests.requestStatus ='Pending'";
+          WHERE requests.requestStatus ='Pending'
+          ORDER BY requests.requestDate ASC, requests.requestTime ASC";
 
   //search if search not empty
   if (!empty($searchKeyword)) {
