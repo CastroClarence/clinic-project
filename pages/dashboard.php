@@ -9,7 +9,7 @@
 
     $currentDate = getCurrentDate();
 
-    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime
+    $sqlRequestsToday = "SELECT requests.requestID, requests.patientID, patients.patientFirstName, patients.patientLastName, patients.patientMobileNo, requests.requestServices, requests.requestTime, requests.requestNotes
     FROM requests
     LEFT JOIN patients ON requests.patientID = patients.patientID
     WHERE requests.requestDate ='$currentDate' AND requests.requestStatus = 'Approved'";
@@ -193,7 +193,7 @@
                     <?php
                         if ($resultRequestsToday->num_rows > 0) {
                             echo '<table>';
-                            echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Services</th><th>Time</th>";
+                            echo "<tr><th>Request ID</th><th>Patient ID</th><th>First Name</th><th>Last Name</th><th>Mobile Number</th><th>Services</th><th>Time</th><th>Notes</th>";
 
                             while ($row = $resultRequestsToday->fetch_assoc()) {
                             echo '<tr>';
@@ -204,7 +204,7 @@
                             }
                             echo '</table>';
                         } else {
-                            echo '<p class="no-result">No requests for today.</p>';
+                            echo '<p class="no-result">No appointments for today.</p>';
                         }
 
                     ?>

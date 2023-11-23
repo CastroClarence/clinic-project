@@ -92,7 +92,7 @@ h1{
     grid-column: 1/ span 3;
 }
 
-.bar, table{
+.bar{
     height: 340px;
 }
 
@@ -121,18 +121,18 @@ table {
     overflow: hidden;
     border-radius: 10px;
     border-collapse: collapse;
-    width: 100%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 th, td {
-text-align: center;
-word-wrap: break-word;
+    padding: 15px;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 th {
-background-color: #5EB1A9;
-color: white;
+    background-color: #5EB1A9;
+    color: white;
 }
 
 tr:nth-child(odd) {
