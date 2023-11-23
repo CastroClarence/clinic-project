@@ -147,6 +147,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         <div class="update-message">
             <?php echo $updateMessage; ?>
         </div>
+        <div class="am-footer">
+                    <p>Dra. Ruth Luneta-Alolod Dental Clinic</p>
+                </div>
 
     </div>
 </div>
