@@ -6,6 +6,8 @@
     <title>Clinic</title>
     <?php include("../pages/header.php");?>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <script src="../scripts/burgerMenu.js"></script>
 
     <script>
         function openPopup() {
@@ -23,13 +25,22 @@
     <div class="logo">
             <a href="#"><img src="../images/clinic_logo_white.png" alt="clinic-logo"></a>
         </div>
+
+        
         <div class="nav-container">
             <a href="#services">Services</a>
             <a href="#about">Clinic</a>
             <a href="#contact">Contact</a>
+            <div class="closeMenu">
+                <i class="fa-solid fa-xmark" style="color: white;"></i>
+            </div>
+        </div>
+
+        <div class="burger-menu">
+            <i class="fa-solid fa-bars" style="color: #329f94;"></i>
         </div>
     </nav>
-</header>
+</header>   
 
 <section id="hero" class="shadow">
     
