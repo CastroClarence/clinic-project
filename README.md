@@ -8,14 +8,14 @@
 
 ## Members:
 
-*Castro, Clarence Joseph | [@CastroClarence](https://github.com/CastroClarence)*
+*Castro, Clarence Joseph | [@Castro Clarence](https://github.com/CastroClarence)*
 
-*Comia, Benedict John | [@BenedictJohnComia](https://github.com/BenedictJohnComia)*
+*Comia, Benedict John | [@Benedict John Comia](https://github.com/BenedictJohnComia)*
 
-*Dimaapi, Kris Nathaniel | [@KrisNathanielDimaapi](https://github.com/KrisNathanielDimaapi)*
+*Dimaapi, Kris Nathaniel | [@Kris Nathaniel Dimaapi](https://github.com/KrisNathanielDimaapi)*
 
 *Garcia, Berlie Jaye | [@Berlie Jaye Garcia](https://github.com/brwla)*
 
-*Obiedo, Grant Thomas | [@GrantThomasObiedo](https://github.com/Gurny)*
+*Obiedo, Grant Thomas | [@Grant Thomas Obiedo](https://github.com/Gurny)*
 
 
