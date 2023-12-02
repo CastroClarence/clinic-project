@@ -8,7 +8,7 @@
 
 ## Members:
 
-*Castro, Clarence Joseph | [@Castro Clarence](https://github.com/CastroClarence)*
+*Castro, Clarence Joseph | [@Clarence Joseph Castro](https://github.com/CastroClarence)*
 
 *Comia, Benedict John | [@Benedict John Comia](https://github.com/BenedictJohnComia)*
 
@@ -17,5 +17,6 @@
 *Garcia, Berlie Jaye | [@Berlie Jaye Garcia](https://github.com/brwla)*
 
 *Obiedo, Grant Thomas | [@Grant Thomas Obiedo](https://github.com/Gurny)*
+
 
 
