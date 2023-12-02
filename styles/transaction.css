@@ -58,7 +58,7 @@ main{
 
 .search i{
     color: var(--teal);
-    font-size: 14px;
+    font-size: 0.8875rem;
     padding: 0 10px 0 5px;
     align-self: center;
 }
@@ -71,7 +71,7 @@ main{
 }
 
 .button a, .button input{
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--bg);
     text-align:center
 }
@@ -134,7 +134,7 @@ tr:nth-child(odd) {
 
 .form-container span{
     display: block;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 5px;
     color: var(--teal);
 }
@@ -173,7 +173,7 @@ tr:nth-child(odd) {
 }
   
 .action-buttons button {
-    font-size: 23px;
+    font-size: 1.44rem;
     background-color:transparent;
     color: #38a095;
     cursor: pointer;
