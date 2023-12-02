@@ -4,7 +4,12 @@
 
 ## *Partial Fulfillment for the Requirements of*
 
+## *IT 311 - Systems Administration and Maintenance*
+## *IT 312 - Systems Integration and Architecture*
+## *IT 313 - System Analysis and Design*
 ## *IT 314 - Web Systems and Technologies*
+## BAT 401 - Fundamentals of Business Analytics*
+
 
 ## Members:
 
