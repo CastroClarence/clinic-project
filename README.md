@@ -23,5 +23,20 @@
 
 *Obiedo, Grant Thomas | [@Grant Thomas Obiedo](https://github.com/Gurny)*
 
+# *SELF ASSESSMENT*
+Based on the given rubric for grading, the group assesed the system and it resulted to this:
+| Metric  |  4 | 3  | 2  |  1 |
+|---|---|---|---|---|
+|   |   | ✔  |   |   |
+|   | ✔  |   |   |   |
+|   | ✔  |   |   |   |
+|   | ✔  |   |   |   |
+|   |  | ✔  |   |   |
+|     | ✔  |   |   |
 
+# *ABOUT THE SYSTEM*
+  The scope of this study encompasses the development of a Tooth-to-Bytes using HTML5, CSS, PHP and JavaScript, targeting the efficient management of patient transaction records, appointment scheduling, and data analytics. The system will focus on the secure
+management of sensitive patient information along with their transaction data, streamlined appointment scheduling, and data analysis by providing insightful charts and visualizations that are tailored to the specified transaction records.
 
+# *CONCLUSION*
+The Tooth-to-Bytes dentistry clinic is currently undergoing impressive expansion and successfully catering to the requirements of its patient population. The clinic is well positioned for long-term success by consistently following strategic initiatives and utilising data-driven insights
