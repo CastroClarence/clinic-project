@@ -27,12 +27,11 @@
 Based on the given rubric for grading, the group assesed the system and it resulted to this:
 | Metric  |  4 | 3  | 2  |  1 |
 |---|---|---|---|---|
-|   |   | ✔  |   |   |
-|   | ✔  |   |   |   |
-|   | ✔  |   |   |   |
-|   | ✔  |   |   |   |
-|   |  | ✔  |   |   |
-|     | ✔  |   |   |
+| HTML  |  ✔ |   |   |   |
+| CSS  | ✔  |   |   |   |
+| JavaScript  | ✔  |   |   |   |
+| Creativity  | ✔  |   |   |   |
+| Overall  | ✔ |   |   |   |
 
 # *ABOUT THE SYSTEM*
   The scope of this study encompasses the development of a Tooth-to-Bytes using HTML5, CSS, PHP and JavaScript, targeting the efficient management of patient transaction records, appointment scheduling, and data analytics. The system will focus on the secure
