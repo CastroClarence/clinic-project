@@ -36,12 +36,12 @@ Based on the given rubric for grading, the group assesed the system and it resul
 # *Peer Evaluation*
 | Member  | Grade | 
 |---|---|
-| Castro, Clarence Joseph |  ✔ |
-| Comia, Benedict John  | ✔  | 
-| Dimaapi, Kris Nathaniel  | ✔  |
-|Garcia, Berlie Jaye   | ✔  |
-| Obiedo, Grant Thomas | ✔ |
-| Overall  | ✔ |
+| Castro, Clarence Joseph |  20% |
+| Comia, Benedict John  | 20%  | 
+| Dimaapi, Kris Nathaniel  | 20% |
+|Garcia, Berlie Jaye   | 20%  |
+| Obiedo, Grant Thomas | 20% |
+| Overall  | 100% |
 
 # *ABOUT THE SYSTEM*
   The scope of this study encompasses the development of a Tooth-to-Bytes using HTML5, CSS, PHP and JavaScript, targeting the efficient management of patient transaction records, appointment scheduling, and data analytics. The system will focus on the secure
