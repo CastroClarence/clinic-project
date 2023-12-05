@@ -34,13 +34,13 @@ Based on the given rubric for grading, the group assesed the system and it resul
 | Overall  | ✔ |   |   |   |
 
 # *Peer Evaluation*
-| Member  | Grade | Contribution |
+| Member  | Grade | Designation |
 |---|---|---|
-| Castro, Clarence Joseph |  20% | |
-| Comia, Benedict John  | 20%  | |
-| Dimaapi, Kris Nathaniel  | 20% | |
-|Garcia, Berlie Jaye   | 20%  | |
-| Obiedo, Grant Thomas | 20% | |
+| Castro, Clarence Joseph |  20% | Developer & Database Administrator |
+| Comia, Benedict John  | 20%  | Lead Developer |
+| Dimaapi, Kris Nathaniel  | 20% | UI/UX Designer / Developer |
+|Garcia, Berlie Jaye   | 20%  | Developer / Database Administrator |
+| Obiedo, Grant Thomas | 20% | System Analyst / Project Manager |
 | Overall  | 100% |
 
 # *ABOUT THE SYSTEM*
