@@ -41,7 +41,7 @@ Based on the given rubric for grading, the group assesed the system and it resul
 | 21-00385@g.batstate-u.edu.ph | Dimaapi, Kris Nathaniel  | 20% | UI/UX Designer / Developer |
 | 21-06187@g.batstate-u.edu.ph |Garcia, Berlie Jaye   | 20%  | Developer / Database Administrator |
 | 21-09532@g.batstate-u.edu.ph | Obiedo, Grant Thomas | 20% | System Analyst / Project Manager |
-| Overall  | 100% |
+| Overall  | | 100% | |
 
 # *ABOUT THE SYSTEM*
   The scope of this study encompasses the development of a Tooth-to-Bytes using HTML5, CSS, PHP and JavaScript, targeting the efficient management of patient transaction records, appointment scheduling, and data analytics. The system will focus on the secure
