@@ -34,13 +34,13 @@ Based on the given rubric for grading, the group assesed the system and it resul
 | Overall  | ✔ |   |   |   |
 
 # *Peer Evaluation*
-| Member  | Grade | 
-|---|---|
-| Castro, Clarence Joseph |  20% |
-| Comia, Benedict John  | 20%  | 
-| Dimaapi, Kris Nathaniel  | 20% |
-|Garcia, Berlie Jaye   | 20%  |
-| Obiedo, Grant Thomas | 20% |
+| Member  | Grade | Contribution |
+|---|---|---|
+| Castro, Clarence Joseph |  20% | |
+| Comia, Benedict John  | 20%  | |
+| Dimaapi, Kris Nathaniel  | 20% | |
+|Garcia, Berlie Jaye   | 20%  | |
+| Obiedo, Grant Thomas | 20% | |
 | Overall  | 100% |
 
 # *ABOUT THE SYSTEM*
