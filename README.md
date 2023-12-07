@@ -39,6 +39,7 @@ Based on the given rubric for grading, the group assessed the system and it resu
 
 ## Conclusion
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Tooth-to-Bytes dentistry clinic is currently undergoing impressive expansion and successfully catering to the requirements of its patient population. The clinic is well positioned for long-term success by consistently following strategic initiatives and utilising data driven insights.
+
 ## Context Diagram & Level 0 Diagram
 ![_Context Diagram](https://github.com/CastroClarence/clinic-project/assets/113610705/50781cfb-a2f8-4ce8-acdd-c918146b5055)
 
