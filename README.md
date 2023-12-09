@@ -44,4 +44,32 @@ Based on the given rubric for grading, the group assessed the system and it resu
 ![_Context Diagram](https://github.com/bjcomia/FINAL-REQUIREMENT-ACP/assets/113610705/1f5ee1ca-5217-4de6-b001-6299468f64ce)
 ## Level 0 Diagram
 ![Level 0 (1)](https://github.com/CastroClarence/clinic-project/assets/113610705/e077db67-e845-44cd-9787-d0b83837cc0f)
-
+## GRAPHICAL USER INTERFACE
+## Public Page
+![WEB 1](https://github.com/CastroClarence/clinic-project/assets/113610705/04f2ca58-9ec8-48d0-b612-f4b770d2c095)
+## Appointment Request Menu
+![WEB 2](https://github.com/CastroClarence/clinic-project/assets/113610705/4e80d111-4f22-4e7a-9be3-08380fe0f1e8)
+## Appointment Request Form (New)
+![WEB 3](https://github.com/CastroClarence/clinic-project/assets/113610705/8f5d36db-39f4-4d0a-82a3-88526ee7965c)
+## Appointment Request Form (Old)
+![WEB 4](https://github.com/CastroClarence/clinic-project/assets/113610705/f5d8b66b-a93a-474f-bc1c-395f76354049)
+## Patient Form
+![WEB 5](https://github.com/CastroClarence/clinic-project/assets/113610705/8acf88f7-5901-4ab9-82fd-02135575e151)
+## Transaction Form
+![WEB 6](https://github.com/CastroClarence/clinic-project/assets/113610705/99178c1d-d6a7-4640-96fa-1cfe3b4d9c58)
+## Account Management Form
+![WEB 7](https://github.com/CastroClarence/clinic-project/assets/113610705/8cd88df7-e7c8-4f2f-93b1-65c14cf52e1f)
+## Login Form
+![WEB 8](https://github.com/CastroClarence/clinic-project/assets/113610705/39c534af-8db6-415e-9424-802c0d37fd79)
+## Transaction Records
+![WEB 9](https://github.com/CastroClarence/clinic-project/assets/113610705/8a885f8f-be7d-4971-a86a-537a6bb7005b)
+## Dashboard
+![WEB 10](https://github.com/CastroClarence/clinic-project/assets/113610705/2eb4eb08-cb22-485c-bac4-d5b66706f9bf)
+## Patient Records
+![WEB 11](https://github.com/CastroClarence/clinic-project/assets/113610705/d51e1048-f611-4c18-b33c-27c9bc786a1f)
+## Appointment Request Records
+![WEB 12](https://github.com/CastroClarence/clinic-project/assets/113610705/4b5c9654-93f5-4748-a35f-5689d48b01f7)
+## Calendar
+![WEB 13](https://github.com/CastroClarence/clinic-project/assets/113610705/3fdc9605-30ca-4984-a28e-423a9a1bfafa)
+## Account Management Records
+![WEB 14](https://github.com/CastroClarence/clinic-project/assets/113610705/d009c48e-b862-4c3d-ba69-5119cc800ee9)
