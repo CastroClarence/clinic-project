@@ -49,9 +49,9 @@ Based on the given rubric for grading, the group assessed the system and it resu
 ![WEB 1](https://github.com/CastroClarence/clinic-project/assets/113610705/04f2ca58-9ec8-48d0-b612-f4b770d2c095)
 ## Appointment Request Menu
 ![WEB 2](https://github.com/CastroClarence/clinic-project/assets/113610705/4e80d111-4f22-4e7a-9be3-08380fe0f1e8)
-## Appointment Request Form (New)
-![WEB 3](https://github.com/CastroClarence/clinic-project/assets/113610705/8f5d36db-39f4-4d0a-82a3-88526ee7965c)
 ## Appointment Request Form (Old)
+![WEB 3](https://github.com/CastroClarence/clinic-project/assets/113610705/8f5d36db-39f4-4d0a-82a3-88526ee7965c)
+## Appointment Request Form (New)
 ![WEB 4](https://github.com/CastroClarence/clinic-project/assets/113610705/f5d8b66b-a93a-474f-bc1c-395f76354049)
 ## Patient Form
 ![WEB 5](https://github.com/CastroClarence/clinic-project/assets/113610705/8acf88f7-5901-4ab9-82fd-02135575e151)
